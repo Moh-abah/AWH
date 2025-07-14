@@ -1,6 +1,7 @@
+// app/layout.tsx
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
-import Footer from '@/components/layout/Footer';
+import Footer from "@/components/layout/Footer";
 
 export const metadata = {
   title: "شركة AWH | تطوير برمجيات متكاملة |  اوقض افق العالم بالتقنية ",
@@ -99,39 +100,34 @@ export const metadata = {
 تطوير تطبيقات واجهات استخدام عربية,
 تصميم وتطوير تطبيقات موبايل ذكية,
 `,
-
-  author: "شركة AWH لتطوير البرمجيات",
- 
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+ authors: [{ name: "شركة AWH لتطوير البرمجيات" }],
+  viewport: { width: 'device-width', initialScale: 1, maximumScale: 1, userScalable: "no" },
   robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
-  canonical: "https://yourdomain.com/", // ضع رابط موقعك هنا
   openGraph: {
     title: "شركة AWH | محمد يحيى عبه - تطوير برمجيات احترافية",
-    description: "شركة AWH تقدم أحدث تقنيات تطوير الويب والموبايل مع حلول مخصصة تلبي متطلبات عملك بدقة واحترافية.",
-    url: "https://yourdomain.com/", // رابط الموقع
+    description: "شركة AWH تقدم أحدث تقنيات تطوير الويب والموبايل مع حلول مخصصة بأعلى جودة.",
+    url: "https://awh-smoky.vercel.app/",
     siteName: "شركة AWH",
     type: "website",
     locale: "ar_SA",
     images: [
       {
-        url: "https://yourdomain.com/og-image.jpg", // رابط صورة مميزة للمشاركة
+        url: "https://awh-smoky.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "شركة AWH - تطوير برمجيات",
+        alt: "شركة AWH – تطوير برمجيات",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "شركة AWH | محمد يحيى عبه - مطور برمجيات محترف",
-    description: "شركة AWH تقدم حلول برمجية مبتكرة في تطوير مواقع الويب وتطبيقات الموبايل مع أحدث التقنيات.",
-    site: "@YourTwitterHandle", // غيره لاسم حساب تويتر الرسمي
+    title: "شركة AWH | مطور برمجيات محترف",
+    description: "شركة AWH تقدم حلولاً تقنية متقدمة ومخصصة لاحتياجات عملك.",
     creator: "@YourTwitterHandle",
-    images: ["https://yourdomain.com/twitter-image.jpg"],
+    images: ["https://awh-smoky.vercel.app/twitter-image.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
 };
