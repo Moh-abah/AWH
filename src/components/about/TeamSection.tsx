@@ -30,7 +30,7 @@ const teamMembers = [
     {
         name: ' عبد الحافظ الماس  ',
         role: ' مطور الواجهه الخلفيه   ',
-        photo: '/images/teams/almas.jpg',
+        photo: '/images/teams/mas.jpg',
     },
     
     {
