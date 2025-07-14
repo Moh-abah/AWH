@@ -100,7 +100,7 @@ export const metadata = {
 تطوير تطبيقات واجهات استخدام عربية,
 تصميم وتطوير تطبيقات موبايل ذكية,
 `,
- authors: [{ name: "شركة AWH لتطوير البرمجيات" }],
+  authors: [{ name: "شركة AWH لتطوير البرمجيات" }],
   viewport: { width: 'device-width', initialScale: 1, maximumScale: 1, userScalable: "no" },
   robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   openGraph: {
@@ -112,7 +112,7 @@ export const metadata = {
     locale: "ar_SA",
     images: [
       {
-        url: "https://awh-ma.vercel.app/og-image.jpg",
+        url: "https://awh-ma.vercel.app/logo.png",
         width: 1200,
         height: 630,
         alt: "شركة AWH – تطوير برمجيات",
