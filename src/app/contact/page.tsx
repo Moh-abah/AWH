@@ -53,7 +53,7 @@ export default function ContactPage() {
             content: 'info@awh.com',
             description: 'ارسل لنا استفسارك على البريد',
             action: 'ارسل بريد',
-            link: 'mailto:musst92@gmail.com'
+            link: 'mailto:awakewordhorizon@gmail.com'
         },
         {
             icon: <FaMapMarkerAlt className="text-red-500" />,
