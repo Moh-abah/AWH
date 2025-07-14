@@ -26,9 +26,9 @@ const achievementsData = [
 
 export default function Achievements() {
     return (
-        <section className="max-w-6xl mx-auto py-12 px-6 bg-white backdrop-blur-sm opacity-70 rounded-xl shadow-md mt-12">
+        <section className="max-w-6xl mx-auto py-12 px-6 bg-white/30 backdrop-blur-sm opacity-70 rounded-xl shadow-md mt-12">
             <motion.h2
-                className="text-3xl font-semibold text-center mb-10 text-black"
+                className="text-3xl font-semibold text-center mb-10 text-white"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}

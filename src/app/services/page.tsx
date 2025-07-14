@@ -21,8 +21,8 @@ const services = [
         overview: 'نقدم حلولاً متكاملة لتصميم وتطوير مواقع الويب التي تجمع بين الجماليات والوظائف المتقدمة. نستخدم أحدث التقنيات لإنشاء مواقع سريعة، آمنة، وسهلة الاستخدام.',
         stats: [
             { label: 'زيادة التحويلات', value: '40%' },
-            { label: 'وقت التحميل', value: '<1 ثانية' },
-            { label: 'رضا العملاء', value: '98%' }
+            { label: 'وقت التحميل', value: '<2 ثانية' },
+            { label: 'رضا العملاء', value: '91%' }
         ],
         features: [
             {
@@ -77,12 +77,12 @@ const services = [
                 answer: 'تبدأ التكلفة من 5,000 ريال وتختلف حسب احتياجات المشروع وتعقيده.'
             }
         ],
-        gallery: [
-            { id: 1, title: 'موقع شركة تقنية', category: 'شركات' },
-            { id: 2, title: 'متجر إلكتروني', category: 'تجارة' },
-            { id: 3, title: 'منصة تعليمية', category: 'تعليم' },
-            { id: 4, title: 'بوابة حكومية', category: 'حكومة' }
-        ]
+        // gallery: [
+        //     { id: 1, title: 'نموذج متجر إلكتروني (تجريبي)', category: 'تجاره', image: '/images/memories-demo.png' },
+        //     { id: 2, title: 'موقع رياضي تجريبي ', category: 'رياضه', image: '/images/memories-demo.png' },
+        //     { id: 3, title: 'موقع لعرض الذكريات من عام 2000 (تجريبي) ', category: 'إدارة المحتوى', image: '/images/memories-demo.png' }
+            
+        // ]
     },
     {
         id: 'mobile',
@@ -93,7 +93,7 @@ const services = [
         overview: 'نطور تطبيقات جوال عالية الجودة توفر تجربة مستخدم استثنائية. نركز على الأداء والتصميم الجذاب والوظائف المتقدمة التي تلبي احتياجات المستخدمين وتفوق توقعاتهم.',
         stats: [
             { label: 'زيادة المبيعات', value: '35%' },
-            { label: 'تقييم المستخدمين', value: '4.9/5' },
+            { label: 'تقييم المستخدمين', value: '4.1/5' },
             { label: 'نسبة الاحتفاظ', value: '75%' }
         ],
         features: [
@@ -103,7 +103,7 @@ const services = [
                 icon: <div className="bg-green-100 p-3 rounded-full text-green-600"><FaPalette /></div>
             },
             {
-                title: 'أداء فائق',
+                title: 'أداء مرن ',
                 description: 'تطبيقات سريعة وخفيفة لا تستهلك موارد الجهاز',
                 icon: <div className="bg-green-100 p-3 rounded-full text-green-600"><FaChartLine /></div>
             },
@@ -142,20 +142,21 @@ const services = [
             },
             {
                 question: 'كم تكلفة تطوير تطبيق جوال؟',
-                answer: 'تبدأ التكلفة من 15,000 ريال وتختلف حسب تعقيد التطبيق والمنصات المستهدفة.'
+                answer: 'تبدأ التكلفة من 4,000 ريال وتختلف حسب تعقيد التطبيق والمنصات المستهدفة.'
             },
             {
                 question: 'هل تدعمون التطبيق بعد الإطلاق؟',
                 answer: 'نعم، نقدم حزم دعم وصيانة تشمل التحديثات وإصلاح المشكلات.'
             }
         ],
-        gallery: [
-            { id: 1, title: 'تطبيق توصيل طعام', category: 'خدمات' },
-            { id: 2, title: 'تطبيق بنكي', category: 'مالية' },
-            { id: 3, title: 'تطبيق لياقة بدنية', category: 'صحة' },
-            { id: 4, title: 'تطبيق تعليمي', category: 'تعليم' }
-        ]
+        // gallery: [
+        //     { id: 1, title: ' تطبيق اين  ', category: 'خدمات وخرائط وتجاره', image: '/images/memories-demo.png' },
+        //     { id: 2, title: ' تطبيق غازك علينا', category: 'خدمات محلية في السوق اليمني', image: '/images/memories-demo.png' },
+        //     { id: 3, title: 'أداة التقاط وتحليل الشاشة  ', category: 'أدوات ذكية', image: '/images/memories-demo.png' }
+            
+        // ]
     },
+    
     {
         id: 'marketing',
         title: 'الحلول التسويقية',
@@ -221,13 +222,14 @@ const services = [
                 answer: 'نستخدم مؤشرات أداء رئيسية (KPIs) مثل معدل التحويل، تكلفة الاكتساب، وعائد الاستثمار.'
             }
         ],
-        gallery: [
-            { id: 1, title: 'حملة تسويق رقمي', category: 'تجارة' },
-            { id: 2, title: 'استراتيجية محتوى', category: 'خدمات' },
-            { id: 3, title: 'تحسين SEO', category: 'تعليم' },
-            { id: 4, title: 'إعلانات وسائل تواصل', category: 'سياحة' }
-        ]
+        // gallery: [
+        //     { id: 1, title: 'حملة تسويق رقمي', category: 'تجارة' },
+        //     { id: 2, title: 'استراتيجية محتوى', category: 'خدمات' },
+        //     { id: 3, title: 'تحسين SEO', category: 'تعليم' },
+        //     { id: 4, title: 'إعلانات وسائل تواصل', category: 'سياحة' }
+        // ]
     },
+    
     {
         id: 'design',
         title: 'التصميم الجرافيكي',
@@ -238,7 +240,7 @@ const services = [
         stats: [
             { label: 'زيادة الاعتراف بالعلامة', value: '70%' },
             { label: 'رضا العملاء', value: '95%' },
-            { label: 'مشاريع مكتملة', value: '200+' }
+            { label: 'مشاريع مكتملة', value: '40+' }
         ],
         features: [
             {
@@ -293,89 +295,100 @@ const services = [
                 answer: 'تتراوح المدة من 2 إلى 4 أسابيع حسب تعقيد المشروع.'
             }
         ],
-        gallery: [
-            { id: 1, title: 'هوية علامة تجارية', category: 'شركات' },
-            { id: 2, title: 'تصميم شعار', category: 'جميع' },
-            { id: 3, title: 'مواد ترويجية', category: 'تسويق' },
-            { id: 4, title: 'تصميم غلاف كتاب', category: 'ثقافة' }
-        ]
+        // gallery: [
+        //     { id: 1, title: 'هوية علامة تجارية', category: 'شركات', image: '/images/memories-demo.png' },
+        //     { id: 2, title: 'تصميم شعار', category: 'جميع', image: '/images/memories-demo.png' },
+        //     { id: 3, title: 'مواد ترويجية', category: 'تسويق', image: '/images/memories-demo.png' }
+            
+        // ]
     },
-    {
-        id: 'hosting',
-        title: 'الاستضافة والسحابة',
-        icon: <FaServer className="text-4xl" />,
-        color: 'from-cyan-500 to-sky-600',
-        description: 'حلول استضافة قوية وآمنة لمواقعك وتطبيقاتك',
-        overview: 'نقدم حلول استضافة متطورة توفر الأداء العالي والأمان المتقدم. مع بنية تحتية قوية وخدمة دعم فني على مدار الساعة، نضمن لموقعك أو تطبيقك التشغيل السلس دون انقطاع.',
-        stats: [
-            { label: 'وقت التشغيل', value: '99.99%' },
-            { label: 'سرعة التحميل', value: 'أقل من 0.5 ثانية' },
-            { label: 'عملاء راضون', value: '95%' }
-        ],
-        features: [
-            {
-                title: 'استضافة سحابية',
-                description: 'حلول استضافة مرنة وقابلة للتوسع حسب احتياجاتك',
-                icon: <div className="bg-cyan-100 p-3 rounded-full text-cyan-600"><FaServer /></div>
-            },
-            {
-                title: 'أمان متقدم',
-                description: 'حماية متعددة الطبقات ضد الاختراقات والهجمات',
-                icon: <div className="bg-cyan-100 p-3 rounded-full text-cyan-600"><FaShieldAlt /></div>
-            },
-            {
-                title: 'دعم فني',
-                description: 'دعم فني متاح 24/7 لحل أي مشكلة تواجهك',
-                icon: <div className="bg-cyan-100 p-3 rounded-full text-cyan-600"><FaLightbulb /></div>
-            }
-        ],
-        process: [
-            {
-                step: 1,
-                title: 'تقييم الاحتياجات',
-                description: 'تحليل متطلباتك واختيار الحل الأمثل'
-            },
-            {
-                step: 2,
-                title: 'تهيئة البيئة',
-                description: 'إعداد خادم مخصص أو خطة استضافة مناسبة'
-            },
-            {
-                step: 3,
-                title: 'الهجرة والدعم',
-                description: 'نقل موقعك وتقديم الدعم المستمر'
-            },
-            {
-                step: 4,
-                title: 'المراقبة والتطوير',
-                description: 'مراقبة الأداء وتقديم تحسينات مستمرة'
-            }
-        ],
-        faqs: [
-            {
-                question: 'ما الفرق بين الاستضافة المشتركة والسحابية؟',
-                answer: 'الاستضافة السحابية توفر موارد مخصصة وأداء أفضل مقارنة بالاستضافة المشتركة.'
-            },
-            {
-                question: 'هل تقدمون نسخ احتياطية؟',
-                answer: 'نعم، نقدم نسخ احتياطية يومية وأسبوعية وشهرية حسب الحزمة.'
-            },
-            {
-                question: 'كيف أتأكد من أمان موقعي؟',
-                answer: 'نوفر شهادات SSL مجانية، جدران حماية، ومراقبة مستمرة للأمان.'
-            }
-        ],
-        gallery: [
-            { id: 1, title: 'خوادم سحابية', category: 'تكنولوجيا' },
-            { id: 2, title: 'حلول أمنية', category: 'أمان' },
-            { id: 3, title: 'مراكز بيانات', category: 'بنية تحتية' },
-            { id: 4, title: 'حلول نسخ احتياطي', category: 'حماية' }
-        ]
-    }
+    // {
+    //     id: 'hosting',
+    //     title: 'الاستضافة والسحابة',
+    //     icon: <FaServer className="text-4xl" />,
+    //     color: 'from-cyan-500 to-sky-600',
+    //     description: 'حلول استضافة قوية وآمنة لمواقعك وتطبيقاتك',
+    //     overview: 'نقدم حلول استضافة متطورة توفر الأداء العالي والأمان المتقدم. مع بنية تحتية قوية وخدمة دعم فني على مدار الساعة، نضمن لموقعك أو تطبيقك التشغيل السلس دون انقطاع.',
+    //     stats: [
+    //         { label: 'وقت التشغيل', value: '99.99%' },
+    //         { label: 'سرعة التحميل', value: 'أقل من 0.5 ثانية' },
+    //         { label: 'عملاء راضون', value: '95%' }
+    //     ],
+    //     features: [
+    //         {
+    //             title: 'استضافة سحابية',
+    //             description: 'حلول استضافة مرنة وقابلة للتوسع حسب احتياجاتك',
+    //             icon: <div className="bg-cyan-100 p-3 rounded-full text-cyan-600"><FaServer /></div>
+    //         },
+    //         {
+    //             title: 'أمان متقدم',
+    //             description: 'حماية متعددة الطبقات ضد الاختراقات والهجمات',
+    //             icon: <div className="bg-cyan-100 p-3 rounded-full text-cyan-600"><FaShieldAlt /></div>
+    //         },
+    //         {
+    //             title: 'دعم فني',
+    //             description: 'دعم فني متاح 24/7 لحل أي مشكلة تواجهك',
+    //             icon: <div className="bg-cyan-100 p-3 rounded-full text-cyan-600"><FaLightbulb /></div>
+    //         }
+    //     ],
+    //     process: [
+    //         {
+    //             step: 1,
+    //             title: 'تقييم الاحتياجات',
+    //             description: 'تحليل متطلباتك واختيار الحل الأمثل'
+    //         },
+    //         {
+    //             step: 2,
+    //             title: 'تهيئة البيئة',
+    //             description: 'إعداد خادم مخصص أو خطة استضافة مناسبة'
+    //         },
+    //         {
+    //             step: 3,
+    //             title: 'الهجرة والدعم',
+    //             description: 'نقل موقعك وتقديم الدعم المستمر'
+    //         },
+    //         {
+    //             step: 4,
+    //             title: 'المراقبة والتطوير',
+    //             description: 'مراقبة الأداء وتقديم تحسينات مستمرة'
+    //         }
+    //     ],
+    //     faqs: [
+    //         {
+    //             question: 'ما الفرق بين الاستضافة المشتركة والسحابية؟',
+    //             answer: 'الاستضافة السحابية توفر موارد مخصصة وأداء أفضل مقارنة بالاستضافة المشتركة.'
+    //         },
+    //         {
+    //             question: 'هل تقدمون نسخ احتياطية؟',
+    //             answer: 'نعم، نقدم نسخ احتياطية يومية وأسبوعية وشهرية حسب الحزمة.'
+    //         },
+    //         {
+    //             question: 'كيف أتأكد من أمان موقعي؟',
+    //             answer: 'نوفر شهادات SSL مجانية، جدران حماية، ومراقبة مستمرة للأمان.'
+    //         }
+    //     ],
+    //     gallery: [
+    //         { id: 1, title: 'خوادم سحابية', category: 'تكنولوجيا' },
+    //         { id: 2, title: 'حلول أمنية', category: 'أمان' },
+    //         { id: 3, title: 'مراكز بيانات', category: 'بنية تحتية' },
+    //         { id: 4, title: 'حلول نسخ احتياطي', category: 'حماية' }
+    //     ]
+    // }
 ];
 
 // مكون بطاقة العملاء
-const TestimonialCard = ({ name, position, content, rating }: any) => (
+const TestimonialCard = ({
+    name,
+    position,
+    content,
+    rating,
+}: {
+    name: string;
+    position: string;
+    content: string;
+    rating: number;
+}) => (
+  
     <motion.div
         className="bg-white/10 backdrop-blur-sm p-6 rounded-xl"
         whileHover={{ y: -5 }}
@@ -398,7 +411,14 @@ const TestimonialCard = ({ name, position, content, rating }: any) => (
 );
 
 // مكون الأسئلة الشائعة
-const FAQItem = ({ question, answer }: any) => {
+const FAQItem = ({
+    question,
+    answer,
+}: {
+    question: string;
+    answer: string;
+}) => {
+  
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -429,14 +449,38 @@ const FAQItem = ({ question, answer }: any) => {
 };
 
 // مكون بطاقة المشروع في المعرض
-const ProjectCard = ({ title, category, color }: any) => (
+const ProjectCard = ({
+    title,
+    category,
+    color,
+    image,
+}: {
+    title: string;
+    category: string;
+    color: string;
+    image?: string;
+}) => (
+  
     <motion.div
         className="relative overflow-hidden rounded-xl h-48"
         whileHover={{ scale: 1.03 }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
+
+
     >
+        {image ? (
+            <img
+                src={image}
+                alt={title}
+                className="absolute inset-0 w-full h-full object-cover"
+            />
+        ) : (
+            <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-90`}></div>
+        )}
+
+
         <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-90`}></div>
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -478,29 +522,29 @@ export default function ServicesPage() {
     };
 
     // شهادات العملاء
-    const testimonials = [
-        {
-            id: 1,
-            name: 'محمد العلي',
-            position: 'مدير تسويق، شركة التقنية',
-            content: 'بعد التعاون مع فريقكم، زادت حركة الزوار لموقعنا بنسبة 200% في أول 3 أشهر. الاحترافية في العمل والدقة في التنفيذ تفوق التوقعات.',
-            rating: 5
-        },
-        {
-            id: 2,
-            name: 'سارة عبدالله',
-            position: 'مالكة متجر إلكتروني',
-            content: 'التطبيق الذي طورتموه لنا غير تجربة عملائنا تماماً. المبيعات زادت بنسبة 40% في الشهر الأول بعد الإطلاق. شكراً على الإبداع والاحترافية.',
-            rating: 5
-        },
-        {
-            id: 3,
-            name: 'خالد الحميد',
-            position: 'مدير تقنية المعلومات',
-            content: 'حلول الاستضافة التي تقدمونها غيرت أداء مواقعنا بشكل جذري. السرعة والاستقرار والدعم الفني الممتاز جعلتنا نثق بكم كشريك تقني دائم.',
-            rating: 4
-        }
-    ];
+    // const testimonials = [
+    //     {
+    //         id: 1,
+    //         name: 'محمد العلي',
+    //         position: 'مدير تسويق، شركة التقنية',
+    //         content: 'بعد التعاون مع فريقكم، زادت حركة الزوار لموقعنا بنسبة 200% في أول 3 أشهر. الاحترافية في العمل والدقة في التنفيذ تفوق التوقعات.',
+    //         rating: 5
+    //     },
+    //     {
+    //         id: 2,
+    //         name: 'سارة عبدالله',
+    //         position: 'مالكة متجر إلكتروني',
+    //         content: 'التطبيق الذي طورتموه لنا غير تجربة عملائنا تماماً. المبيعات زادت بنسبة 40% في الشهر الأول بعد الإطلاق. شكراً على الإبداع والاحترافية.',
+    //         rating: 5
+    //     },
+    //     {
+    //         id: 3,
+    //         name: 'خالد الحميد',
+    //         position: 'مدير تقنية المعلومات',
+    //         content: 'حلول الاستضافة التي تقدمونها غيرت أداء مواقعنا بشكل جذري. السرعة والاستقرار والدعم الفني الممتاز جعلتنا نثق بكم كشريك تقني دائم.',
+    //         rating: 4
+    //     }
+    // ];
 
     // ربط الأقسام مع الـ refs
     useEffect(() => {
@@ -511,8 +555,8 @@ export default function ServicesPage() {
     }, [activeService]);
 
     return (
-        <div className="relative min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-
+        <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden">
+                        
 
 
             
@@ -520,7 +564,7 @@ export default function ServicesPage() {
             
             
 
-                <div className="relative z-50 container mx-auto px-4 py-16">
+            <div className="relative z-10 container mx-auto px-4 py-16 pointer-events-auto">
                     <div className="text-center mb-16">
                         <motion.h1
                             className="text-4xl md:text-6xl font-bold mb-4 text-white"
@@ -605,9 +649,9 @@ export default function ServicesPage() {
                                                 { id: 'overview', label: 'نظرة عامة' },
                                                 { id: 'features', label: 'مميزاتنا' },
                                                 { id: 'process', label: 'كيف نعمل' },
-                                                { id: 'faqs', label: 'الأسئلة الشائعة' },
-                                                { id: 'gallery', label: 'معرض أعمالنا' },
-                                                { id: 'testimonials', label: 'آراء العملاء' }
+                                                { id: 'faqs', label: 'الأسئلة الشائعة' }
+                                                //{ id: 'gallery', label: 'معرض أعمالنا' },
+                                               // { id: 'testimonials', label: 'آراء العملاء' }
                                             ].map((item) => (
                                                 <li key={item.id}>
                                                     <button
@@ -631,14 +675,15 @@ export default function ServicesPage() {
                                     <section
                                         id="overview"
                                         className="mb-16 scroll-mt-24"
-                                        ref={(el) => sectionRefs.current['overview'] = el}
+                                        // ref={(el) => sectionRefs.current['overview'] = el}
                                     >
                                         <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-6 rounded-xl mb-8">
                                             <h3 className="text-2xl font-bold mb-4">نظرة عامة</h3>
                                             <p className="mb-6">{activeService.overview}</p>
 
                                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                                                {activeService.stats.map((stat: any, index: number) => (
+                                                    {activeService.stats.map((stat: { label: string; value: string | number }, index) => (
+
                                                     <motion.div
                                                         key={index}
                                                         className="bg-gray-800/50 p-4 rounded-lg text-center"
@@ -658,11 +703,12 @@ export default function ServicesPage() {
                                     <section
                                         id="features"
                                         className="mb-16 scroll-mt-24"
-                                        ref={(el) => sectionRefs.current['features'] = el}
+                                        // ref={(el) => sectionRefs.current['features'] = el}
                                     >
                                         <h3 className="text-2xl font-bold mb-6">مميزاتنا</h3>
                                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                            {activeService.features.map((feature: any, index: number) => (
+                                                {activeService.features.map((feature: { icon: React.ReactNode; title: string; description: string }, index) => (
+
                                                 <motion.div
                                                     key={index}
                                                     className="bg-gray-700/50 backdrop-blur-sm p-6 rounded-xl"
@@ -684,14 +730,15 @@ export default function ServicesPage() {
                                     <section
                                         id="process"
                                         className="mb-16 scroll-mt-24"
-                                        ref={(el) => sectionRefs.current['process'] = el}
+                                        // ref={(el) => sectionRefs.current['process'] = el}
                                     >
                                         <h3 className="text-2xl font-bold mb-6">كيف نعمل</h3>
                                         <div className="relative">
                                             <div className="absolute left-0 top-10 bottom-10 w-0.5 bg-gray-700 transform translate-x-4"></div>
 
                                             <div className="space-y-12">
-                                                {activeService.process.map((step: any, index: number) => (
+                                                    {activeService.process.map((step: { title: string; description: string }, index) => (
+
                                                     <motion.div
                                                         key={index}
                                                         className="flex relative"
@@ -700,7 +747,7 @@ export default function ServicesPage() {
                                                         transition={{ delay: 0.1 * index }}
                                                     >
                                                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center z-10">
-                                                            {step.step}
+                                                            {/* {step} */}
                                                         </div>
                                                         <div className="ml-8">
                                                             <h4 className="text-xl font-bold mb-2">{step.title}</h4>
@@ -716,21 +763,22 @@ export default function ServicesPage() {
                                     <section
                                         id="faqs"
                                         className="mb-16 scroll-mt-24"
-                                        ref={(el) => sectionRefs.current['faqs'] = el}
+                                        // ref={(el) => sectionRefs.current['faqs'] = el}
                                     >
                                         <h3 className="text-2xl font-bold mb-6">الأسئلة الشائعة</h3>
                                         <div className="bg-gray-700/50 backdrop-blur-sm rounded-xl p-6">
-                                            {activeService.faqs.map((faq: any, index: number) => (
+                                                {activeService.faqs.map((faq: { question: string; answer: string }, index) => (
+
                                                 <FAQItem key={index} question={faq.question} answer={faq.answer} />
                                             ))}
                                         </div>
                                     </section>
 
                                     {/* معرض أعمالنا */}
-                                    <section
+                                    {/* <section
                                         id="gallery"
                                         className="mb-16 scroll-mt-24"
-                                        ref={(el) => sectionRefs.current['gallery'] = el}
+                                        // ref={(el) => sectionRefs.current['gallery'] = el}
                                     >
                                         <div className="flex justify-between items-center mb-6">
                                             <h3 className="text-2xl font-bold">معرض أعمالنا</h3>
@@ -745,19 +793,21 @@ export default function ServicesPage() {
                                         </div>
 
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                            {activeService.gallery.map((project: any) => (
+                                                {activeService.gallery.map((project, index) => (
+
                                                 <ProjectCard
                                                     key={project.id}
                                                     title={project.title}
                                                     category={project.category}
                                                     color={activeService.color}
+                                                    image={project.image}
                                                 />
                                             ))}
                                         </div>
-                                    </section>
+                                    </section> */}
 
                                     {/* آراء العملاء */}
-                                    <section
+                                    {/* <section
                                         id="testimonials"
                                         className="scroll-mt-24"
                                         ref={(el) => sectionRefs.current['testimonials'] = el}
@@ -768,7 +818,7 @@ export default function ServicesPage() {
                                                 <TestimonialCard key={testimonial.id} {...testimonial} />
                                             ))}
                                         </div>
-                                    </section>
+                                    </section> */}
                                 </div>
                             </div>
                         )}
@@ -776,7 +826,7 @@ export default function ServicesPage() {
                 </AnimatePresence>
 
                 {/* قسم العملاء */}
-                <div className="mt-20">
+                {/* <div className="mt-20">
                     <h2 className="text-3xl font-bold mb-6 text-center">عملاؤنا الثقة</h2>
                     <p className="text-gray-400 mb-10 max-w-2xl mx-auto text-center">
                         نفتخر بشراكتنا مع أبرز العلامات التجارية في المنطقة
@@ -793,7 +843,7 @@ export default function ServicesPage() {
                             </motion.div>
                         ))}
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

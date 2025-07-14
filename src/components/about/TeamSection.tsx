@@ -4,26 +4,43 @@ import Image from 'next/image';
 const teamMembers = [
     {
         name: 'محمد عبه',
-        role: 'مؤسس ومدير تنفيذي',
-        photo: '/images/team/mohammed.jpg',
+        role: ' مؤسس ومدير تنفيذي للشركه',
+        photo: '/images/teams/abah.jpg',
     },
     {
-        name: 'سارة أحمد',
-        role: 'مطورة واجهات أمامية',
-        photo: '/images/team/sara.jpg',
+        name: ' علي سليمان',
+        role: 'مصمم جرافيك ومسوق الكتروني ',
+        photo: '/images/teams/alisuliman.jpg',
     },
     {
-        name: 'علي حسين',
-        role: 'مهندس برمجيات',
-        photo: '/images/team/ali.jpg',
+        name: ' محمد الشرعبي    ',
+        role: ' مطور الواجهه الاماميه    ',
+        photo: '/images/teams/sharabi.jpg',
     },
+    {
+        name: ' عمار الشيباني ',
+        role: ' تسويق الكتروني وفني ',
+        photo: '/images/teams/amar.jpg',
+    },
+    {
+        name: ' عبد الحافظ الماس  ',
+        role: ' مطور الواجهه الخلفيه   ',
+        photo: '/images/teams/almas.jpg',
+    },
+    
+    {
+        name: ' ايمن النعماني ',
+        role: ' مطور الواجهه الاماميه ومختص بالعلامات التجاريه   ',
+        photo: '/images/teams/ayman.jpg',
+    },
+    
     // أضف المزيد حسب الحاجة
 ];
 
 export default function TeamSection() {
     return (
         <section className="max-w-6xl mx-auto py-12 px-6">
-            <h2 className="text-3xl font-semibold text-center mb-10 text-gray-900">فريق العمل</h2>
+            <h2 className="text-3xl font-semibold text-center mb-10 text-white">فريق العمل</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 {teamMembers.map(({ name, role, photo }) => (
                     <div

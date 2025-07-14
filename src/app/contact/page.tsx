@@ -42,23 +42,23 @@ export default function ContactPage() {
         {
             icon: <FaPhone className="text-blue-500" />,
             title: 'الهاتف',
-            content: '+966 123 456 789',
+            content: '+967 780090882',
             description: 'اتصل بنا خلال ساعات العمل',
             action: 'اتصل الآن',
-            link: 'tel:+966123456789'
+            link: 'tel:+967780090882'
         },
         {
             icon: <FaEnvelope className="text-green-500" />,
             title: 'البريد الإلكتروني',
-            content: 'info@company.com',
+            content: 'info@awh.com',
             description: 'ارسل لنا استفسارك على البريد',
             action: 'ارسل بريد',
-            link: 'mailto:info@company.com'
+            link: 'mailto:musst92@gmail.com'
         },
         {
             icon: <FaMapMarkerAlt className="text-red-500" />,
             title: 'العنوان',
-            content: 'الرياض، المملكة العربية السعودية',
+            content: 'صنعاء، اليمن',
             description: 'زيارة مقرنا الرئيسي',
             action: 'عرض الخريطة',
             link: '#map'
@@ -127,7 +127,7 @@ export default function ContactPage() {
                             نحن هنا للإجابة على استفساراتك ومساعدتك في أي شيء تحتاجه
                         </motion.p>
 
-                        <div className="flex justify-center gap-4">
+                        {/* <div className="flex justify-center gap-4">
                             <motion.button
                                 className={`px-6 py-3 rounded-full font-medium transition ${activeTab === 'form' ? 'bg-white text-blue-600' : 'bg-blue-500 hover:bg-blue-400'}`}
                                 onClick={() => setActiveTab('form')}
@@ -144,7 +144,7 @@ export default function ContactPage() {
                             >
                                 معلومات التواصل
                             </motion.button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
@@ -172,7 +172,7 @@ export default function ContactPage() {
                                 </div>
                             )}
 
-                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-10">
                                 <div>
                                     <label htmlFor="name" className="block text-white font-medium mb-2">
                                         الاسم الكامل
@@ -191,7 +191,7 @@ export default function ContactPage() {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" className="block text-white font-medium mb-2">
+                                    <label htmlFor="email" className="block text-white font-medium mb-3">
                                         البريد الإلكتروني
                                     </label>
                                     <input
@@ -208,7 +208,7 @@ export default function ContactPage() {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
+                                    <label htmlFor="subject" className="block text-white font-medium mb-2">
                                         الموضوع
                                     </label>
                                     <input
@@ -225,7 +225,7 @@ export default function ContactPage() {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                                    <label htmlFor="message" className="block text-white font-medium mb-2">
                                         الرسالة
                                     </label>
                                     <textarea
@@ -262,8 +262,8 @@ export default function ContactPage() {
 
                         {/* معلومات التواصل */}
                         <div>
-                            <div className="bg-gradient-to-br from-blue-50 to-indigo-30 opacity-60 rounded-2xl p-8 h-full">
-                                <h2 className="text-3xl font-bold mb-6 text-gray-800">طرق التواصل الأخرى</h2>
+                            <div className="bg-white/30 from-blue-50 to-indigo-30 opacity-60 rounded-2xl p-8 h-full">
+                                <h2 className="text-3xl font-bold mb-6 text-800">طرق التواصل الأخرى</h2>
 
                                 <div className="space-y-6">
                                     {contactInfo.map((item, index) => (
@@ -364,11 +364,11 @@ export default function ContactPage() {
                                     <h3 className="font-bold text-lg text-gray-800 mb-4">ساعات العمل</h3>
                                     <div className="bg-white rounded-xl p-5 shadow-sm">
                                         <div className="flex justify-between py-3 border-b border-gray-100">
-                                            <span>الأحد - الخميس</span>
+                                            <span>السبت - الخميس</span>
                                             <span className="font-medium">9:00 صباحاً - 5:00 مساءً</span>
                                         </div>
                                         <div className="flex justify-between py-3">
-                                            <span>الجمعة والسبت</span>
+                                            <span>الجمعة </span>
                                             <span className="font-medium text-red-500">إجازة</span>
                                         </div>
                                     </div>
@@ -386,7 +386,7 @@ export default function ContactPage() {
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <div className="text-center">
                                             <div className="text-5xl mb-4">📍</div>
-                                            <p className="text-xl font-bold">الرياض، المملكة العربية السعودية</p>
+                                            <p className="text-xl font-bold">صنعاء اليمن</p>
                                             <p className="text-gray-600 mt-2">شارع الملك فهد، مبنى رقم 123</p>
                                         </div>
                                     </div>
@@ -429,11 +429,11 @@ export default function ContactPage() {
             </div>
 
             {/* قسم الأسئلة الشائعة */}
-            <div className="bg-gray-50 py-16">
+            <div className="bg-50 ">
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-3xl font-bold text-gray-800 mb-4">أسئلة شائعة</h2>
-                        <p className="text-gray-600">إجابات على أكثر الأسئلة شيوعاً حول التواصل معنا</p>
+                        <h2 className="text-3xl font-bold text-800 mb-4">أسئلة شائعة</h2>
+                        <p className="text-600">إجابات على أكثر الأسئلة شيوعاً حول التواصل معنا</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

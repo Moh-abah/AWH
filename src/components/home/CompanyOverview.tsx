@@ -114,29 +114,64 @@ export default function CompanyOverview() {
                 {/* قائمة مختصرة للخدمات */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
                     {[
-                        ["تطوير المواقع", "مواقع ديناميكية وتجارية متكاملة.", <FaRocket className="text-2xl text-blue-600" />],
-                        ["تطبيقات أندرويد", "تطبيقات أصلية بأداء عالي.", <FaMobileAlt className="text-2xl text-indigo-600" />],
-                        ["التسويق الرقمي", "تحسين ظهورك في محركات البحث.", <FaSearch className="text-2xl text-amber-600" />],
-                        ["الذكاء الاصطناعي", "دمج التعلم الآلي والخوارزميات.", <FaBrain className="text-2xl text-emerald-600" />],
-                        ["الاستضافة وإدارة السيرفرات", "خوادم سريعة وآمنة.", <FaServer className="text-2xl text-purple-600" />],
-                        ["إدارة مشاريع", "من التخطيط إلى الإطلاق الفعلي.", <FaProjectDiagram className="text-2xl text-cyan-600" />],
-                        ["تصميم تجربة المستخدم", "واجهات جذابة وتفاعلية.", <FaLightbulb className="text-2xl text-orange-600" />],
-                        ["تحليل البيانات", "تحويل البيانات إلى قرارات ذكية.", <FaChartLine className="text-2xl text-teal-600" />],
-                    ].map(([title, desc, icon], i) => (
+                        {
+                            title: "تطوير المواقع",
+                            desc: "مواقع ديناميكية وتجارية متكاملة.",
+                            icon: <FaRocket className="text-2xl text-blue-600" />,
+                        },
+                        {
+                            title: "تطبيقات أندرويد",
+                            desc: "تطبيقات أصلية بأداء عالي.",
+                            icon: <FaMobileAlt className="text-2xl text-indigo-600" />,
+                        },
+                        {
+                            title: "التسويق الرقمي",
+                            desc: "تحسين ظهورك في محركات البحث.",
+                            icon: <FaSearch className="text-2xl text-amber-600" />,
+                        },
+                        {
+                            title: "الذكاء الاصطناعي",
+                            desc: "دمج التعلم الآلي والخوارزميات.",
+                            icon: <FaBrain className="text-2xl text-emerald-600" />,
+                        },
+                        {
+                            title: "الاستضافة وإدارة السيرفرات",
+                            desc: "خوادم سريعة وآمنة.",
+                            icon: <FaServer className="text-2xl text-purple-600" />,
+                        },
+                        {
+                            title: "إدارة مشاريع",
+                            desc: "من التخطيط إلى الإطلاق الفعلي.",
+                            icon: <FaProjectDiagram className="text-2xl text-cyan-600" />,
+                        },
+                        {
+                            title: "تصميم تجربة المستخدم",
+                            desc: "واجهات جذابة وتفاعلية.",
+                            icon: <FaLightbulb className="text-2xl text-orange-600" />,
+                        },
+                        {
+                            title: "تحليل البيانات",
+                            desc: "تحويل البيانات إلى قرارات ذكية.",
+                            icon: <FaChartLine className="text-2xl text-teal-600" />,
+                        },
+                    ].map((item, i) => (
                         <div
                             key={i}
                             className="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group border border-gray-100 hover:border-blue-200"
                         >
                             <div className="flex items-center gap-3 mb-3">
                                 <div className="p-2 rounded-lg bg-blue-50 group-hover:bg-blue-100 transition-colors">
-                                    {icon}
+                                    {item.icon}
                                 </div>
-                                <h4 className="font-bold text-lg text-gray-800 group-hover:text-blue-700 transition-colors">{title}</h4>
+                                <h4 className="font-bold text-lg text-gray-800 group-hover:text-blue-700 transition-colors">
+                                    {item.title}
+                                </h4>
                             </div>
-                            <p className="text-gray-600 text-sm pl-11">{desc}</p>
+                            <p className="text-gray-600 text-sm pl-11">{item.desc}</p>
                         </div>
                     ))}
                 </div>
+
             </div>
         </section>
     );

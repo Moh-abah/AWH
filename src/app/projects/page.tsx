@@ -2,14 +2,29 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaSearch, FaFilter, FaArrowRight, FaLaptopCode, FaMobileAlt, FaChartLine, FaPalette, FaServer } from 'react-icons/fa';
 import ProjectCard from '@/components/projects/ProjectCard';
 import { projects } from '@/constants/projects';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import Image from 'next/image';
+import Link from 'next/link';
 
 // مكون بطاقة الفئة
-const CategoryCard = ({ icon, label, color, isActive, onClick }: any) => (
+const CategoryCard = ({
+  icon,
+  label,
+  color,
+  isActive,
+  onClick,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  color: string;
+  isActive: boolean;
+  onClick: () => void;
+}) => (
+
     <motion.button
         onClick={onClick}
         className={`flex flex-col items-center p-5 rounded-2xl transition-all duration-300 ${isActive
@@ -25,7 +40,14 @@ const CategoryCard = ({ icon, label, color, isActive, onClick }: any) => (
 );
 
 // مكون شريط البحث
-const SearchBar = ({ value, onChange }: any) => (
+const SearchBar = ({
+    value,
+    onChange,
+}: {
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}) => (
+  
     <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -36,7 +58,7 @@ const SearchBar = ({ value, onChange }: any) => (
         <input
             type="text"
             value={value}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => onChange(e)}
             placeholder="ابحث عن مشروع..."
             className="w-full bg-gray-800 border border-gray-700 rounded-2xl py-4 pl-12 pr-6 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
         />
@@ -55,6 +77,14 @@ export default function ProjectsPage() {
         target: ref,
         offset: ["start start", "end start"]
     });
+    const projectsSectionRef = useRef<HTMLDivElement>(null);
+
+    // دالة تمرير عند الضغط على الزر
+    const scrollToProjects = () => {
+        if (projectsSectionRef.current) {
+            projectsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
@@ -80,11 +110,11 @@ export default function ProjectsPage() {
                 project.description.includes(searchQuery) ||
                 project.category.includes(searchQuery))
         )
-        .sort((a, b) => {
-            if (sortBy === 'newest') return new Date(b.date).getTime() - new Date(a.date).getTime();
-            if (sortBy === 'oldest') return new Date(a.date).getTime() - new Date(b.date).getTime();
-            return 0;
-        });
+        // .sort((a, b) => {
+        //     if (sortBy === 'newest') return new Date(b.date).getTime() - new Date(a.date).getTime();
+        //     if (sortBy === 'oldest') return new Date(a.date).getTime() - new Date(b.date).getTime();
+        //     return 0;
+        // });
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden">
@@ -149,12 +179,18 @@ export default function ProjectsPage() {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        <button className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-8 py-3 rounded-xl font-medium hover:opacity-90 transition shadow-lg">
+                        <button
+                            onClick={scrollToProjects}
+                            className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-8 py-3 rounded-xl font-medium hover:opacity-90 transition shadow-lg"
+                        >
                             تصفح المشاريع
                         </button>
-                        <button className="bg-gray-800 text-white px-8 py-3 rounded-xl font-medium hover:bg-gray-700 transition">
-                            تواصل معنا
-                        </button>
+                        <Link
+                            href="/contact"
+                            className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-8 py-3 rounded-xl font-medium hover:opacity-90 transition shadow-lg"
+                        >
+                            تواصل معنا 
+                        </Link>
                     </motion.div>
                 </div>
 
@@ -244,27 +280,37 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* شريط البحث */}
-                <SearchBar value={searchQuery} onChange={setSearchQuery} />
+                {/* <SearchBar value={searchQuery} onChange={setSearchQuery} /> */}
 
                 {/* عرض المشاريع */}
                 {filteredProjects.length === 0 ? (
                     <div className="text-center py-20">
+                        
+                        
                         <div className="bg-gray-800 inline-block p-6 rounded-full mb-6">
+                            
                             <FaSearch className="text-4xl text-gray-400" />
+                            
                         </div>
                         <h3 className="text-xl font-bold text-gray-300">لا توجد مشاريع تطابق بحثك</h3>
                         <p className="text-gray-500 mt-2">جرب تغيير كلمات البحث أو الفئة المحددة</p>
                     </div>
                 ) : isGrid ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            
                         {filteredProjects.map((project, index) => (
+                            
                             <ProjectCard
                                 key={project.id}
                                 project={project}
                                 index={index}
                             />
-                        ))}
+                            
+                        )
+                        )
+                        }
                     </div>
+                    
                 ) : (
                     <div className="space-y-8">
                         {filteredProjects.map((project, index) => (
@@ -276,9 +322,21 @@ export default function ProjectsPage() {
                                 className="flex flex-col md:flex-row gap-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-blue-500/30 transition-all"
                             >
                                 <div className="md:w-1/3 aspect-video bg-gray-700 rounded-xl overflow-hidden">
+                                    <Image
+                                        src={project.liveUrl}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover"
+                                    />
                                     <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900" />
                                 </div>
                                 <div className="md:w-2/3">
+                                    <Image
+                                        src={project.liveUrl}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover"
+                                    />
                                     <div className="flex flex-wrap gap-2 mb-4">
                                         <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
                                             {project.category}
@@ -316,28 +374,28 @@ export default function ProjectsPage() {
                 >
                     <div className="bg-gradient-to-br from-blue-900/30 to-blue-700/20 border border-blue-500/30 rounded-2xl p-6 text-center">
                         <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent mb-2">
-                            200+
+                            7+
                         </div>
                         <div className="text-gray-300">مشروع مكتمل</div>
                     </div>
 
                     <div className="bg-gradient-to-br from-green-900/30 to-green-700/20 border border-green-500/30 rounded-2xl p-6 text-center">
                         <div className="text-4xl font-bold bg-gradient-to-r from-green-400 to-teal-300 bg-clip-text text-transparent mb-2">
-                            98%
+                            92%
                         </div>
                         <div className="text-gray-300">رضا العملاء</div>
                     </div>
 
                     <div className="bg-gradient-to-br from-purple-900/30 to-purple-700/20 border border-purple-500/30 rounded-2xl p-6 text-center">
                         <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-fuchsia-300 bg-clip-text text-transparent mb-2">
-                            15+
+                            1+
                         </div>
                         <div className="text-gray-300">جائزة عالمية</div>
                     </div>
 
                     <div className="bg-gradient-to-br from-amber-900/30 to-amber-700/20 border border-amber-500/30 rounded-2xl p-6 text-center">
                         <div className="text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-300 bg-clip-text text-transparent mb-2">
-                            50+
+                            3+
                         </div>
                         <div className="text-gray-300">عميل دولي</div>
                     </div>
@@ -358,12 +416,14 @@ export default function ProjectsPage() {
                                 دعنا نحول أفكارك إلى واقع رقمي مذهل مع حلول مبتكرة تلبي احتياجات عملك
                             </p>
                             <div className="flex flex-wrap gap-4">
-                                <button className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition shadow-xl">
+                                <Link href="/contact" className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition shadow-xl">
                                     تواصل معنا
-                                </button>
-                                <button className="bg-gray-800 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-700 transition">
+                                </Link>
+
+                                <Link href="/services" className="bg-gray-800 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-700 transition">
                                     تصفح الخدمات
-                                </button>
+                                </Link>
+
                             </div>
                         </div>
 

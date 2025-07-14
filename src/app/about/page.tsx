@@ -26,7 +26,7 @@ export default function About() {
 
                 {/* صورة مع نص تعريفي */}
                 <motion.section
-                    className="flex flex-col md:flex-row items-center gap-10 bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl"
+                    className="flex flex-col md:flex-row items-center gap-10 bg-white/30 backdrop-blur-sm rounded-2xl p-8 shadow-xl bg-transparent"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
@@ -39,7 +39,7 @@ export default function About() {
                         whileHover={{ scale: 1.03 }}
                         transition={{ type: "spring", stiffness: 300 }}
                     />
-                    <p className="text-lg leading-relaxed text-gray-800 max-w-xl">
+                    <p className="text-lg leading-relaxed text-800 max-w-xl">
                         شركة AWH متخصصة في تصميم وتطوير المواقع والتطبيقات باستخدام أحدث التقنيات،
                         نسعى لتقديم حلول رقمية مبتكرة تساعد عملائنا على النجاح والتوسع في السوق الرقمي.
                     </p>

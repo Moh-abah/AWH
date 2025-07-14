@@ -2,10 +2,10 @@
 
 export default function ValuesVision() {
     return (
-        <section className="max-w-6xl mx-auto py-12 px-6 bg-blue-50 rounded-xl shadow-md">
+        <section className="max-w-6xl mx-auto py-12 px-6 bg-blue-50/50 rounded-xl shadow-md  ">
             <h2 className="text-3xl font-semibold text-center mb-10 text-gray-900">قيمنا ورؤيتنا</h2>
 
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className="grid md:grid-cols-2 gap-10 ">
                 {/* القيم الأساسية */}
                 <div>
                     <h3 className="text-2xl font-bold mb-4 text-blue-700">قيمنا الأساسية</h3>

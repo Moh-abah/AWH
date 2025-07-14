@@ -5,9 +5,9 @@ import FeaturesGrid from './FeaturesGrid';
 import Counters from './Counters';
     import ServicesList from './ServicesList';
 import Workside from './workamazi';
-import ClientsSection from './ClientsSection';
-import WhyUs from './WhyUs';
-import Testimonials from './Testimonials';
+// import ClientsSection from './ClientsSection';
+// import WhyUs from './WhyUs';
+import Testimonials from './Testimonials';  
 import CTA from '@/components/ui/CTA';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
@@ -27,9 +27,9 @@ export default function CompanyOverview() {
                 <ServicesList />
                 <Workside />
                 
-                <WhyUs />
-                <Testimonials />
-                <ClientsSection />
+               {/* //<WhyUs /> */}
+                {/* <Testimonials /> */}
+                {/* <ClientsSection /> */}
                 <CTA />
                 
                 

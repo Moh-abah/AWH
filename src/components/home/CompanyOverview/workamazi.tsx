@@ -73,7 +73,8 @@ export default function Workside() {
                     </button>
 
                     {/* بطاقة المشروع */}
-                    <div className="w-full max-w-4x mx-auto">
+                    <div className="w-full max-w-4xl mx-auto">
+
 
                         <div className={`${cardColor} rounded-3xl shadow-xl overflow-hidden transition-all duration-500
                 ${isAnimating ? (direction === 'right'
@@ -88,7 +89,10 @@ export default function Workside() {
                                 <div className="md:w-1/2 h-72 md:h-auto overflow-hidden">
                                     <div
                                         className="w-full h-full bg-cover bg-center transition-all duration-1000 hover:scale-105"
-                                        style={{ backgroundImage: `url(${currentProject.image})` }}
+                                        style={{
+                                            backgroundImage: `url(${currentProject.gallery[0]?.url || '/fallback.jpg'})`
+                                        }}
+
                                     />
                                 </div>
 
@@ -116,7 +120,8 @@ export default function Workside() {
 
                                     <div>
                                         <a
-                                            href={currentProject.url}
+                                            href={currentProject.liveUrl}
+
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="inline-block w-full md:w-auto bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center px-6 py-3 rounded-lg font-medium hover:opacity-90 transition shadow-lg"
@@ -144,11 +149,12 @@ export default function Workside() {
                     <div className="flex items-center gap-2 bg-white p-3 rounded-full shadow-md">
                         <button
                             onClick={handlePrev}
-                            className="bg-gray-100 hover:bg-blue-100 p-2 rounded-full transition-colors"
+                            className="absolute left-0 md:left-4 z-10 bg-white rounded-full p-4 shadow-xl hover:bg-blue-600 hover:text-white transition-all duration-300 group"
                             aria-label="المشروع السابق"
                         >
-                            <FaArrowLeft className="text-blue-600" />
+                            <FaArrowLeft className="text-xl group-hover:scale-110 transition-transform" />
                         </button>
+
 
                         <div className="text-gray-700 px-4">
                             <span className="font-bold text-blue-600">{currentProjectIndex + 1}</span>
@@ -158,11 +164,12 @@ export default function Workside() {
 
                         <button
                             onClick={handleNext}
-                            className="bg-gray-100 hover:bg-blue-100 p-2 rounded-full transition-colors"
+                            className="absolute right-0 md:right-4 z-10 bg-white rounded-full p-4 shadow-xl hover:bg-blue-600 hover:text-white transition-all duration-300 group"
                             aria-label="المشروع التالي"
                         >
-                            <FaArrowRight className="text-blue-600" />
+                            <FaArrowRight className="text-xl group-hover:scale-110 transition-transform" />
                         </button>
+
                     </div>
                 </div>
             </div>

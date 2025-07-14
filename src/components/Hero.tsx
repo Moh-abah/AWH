@@ -1,5 +1,7 @@
 // components/Hero.tsx
 
+import Link from "next/link";
+
 export default function Hero() {
     return (
         <section
@@ -17,12 +19,10 @@ export default function Hero() {
                 <p className="text-lg md:text-xl mb-8">
                     مواقع احترافية، تطبيقات أندرويد، وخدمات برمجية تساعدك على التميز والانتشار.
                 </p>
-                <a
-                    href="#contact"
-                    className="bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-xl text-lg font-semibold"
-                >
+                <Link href="/contact" className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition shadow-xl">
                     اطلب مشروعك الآن
-                </a>
+                </Link>
+
             </div>
         </section>
     );

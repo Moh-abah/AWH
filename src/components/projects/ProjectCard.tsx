@@ -41,6 +41,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 whileHover={{ y: -10 }}
             >
                 <div className="relative aspect-video overflow-hidden">
+
+                    
                     <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                     <div className="absolute top-4 right-4 z-10">
@@ -52,6 +54,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                             {project.category === 'hosting' && 'استضافة وسحابة'}
                         </span>
                     </div>
+
+                    
                 </div>
 
                 <div className="p-6">
