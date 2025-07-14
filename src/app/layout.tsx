@@ -104,8 +104,8 @@ export const metadata = {
   viewport: { width: 'device-width', initialScale: 1, maximumScale: 1, userScalable: "no" },
   robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   openGraph: {
-    title: "شركة AWH | محمد يحيى عبه - تطوير برمجيات احترافية",
-    description: "شركة AWH تقدم أحدث تقنيات تطوير الويب والموبايل مع حلول مخصصة بأعلى جودة.",
+    title: "شركة AWH |   اوقض افق العالم للتطور التكنولوجي - تطوير برمجيات متكامله",
+    description: "شركة AWH تقدم أحدث تقنيات تطوير الويب والموبايل وحلول تسويقيه وتصميمات بصريه مع حلول مخصصة بأعلى جودة.",
     url: "https://awh-ma.vercel.app/",
     siteName: "شركة AWH",
     type: "website",
