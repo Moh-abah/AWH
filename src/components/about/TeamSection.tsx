@@ -23,15 +23,16 @@ const teamMembers = [
         photo: '/images/teams/sharabi.jpg',
     },
     {
+        name: ' عبد الحافظ الماس  ',
+        role: ' مطور الواجهه الخلفيه   ',
+        photo: '/images/teams/mas.png',
+    },
+    {
         name: ' عمار الشيباني ',
         role: ' تسويق الكتروني وفني ',
         photo: '/images/teams/amar.jpg',
     },
-    {
-        name: ' عبد الحافظ الماس  ',
-        role: ' مطور الواجهه الخلفيه   ',
-        photo: '/images/teams/mas.jpg',
-    },
+    
     
     {
         name: ' ايمن النعماني ',
