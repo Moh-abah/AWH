@@ -106,13 +106,13 @@ export const metadata = {
   openGraph: {
     title: "شركة AWH | محمد يحيى عبه - تطوير برمجيات احترافية",
     description: "شركة AWH تقدم أحدث تقنيات تطوير الويب والموبايل مع حلول مخصصة بأعلى جودة.",
-    url: "https://awh-smoky.vercel.app/",
+    url: "https://awh-ma.vercel.app/",
     siteName: "شركة AWH",
     type: "website",
     locale: "ar_SA",
     images: [
       {
-        url: "https://awh-smoky.vercel.app/og-image.jpg",
+        url: "https://awh-ma.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "شركة AWH – تطوير برمجيات",
@@ -124,7 +124,7 @@ export const metadata = {
     title: "شركة AWH | مطور برمجيات محترف",
     description: "شركة AWH تقدم حلولاً تقنية متقدمة ومخصصة لاحتياجات عملك.",
     creator: "@YourTwitterHandle",
-    images: ["https://awh-smoky.vercel.app/twitter-image.jpg"],
+    images: ["https://awh-ma.vercel.app/twitter-image.jpg"],
   },
   icons: {
     icon: "/favicon.ico",

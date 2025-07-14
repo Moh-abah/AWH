@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://awh-ma.vercel.app
+
+# Sitemaps
+Sitemap: https://awh-ma.vercel.app/sitemap.xml
