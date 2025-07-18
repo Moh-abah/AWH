@@ -5,10 +5,12 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaSearch, FaFilter, FaArrowRight, FaLaptopCode, FaMobileAlt, FaChartLine, FaPalette, FaServer } from 'react-icons/fa';
 import ProjectCard from '@/components/projects/ProjectCard';
+
 import { projects } from '@/constants/projects';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getCategoryColor } from '@/components/ui/categoryColors';
 
 // مكون بطاقة الفئة
 const CategoryCard = ({
@@ -97,10 +99,17 @@ export default function ProjectsPage() {
         { id: 'all', label: 'جميع المشاريع', icon: <FaFilter />, color: 'from-gray-600 to-gray-800' },
         { id: 'web', label: 'مواقع الويب', icon: <FaLaptopCode />, color: 'from-blue-600 to-indigo-700' },
         { id: 'mobile', label: 'تطبيقات الجوال', icon: <FaMobileAlt />, color: 'from-green-600 to-teal-700' },
-        { id: 'marketing', label: 'حلول تسويقية', icon: <FaChartLine />, color: 'from-purple-600 to-fuchsia-700' },
-        { id: 'design', label: 'تصاميم جرافيك', icon: <FaPalette />, color: 'from-amber-600 to-orange-700' },
-        { id: 'hosting', label: 'استضافة وسحابة', icon: <FaServer />, color: 'from-cyan-600 to-sky-700' }
+        //{ id: 'marketing', label: 'حلول تسويقية', icon: <FaChartLine />, color: 'from-purple-600 to-fuchsia-700' },
+        //{ id: 'design', label: 'تصاميم جرافيك', icon: <FaPalette />, color: 'from-amber-600 to-orange-700' },
+        { id: 'hosting', label: 'استضافة وسحابة', icon: <FaServer />, color: 'from-cyan-600 to-sky-700' },
+        { id: 'identity', label: 'هويه بصريه', icon: <FaServer />, color: 'from-pink-600 to-rose-700' },
+       // { id: 'identity', label: 'هويه بصريه', icon: <FaServer />, color: 'from-indigo-600 to-violet-700' },
+        { id: 'digitalMarketing', label: ' التسويق الالكتروني   ', icon: <FaServer />, color: 'from-red-600 to-orange-800' },
+        { id: 'social', label: 'سوشيال ميديا ', icon: <FaServer />, color: 'from-indigo-600 to-violet-700' },
+        { id: 'banars', label: 'بانرات   ', icon: <FaServer />, color: 'from-yello-600 to-red-800' }
     ];
+
+    
 
     // تصفية المشاريع
     const filteredProjects = projects
@@ -110,6 +119,8 @@ export default function ProjectsPage() {
                 project.description.includes(searchQuery) ||
                 project.category.includes(searchQuery))
         )
+    
+
         // .sort((a, b) => {
         //     if (sortBy === 'newest') return new Date(b.date).getTime() - new Date(a.date).getTime();
         //     if (sortBy === 'oldest') return new Date(a.date).getTime() - new Date(b.date).getTime();
@@ -285,32 +296,18 @@ export default function ProjectsPage() {
                 {/* عرض المشاريع */}
                 {filteredProjects.length === 0 ? (
                     <div className="text-center py-20">
-                        
-                        
                         <div className="bg-gray-800 inline-block p-6 rounded-full mb-6">
-                            
                             <FaSearch className="text-4xl text-gray-400" />
-                            
                         </div>
                         <h3 className="text-xl font-bold text-gray-300">لا توجد مشاريع تطابق بحثك</h3>
                         <p className="text-gray-500 mt-2">جرب تغيير كلمات البحث أو الفئة المحددة</p>
                     </div>
                 ) : isGrid ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            
                         {filteredProjects.map((project, index) => (
-                            
-                            <ProjectCard
-                                key={project.id}
-                                project={project}
-                                index={index}
-                            />
-                            
-                        )
-                        )
-                        }
+                            <ProjectCard key={project.id} project={project} index={index} />
+                        ))}
                     </div>
-                    
                 ) : (
                     <div className="space-y-8">
                         {filteredProjects.map((project, index) => (
@@ -321,30 +318,29 @@ export default function ProjectsPage() {
                                 transition={{ delay: index * 0.1 }}
                                 className="flex flex-col md:flex-row gap-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-blue-500/30 transition-all"
                             >
-                                <div className="md:w-1/3 aspect-video bg-gray-700 rounded-xl overflow-hidden">
+                                <div className="md:w-1/3 aspect-video bg-gray-700 rounded-xl overflow-hidden relative">
                                     <Image
-                                        src={project.liveUrl}
-                                        alt={project.title}
+                                        src={project.gallery[0]?.url || '/images/default.jpg'}
+                                        alt={project.gallery[0]?.caption || project.title}
                                         fill
                                         className="object-cover"
                                     />
-                                    <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900" />
                                 </div>
                                 <div className="md:w-2/3">
-                                    <Image
-                                        src={project.liveUrl}
-                                        alt={project.title}
-                                        fill
-                                        className="object-cover"
-                                    />
                                     <div className="flex flex-wrap gap-2 mb-4">
-                                        <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
-                                            {project.category}
+                                        <span
+                                            className={`bg-gradient-to-r ${getCategoryColor(project.category)} text-white px-3 py-1 rounded-full text-sm`}
+                                        >
+                                            {project.category === 'web' && 'موقع ويب'}
+                                            {project.category === 'mobile' && 'تطبيق جوال'}
+                                            {project.category === 'hosting' && 'استضافة وسحابة'}
+                                            {project.category === 'identity' && 'هوية بصرية'}
+                                            {project.category === 'social' && 'سوشيال ميديا'}
+                                            {project.category === 'digitalMarketing' && 'تسويق إلكتروني'}
                                         </span>
-                                        <span className="bg-gray-700 px-3 py-1 rounded-full text-sm">
-                                            {project.year}
-                                        </span>
+                                        <span className="bg-gray-700 px-3 py-1 rounded-full text-sm">{project.year}</span>
                                     </div>
+
                                     <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                                     <p className="text-gray-400 mb-6">{project.description}</p>
                                     <div className="flex flex-wrap gap-2 mb-6">
@@ -359,10 +355,12 @@ export default function ProjectsPage() {
                                         <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                                     </button>
                                 </div>
+
                             </motion.div>
                         ))}
                     </div>
                 )}
+
 
                 {/* قسم الإحصائيات */}
                 <motion.div
