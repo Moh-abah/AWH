@@ -369,7 +369,6 @@
             gallery: [
                 { type: 'image', url: '/images/projects/banner-beetech.jpg', caption: 'البنرات النهائية' },
                 { type: 'image', url: '/images/projects/banner-seveninfo.jpg', caption: 'بنرات إعلانية لتوظيف  في شركة إعلامية' },
-                { type: 'image', url: '/images/projects/banars1.jpg', caption: 'بنرات إعلانية لتوظيف  في شركة إعلامية' },
                 { type: 'image', url: '/images/projects/banars2.jpg', caption: 'بنرات إعلانية لتوظيف  في شركة إعلامية' }
 
             ],
