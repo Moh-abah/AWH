@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer";
 import MouseFollower from "@/components/ui/MouseFollower";
 
 export const metadata = {
-  title: " تطوير برمجيات متكاملة |  اوقض افق العالم بالتقنية ",
+  title: " تطوير برمجيات متكاملة |  افاق العالم الرقمي",
   description: "شركة AWH لتطوير البرمجيات، تقدم حلولاً احترافية في تطوير مواقع الويب، تطبيقات الجوال بـ Next.js وFlutter، لوحات تحكم Power BI، وخدمات تقنية متكاملة تلبي احتياجات أعمالك.",
   keywords: `
 تطوير برمجيات,
