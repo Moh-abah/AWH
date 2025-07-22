@@ -105,10 +105,10 @@ export const metadata = {
   viewport: { width: 'device-width', initialScale: 1, maximumScale: 1, userScalable: "no" },
   robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   openGraph: {
-    title: "شركة AWH |   اوقض افق العالم للتطور التكنولوجي - تطوير برمجيات متكامله",
-    description: "شركة AWH تقدم أحدث تقنيات تطوير الويب والموبايل وحلول تسويقيه وتصميمات بصريه مع حلول مخصصة بأعلى جودة.",
-    url: "https://awh-ma.vercel.app/",
-    siteName: "شركة AWH",
+    title: "شركة DWH |    افاق العالم الرقمي للتطور التكنولوجي - تطوير برمجيات متكامله",
+    description: "شركة DWH تقدم أحدث تقنيات تطوير الويب والموبايل وحلول تسويقيه وتصميمات بصريه مع حلول مخصصة بأعلى جودة.",
+    url: "https://Dwh-ma.vercel.app/",
+    siteName: "شركة DWH",
     type: "website",
     locale: "ar_SA",
     images: [
