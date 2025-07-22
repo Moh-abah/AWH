@@ -26,7 +26,7 @@ export default function Counters() {
         >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <CounterCard
-                    value={5}
+                    value={3}
                     label="سنوات من الخبرة"
                     icon={<FaChartLine className="text-3xl" />}
                     color="from-amber-500 to-orange-500"
@@ -34,7 +34,7 @@ export default function Counters() {
                     delay={0}
                 />
                 <CounterCard
-                    value={120}
+                    value={7}
                     label="مشروع مكتمل"
                     icon={<FaProjectDiagram className="text-3xl" />}
                     color="from-emerald-500 to-teal-500"
@@ -42,7 +42,7 @@ export default function Counters() {
                     delay={200}
                 />
                 <CounterCard
-                    value={85}
+                    value={3}
                     label="عميل راضٍ"
                     icon={<FaRocket className="text-3xl" />}
                     color="from-cyan-500 to-blue-500"

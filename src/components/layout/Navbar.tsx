@@ -18,10 +18,14 @@ export default function Navbar() {
 
     const links = [
         { href: '/', label: 'الرئيسية' },
-        { href: '/about', label: 'من نحن' },
-        { href: '/services', label: 'خدماتنا' },
-        { href: '/projects', label: 'أعمالنا' },
-        { href: '/contact', label: 'تواصل معنا' },
+        // { href: '/about', label: 'من نحن' },
+        // { href: '/services', label: 'خدماتنا' },
+        // { href: '/projects', label: 'أعمالنا' },
+        // { href: '/contact', label: 'تواصل معنا' },
+        { href: '#', label: 'من نحن' },
+        { href: '#', label: 'خدماتنا' },
+        { href: '#', label: 'أعمالنا' },
+        { href: '#', label: 'تواصل معنا' },
     ];
 
     return (
@@ -35,8 +39,8 @@ export default function Navbar() {
                 {/* الشعار */}
                 <Link href="/" className="flex items-center gap-3">
                     <Image
-                        src="/images/logo.png"
-                        alt="AWH Logo"
+                        src="/images/logokk.png"
+                        alt="DWH Logo"
                         width={48}
                         height={48}
                         className="rounded-full transition-transform duration-300 hover:scale-110"
@@ -45,7 +49,7 @@ export default function Navbar() {
                         className={`text-2xl font-extrabold tracking-wide transition-colors duration-300 ${scrolled ? 'text-blue-700' : 'text-white'
                             }`}
                     >
-                        AWH
+                        DWH
                     </span>
                 </Link>
 
@@ -119,7 +123,8 @@ export default function Navbar() {
                             </Link>
                         ))}
                         <Link
-                            href="/contact"
+                            href="#"
+                            // href="/contact"
                             onClick={() => setMenuOpen(false)}
                             className="mt-auto px-4 py-3 bg-blue-700 text-white rounded-lg text-center font-bold shadow hover:bg-blue-800 transition"
                         >

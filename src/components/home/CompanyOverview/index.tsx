@@ -7,7 +7,7 @@ import Counters from './Counters';
 import Workside from './workamazi';
 // import ClientsSection from './ClientsSection';
 // import WhyUs from './WhyUs';
-import Testimonials from './Testimonials';  
+//import Testimonials from './Testimonials';  
 import CTA from '@/components/ui/CTA';
 import AnimatedBackground from '@/components/AnimatedBackground';
 
@@ -25,7 +25,7 @@ export default function CompanyOverview() {
                 <FeaturesGrid />
                 <Counters />
                 <ServicesList />
-                <Workside />
+                {/* <Workside /> */}
                 
                {/* //<WhyUs /> */}
                 {/* <Testimonials /> */}

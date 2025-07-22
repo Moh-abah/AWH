@@ -290,7 +290,7 @@ export default function AnimatedBackground() {
                 <div className="relative">
                     <div className="w-32 h-32 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-25 shadow-[0_0_50px_10px_rgba(123,104,238,0.3)]" />
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-25 text-white font-bold text-2xl">
-                        AWH
+                       DWH
                     </div>
                 </div>
             </motion.div>
