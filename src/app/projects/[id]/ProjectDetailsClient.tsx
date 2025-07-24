@@ -20,7 +20,7 @@ import { Project } from '@/constants/projects';
 
 
 const ResultCard = ({ metric, value, icon }: { metric: string; value: string; icon: string }) => (
-    <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-4 flex flex-col items-center">
+    <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-4 flex flex-col items-center ">
         <div className="text-blue-400 text-2xl mb-2">
             {icon === 'FaChartLine' && <FaChartLine />}
             {icon === 'FaUsers' && <FaUser />}
@@ -71,19 +71,19 @@ export default function ProjectDetailsClient({ project }: { project: Project }) 
     const router = useRouter();
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
-            {/* رأس الصفحة */}
-            <div className="relative h-96 overflow-hidden">
-                {/* خلفية متحركة */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-indigo-900/20 z-10"></div>
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/80 to-black z-20"></div>
+        <div className="min-h-screen bg-gradient-to-b from-gray-500 to-sky-500/50 text-black/70 overflow-hidden">
+            {/* <div className="min-h-screen bg-gradient-to-b from-blue-900/40 to-sky-500/50  text-gray-700 overflow-hidden"></div>
+            رأس الصفحة */}
+            <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-gradient-to-b from-sky-25 via-sky-300/90  to-sky-25 z-10"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-sky-25/60 to-sky-50/40 z-20"></div>
 
-                {/* تأثير جسيمات */}
+                {/* تأثير جسيمات متحركة */}
                 <div className="absolute inset-0">
-                    {[...Array(20)].map((_, i) => (
+                    {[...Array(30)].map((_, i) => (
                         <motion.div
                             key={i}
-                            className="absolute rounded-full bg-blue-500/10"
+                            className="absolute rounded-full bg-sky-100/30"
                             style={{
                                 width: Math.random() * 20 + 5,
                                 height: Math.random() * 20 + 5,
@@ -94,27 +94,22 @@ export default function ProjectDetailsClient({ project }: { project: Project }) 
                                 y: [0, -100],
                                 x: [0, (Math.random() - 0.5) * 50],
                                 opacity: [0.1, 0.8, 0],
-                                scale: [1, 1.5],
+                                scale: [1, 1.5]
                             }}
                             transition={{
                                 duration: Math.random() * 5 + 3,
                                 repeat: Infinity,
-                                delay: Math.random() * 3,
+                                delay: Math.random() * 3
                             }}
                         />
                     ))}
                 </div>
+            </div>
+
+            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-48">
 
                 {/* زر العودة */}
-                <div className="relative z-30 pt-6 px-4">
-                    <button
-                        onClick={() => router.back()}
-                        className="flex items-center gap-2 text-gray-300 hover:text-white transition"
-                    >
-                        <FaArrowLeft />
-                        <span>العودة إلى المشاريع</span>
-                    </button>
-                </div>
+                
 
                 {/* معلومات المشروع */}
                 <div className="relative z-30 container mx-auto px-4 flex flex-col items-center justify-center h-full text-center">
@@ -128,7 +123,7 @@ export default function ProjectDetailsClient({ project }: { project: Project }) 
                     </motion.h1>
 
                     <motion.p
-                        className="text-xl text-gray-300 max-w-3xl"
+                        className="text-xl text-black max-w-3xl"
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
@@ -137,18 +132,18 @@ export default function ProjectDetailsClient({ project }: { project: Project }) 
                     </motion.p>
 
                     <motion.div
-                        className="flex flex-wrap gap-4 justify-center mt-6"
+                        className="flex flex-wrap gap-4 justify-center mt-6 " 
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                        <span className="bg-blue-500/20 text-blue-300 px-4 py-1 rounded-full">{project.category}</span>
-                        <div className="flex items-center gap-2 text-gray-400">
+                        <span className="flex items-center px-4 py-3 rounded-full text-lg bg-sky-100 text-gray-900 border border-sky-500 shadow ">{project.category}</span>
+                        <div className=" flex items-center px-4 py-3 rounded-full text-lg transition bg-sky-100 text-gray-900 border border-sky-500 shadow ">
                             <FaCalendarAlt />
                             <span>{project.year}</span>
                         </div>
                         {project.client && (
-                            <div className="flex items-center gap-2 text-gray-400">
+                            <div className="flex items-center px-4 py-3 rounded-full text-lg transition bg-sky-100 text-gray-900 border border-sky-500 shadow ">
                                 <FaUser />
                                 <span>{project.client}</span>
                             </div>
@@ -235,10 +230,10 @@ export default function ProjectDetailsClient({ project }: { project: Project }) 
                     {/* العمود الأيمن - محتوى المشروع */}
                     <div className="lg:col-span-2">
                         {/* علامات التبويب */}
-                        <div className="flex border-b border-gray-700 mb-8">
+                        <div className="flex border-b border-gray-300 mb-8">
                             <button
                                 onClick={() => setActiveTab('overview')}
-                                className={`pb-3 px-6 ${activeTab === 'overview' ? 'text-blue-400 border-b-2 border-blue-400' : 'text-gray-400'
+                                className={`pb-3 px-6 ${activeTab === 'overview' ? 'text-black border-b-5 border-black' : 'text-sky-800'
                                     }`}
                             >
                                 نظرة عامة

@@ -6,9 +6,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     FaLaptopCode, FaMobileAlt, FaChartLine, FaPalette,
     FaServer, FaShieldAlt, FaLightbulb, FaChevronDown,
-    FaArrowRight, FaArrowLeft, FaQuoteLeft, FaStar
+    FaArrowRight, FaQuoteLeft, FaStar, FaPaintBrush,
+    FaRocket, FaCogs, FaQuestionCircle, FaEye
 } from 'react-icons/fa';
-import AnimatedBackground from '@/components/AnimatedBackground';
 
 // بيانات الخدمات المحدثة
 const services = [
@@ -43,22 +43,18 @@ const services = [
         ],
         process: [
             {
-                step: 1,
                 title: 'الاكتشاف والتخطيط',
                 description: 'نفهم احتياجاتك وأهدافك التجارية لنضع خطة استراتيجية'
             },
             {
-                step: 2,
                 title: 'التصميم والتطوير',
                 description: 'ننشئ تصاميم فريدة ونطورها باستخدام أحدث التقنيات'
             },
             {
-                step: 3,
                 title: 'الاختبار والتطوير',
                 description: 'نختبر كل جانب من جوانب الموقع للتأكد من جودته وأدائه'
             },
             {
-                step: 4,
                 title: 'الإطلاق والدعم',
                 description: 'نطلق موقعك وندعمه بشكل مستمر لضمان استمرارية عمله'
             }
@@ -77,12 +73,6 @@ const services = [
                 answer: 'تبدأ التكلفة من 5,000 ريال وتختلف حسب احتياجات المشروع وتعقيده.'
             }
         ],
-        // gallery: [
-        //     { id: 1, title: 'نموذج متجر إلكتروني (تجريبي)', category: 'تجاره', image: '/images/memories-demo.png' },
-        //     { id: 2, title: 'موقع رياضي تجريبي ', category: 'رياضه', image: '/images/memories-demo.png' },
-        //     { id: 3, title: 'موقع لعرض الذكريات من عام 2000 (تجريبي) ', category: 'إدارة المحتوى', image: '/images/memories-demo.png' }
-            
-        // ]
     },
     {
         id: 'mobile',
@@ -115,22 +105,18 @@ const services = [
         ],
         process: [
             {
-                step: 1,
                 title: 'دراسة الجدوى',
                 description: 'تحليل السوق والمنافسين وتحديد المتطلبات'
             },
             {
-                step: 2,
                 title: 'تصميم واجهات المستخدم',
                 description: 'إنشاء نماذج أولية واختبار تجربة المستخدم'
             },
             {
-                step: 3,
                 title: 'التطوير والاختبار',
                 description: 'برمجة التطبيق واختباره على أجهزة مختلفة'
             },
             {
-                step: 4,
                 title: 'النشر والتحديثات',
                 description: 'نشر التطبيق على المتاجر وتقديم تحديثات دورية'
             }
@@ -149,14 +135,7 @@ const services = [
                 answer: 'نعم، نقدم حزم دعم وصيانة تشمل التحديثات وإصلاح المشكلات.'
             }
         ],
-        // gallery: [
-        //     { id: 1, title: ' تطبيق اين  ', category: 'خدمات وخرائط وتجاره', image: '/images/memories-demo.png' },
-        //     { id: 2, title: ' تطبيق غازك علينا', category: 'خدمات محلية في السوق اليمني', image: '/images/memories-demo.png' },
-        //     { id: 3, title: 'أداة التقاط وتحليل الشاشة  ', category: 'أدوات ذكية', image: '/images/memories-demo.png' }
-            
-        // ]
     },
-    
     {
         id: 'marketing',
         title: 'الحلول التسويقية',
@@ -188,22 +167,18 @@ const services = [
         ],
         process: [
             {
-                step: 1,
                 title: 'تحليل الوضع الحالي',
                 description: 'دراسة الوضع الحالي وتحليل المنافسين'
             },
             {
-                step: 2,
                 title: 'تطوير الاستراتيجية',
                 description: 'وضع خطة تسويقية شاملة تحقق أهدافك'
             },
             {
-                step: 3,
                 title: 'تنفيذ الحملات',
                 description: 'تنفيذ الحملات التسويقية ومراقبتها'
             },
             {
-                step: 4,
                 title: 'القياس والتحسين',
                 description: 'تحليل النتائج وتحسين الحملات المستمر'
             }
@@ -222,14 +197,7 @@ const services = [
                 answer: 'نستخدم مؤشرات أداء رئيسية (KPIs) مثل معدل التحويل، تكلفة الاكتساب، وعائد الاستثمار.'
             }
         ],
-        // gallery: [
-        //     { id: 1, title: 'حملة تسويق رقمي', category: 'تجارة' },
-        //     { id: 2, title: 'استراتيجية محتوى', category: 'خدمات' },
-        //     { id: 3, title: 'تحسين SEO', category: 'تعليم' },
-        //     { id: 4, title: 'إعلانات وسائل تواصل', category: 'سياحة' }
-        // ]
     },
-    
     {
         id: 'design',
         title: 'التصميم الجرافيكي',
@@ -261,22 +229,18 @@ const services = [
         ],
         process: [
             {
-                step: 1,
                 title: 'اكتشاف',
                 description: 'فهم العلامة التجارية والقيم المستهدفة'
             },
             {
-                step: 2,
                 title: 'بحث وإلهام',
                 description: 'دراسة السوق وجمع الأفكار الإبداعية'
             },
             {
-                step: 3,
                 title: 'تصميم',
                 description: 'إنشاء مفاهيم وتصاميم أولية'
             },
             {
-                step: 4,
                 title: 'تنفيذ',
                 description: 'تطوير التصاميم النهائية وتسليمها'
             }
@@ -295,200 +259,44 @@ const services = [
                 answer: 'تتراوح المدة من 2 إلى 4 أسابيع حسب تعقيد المشروع.'
             }
         ],
-        // gallery: [
-        //     { id: 1, title: 'هوية علامة تجارية', category: 'شركات', image: '/images/memories-demo.png' },
-        //     { id: 2, title: 'تصميم شعار', category: 'جميع', image: '/images/memories-demo.png' },
-        //     { id: 3, title: 'مواد ترويجية', category: 'تسويق', image: '/images/memories-demo.png' }
-            
-        // ]
     },
-    // {
-    //     id: 'hosting',
-    //     title: 'الاستضافة والسحابة',
-    //     icon: <FaServer className="text-4xl" />,
-    //     color: 'from-cyan-500 to-sky-600',
-    //     description: 'حلول استضافة قوية وآمنة لمواقعك وتطبيقاتك',
-    //     overview: 'نقدم حلول استضافة متطورة توفر الأداء العالي والأمان المتقدم. مع بنية تحتية قوية وخدمة دعم فني على مدار الساعة، نضمن لموقعك أو تطبيقك التشغيل السلس دون انقطاع.',
-    //     stats: [
-    //         { label: 'وقت التشغيل', value: '99.99%' },
-    //         { label: 'سرعة التحميل', value: 'أقل من 0.5 ثانية' },
-    //         { label: 'عملاء راضون', value: '95%' }
-    //     ],
-    //     features: [
-    //         {
-    //             title: 'استضافة سحابية',
-    //             description: 'حلول استضافة مرنة وقابلة للتوسع حسب احتياجاتك',
-    //             icon: <div className="bg-cyan-100 p-3 rounded-full text-cyan-600"><FaServer /></div>
-    //         },
-    //         {
-    //             title: 'أمان متقدم',
-    //             description: 'حماية متعددة الطبقات ضد الاختراقات والهجمات',
-    //             icon: <div className="bg-cyan-100 p-3 rounded-full text-cyan-600"><FaShieldAlt /></div>
-    //         },
-    //         {
-    //             title: 'دعم فني',
-    //             description: 'دعم فني متاح 24/7 لحل أي مشكلة تواجهك',
-    //             icon: <div className="bg-cyan-100 p-3 rounded-full text-cyan-600"><FaLightbulb /></div>
-    //         }
-    //     ],
-    //     process: [
-    //         {
-    //             step: 1,
-    //             title: 'تقييم الاحتياجات',
-    //             description: 'تحليل متطلباتك واختيار الحل الأمثل'
-    //         },
-    //         {
-    //             step: 2,
-    //             title: 'تهيئة البيئة',
-    //             description: 'إعداد خادم مخصص أو خطة استضافة مناسبة'
-    //         },
-    //         {
-    //             step: 3,
-    //             title: 'الهجرة والدعم',
-    //             description: 'نقل موقعك وتقديم الدعم المستمر'
-    //         },
-    //         {
-    //             step: 4,
-    //             title: 'المراقبة والتطوير',
-    //             description: 'مراقبة الأداء وتقديم تحسينات مستمرة'
-    //         }
-    //     ],
-    //     faqs: [
-    //         {
-    //             question: 'ما الفرق بين الاستضافة المشتركة والسحابية؟',
-    //             answer: 'الاستضافة السحابية توفر موارد مخصصة وأداء أفضل مقارنة بالاستضافة المشتركة.'
-    //         },
-    //         {
-    //             question: 'هل تقدمون نسخ احتياطية؟',
-    //             answer: 'نعم، نقدم نسخ احتياطية يومية وأسبوعية وشهرية حسب الحزمة.'
-    //         },
-    //         {
-    //             question: 'كيف أتأكد من أمان موقعي؟',
-    //             answer: 'نوفر شهادات SSL مجانية، جدران حماية، ومراقبة مستمرة للأمان.'
-    //         }
-    //     ],
-    //     gallery: [
-    //         { id: 1, title: 'خوادم سحابية', category: 'تكنولوجيا' },
-    //         { id: 2, title: 'حلول أمنية', category: 'أمان' },
-    //         { id: 3, title: 'مراكز بيانات', category: 'بنية تحتية' },
-    //         { id: 4, title: 'حلول نسخ احتياطي', category: 'حماية' }
-    //     ]
-    // }
 ];
 
-// مكون بطاقة العملاء
-const TestimonialCard = ({
-    name,
-    position,
-    content,
-    rating,
-}: {
-    name: string;
-    position: string;
-    content: string;
-    rating: number;
-}) => (
-  
-    <motion.div
-        className="bg-white/10 backdrop-blur-sm p-6 rounded-xl"
-        whileHover={{ y: -5 }}
-    >
-        <div className="flex items-center mb-4">
-            <div className="bg-gray-200 border-2 border-dashed rounded-full w-16 h-16" />
-            <div className="ml-4">
-                <p className="font-bold">{name}</p>
-                <p className="text-sm text-gray-300">{position}</p>
-            </div>
-        </div>
-        <FaQuoteLeft className="text-gray-400 mb-3" />
-        <p className="italic mb-4">{content}</p>
-        <div className="flex text-yellow-400">
-            {[...Array(5)].map((_, i) => (
-                <FaStar key={i} className={i < rating ? "text-yellow-400" : "text-gray-600"} />
-            ))}
-        </div>
-    </motion.div>
-);
-
 // مكون الأسئلة الشائعة
-const FAQItem = ({
-    question,
-    answer,
-}: {
-    question: string;
-    answer: string;
-}) => {
-  
+const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border-b border-gray-700 py-4">
+        <motion.div
+            className="mb-4 last:mb-0 border-b border-gray-700 pb-4"
+            whileHover={{ borderColor: "rgba(56, 189, 248, 0.5)" }}
+        >
             <button
-                className="flex justify-between items-center w-full text-left"
+                className="flex justify-between items-center w-full text-left text-lg font-medium text-white"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <span className="font-medium">{question}</span>
-                <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
+                <span>{question}</span>
+                <motion.span
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    className="text-cyan-400"
+                >
                     <FaChevronDown />
-                </motion.div>
+                </motion.span>
             </button>
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden"
-                    >
-                        <p className="mt-3 text-gray-300">{answer}</p>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
+
+            <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{
+                    height: isOpen ? "auto" : 0,
+                    opacity: isOpen ? 1 : 0
+                }}
+                className="overflow-hidden"
+            >
+                <p className="pt-3 text-blue-200">{answer}</p>
+            </motion.div>
+        </motion.div>
     );
 };
-
-// مكون بطاقة المشروع في المعرض
-const ProjectCard = ({
-    title,
-    category,
-    color,
-    image,
-}: {
-    title: string;
-    category: string;
-    color: string;
-    image?: string;
-}) => (
-  
-    <motion.div
-        className="relative overflow-hidden rounded-xl h-48"
-        whileHover={{ scale: 1.03 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-
-
-    >
-        {image ? (
-            <img
-                src={image}
-                alt={title}
-                className="absolute inset-0 w-full h-full object-cover"
-            />
-        ) : (
-            <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-90`}></div>
-        )}
-
-
-        <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-90`}></div>
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-4">
-            <h3 className="font-bold text-lg">{title}</h3>
-            <span className="text-sm bg-black/30 px-2 py-1 rounded">{category}</span>
-        </div>
-    </motion.div>
-);
 
 // المكون الرئيسي لصفحة الخدمات
 export default function ServicesPage() {
@@ -521,330 +329,247 @@ export default function ServicesPage() {
         }
     };
 
-    // شهادات العملاء
-    // const testimonials = [
-    //     {
-    //         id: 1,
-    //         name: 'محمد العلي',
-    //         position: 'مدير تسويق، شركة التقنية',
-    //         content: 'بعد التعاون مع فريقكم، زادت حركة الزوار لموقعنا بنسبة 200% في أول 3 أشهر. الاحترافية في العمل والدقة في التنفيذ تفوق التوقعات.',
-    //         rating: 5
-    //     },
-    //     {
-    //         id: 2,
-    //         name: 'سارة عبدالله',
-    //         position: 'مالكة متجر إلكتروني',
-    //         content: 'التطبيق الذي طورتموه لنا غير تجربة عملائنا تماماً. المبيعات زادت بنسبة 40% في الشهر الأول بعد الإطلاق. شكراً على الإبداع والاحترافية.',
-    //         rating: 5
-    //     },
-    //     {
-    //         id: 3,
-    //         name: 'خالد الحميد',
-    //         position: 'مدير تقنية المعلومات',
-    //         content: 'حلول الاستضافة التي تقدمونها غيرت أداء مواقعنا بشكل جذري. السرعة والاستقرار والدعم الفني الممتاز جعلتنا نثق بكم كشريك تقني دائم.',
-    //         rating: 4
-    //     }
-    // ];
-
-    // ربط الأقسام مع الـ refs
+    // تحديد القسم النشط أثناء التمرير
     useEffect(() => {
-        const sections = ['overview', 'features', 'process', 'faqs', 'gallery', 'testimonials'];
+        const handleScroll = () => {
+            const sections = ['overview', 'features', 'process', 'faqs'];
+            const scrollPosition = window.scrollY + 150;
+
+            for (const sectionId of sections) {
+                const section = sectionRefs.current[sectionId];
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        setActiveSection(sectionId);
+                        break;
+                    }
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // تهيئة المراجع للأقسام
+    useEffect(() => {
+        const sections = ['overview', 'features', 'process', 'faqs'];
         sections.forEach(section => {
             sectionRefs.current[section] = document.getElementById(section);
         });
     }, [activeService]);
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white overflow-hidden">
-                        
-
-
-            
-            <AnimatedBackground />
-            
+        <div className="min-h-screen bg-gradient-to-b from-blue-900/40 to-sky-500/50  text-gray-700 overflow-hidden">
+            {/* Blobs */}
             
 
-            <div className="relative z-10 container mx-auto px-4 py-16 pointer-events-auto">
-                    <div className="text-center mb-16">
-                        <motion.h1
-                            className="text-4xl md:text-6xl font-bold mb-4 text-white"
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            خدماتنا <span className="bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">المتميزة</span>
-                        </motion.h1>
-                        <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-                            حلول تقنية متكاملة مصممة خصيصاً لتحقيق أهداف عملك وتميزك في السوق
-                        </p>
-                    </div>
-
-                    {/* خدمة التنقل */}
-                    <div className="flex flex-wrap justify-center gap-4 mb-16">
-                        {services.map((service) => (
-                            <motion.button
-                                key={service.id}
-                                onClick={() => handleServiceChange(service)}
-                                className={`flex flex-col items-center px-6 py-4 rounded-xl transition-all duration-300 backdrop-blur-sm ${activeService.id === service.id
-                                        ? `bg-gradient-to-r ${service.color} shadow-lg shadow-blue-500/30 transform -translate-y-1`
-                                        : 'bg-gray-800/70 hover:bg-gray-700/80'
-                                    }`}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <div className="mb-3 text-2xl">{service.icon}</div>
-                                <span className="font-medium text-gray-100">{service.title}</span>
-                            </motion.button>
-                        ))}
-                    </div>
+                <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-gradient-to-b from-sky-25 via-sky-300/90  to-sky-25 z-10"></div>
+                                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-sky-25/60 to-sky-50/40 z-20"></div>
                 
-
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={activeService.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.5 }}
-                        className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 border border-gray-700"
-                    >
-                        {/* رأس الخدمة */}
-                        <div className="flex flex-col md:flex-row md:items-center justify-between mb-12">
-                            <div>
-                                <motion.h2
-                                    className="text-3xl md:text-4xl font-bold mb-2"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 0.1 }}
-                                >
-                                    {activeService.title}
-                                </motion.h2>
-                                <p className="text-xl text-gray-300 max-w-2xl">
-                                    {activeService.description}
-                                </p>
-                            </div>
-                            <div className="mt-4 md:mt-0">
-                                <motion.button
-                                    className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:opacity-90 transition shadow-lg flex items-center"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    اطلب الخدمة الآن <FaArrowRight className="ml-2" />
-                                </motion.button>
-                            </div>
-                        </div>
-
-                        {isTransitioning ? (
-                            <div className="flex justify-center items-center h-64">
-                                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-                            </div>
-                        ) : (
-                            <div className="flex flex-col lg:flex-row gap-8">
-                                {/* التنقل الجانبي */}
-                                <div className="lg:w-1/4">
-                                    <div className="sticky top-24 bg-gray-700/50 backdrop-blur-sm rounded-xl p-4">
-                                        <h3 className="text-xl font-bold mb-4">أقسام الخدمة</h3>
-                                        <ul className="space-y-2">
-                                            {[
-                                                { id: 'overview', label: 'نظرة عامة' },
-                                                { id: 'features', label: 'مميزاتنا' },
-                                                { id: 'process', label: 'كيف نعمل' },
-                                                { id: 'faqs', label: 'الأسئلة الشائعة' }
-                                                //{ id: 'gallery', label: 'معرض أعمالنا' },
-                                               // { id: 'testimonials', label: 'آراء العملاء' }
-                                            ].map((item) => (
-                                                <li key={item.id}>
-                                                    <button
-                                                        onClick={() => scrollToSection(item.id)}
-                                                        className={`w-full text-left px-4 py-3 rounded-lg transition ${activeSection === item.id
-                                                                ? 'bg-gradient-to-r from-blue-600 to-indigo-700 text-white'
-                                                                : 'hover:bg-gray-600'
-                                                            }`}
-                                                    >
-                                                        {item.label}
-                                                    </button>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                    {/* تأثير جسيمات متحركة */}
+                                    <div className="absolute inset-0">
+                                        {[...Array(30)].map((_, i) => (
+                                            <motion.div
+                                                key={i}
+                                                className="absolute rounded-full bg-sky-100/30"
+                                                style={{
+                                                    width: Math.random() * 20 + 5,
+                                                    height: Math.random() * 20 + 5,
+                                                    top: `${Math.random() * 100}%`,
+                                                    left: `${Math.random() * 100}%`,
+                                                }}
+                                                animate={{
+                                                    y: [0, -100],
+                                                    x: [0, (Math.random() - 0.5) * 50],
+                                                    opacity: [0.1, 0.8, 0],
+                                                    scale: [1, 1.5]
+                                                }}
+                                                transition={{
+                                                    duration: Math.random() * 5 + 3,
+                                                    repeat: Infinity,
+                                                    delay: Math.random() * 3
+                                                }}
+                                            />
+                                        ))}
                                     </div>
                                 </div>
 
-                                {/* محتوى الخدمة */}
-                                <div className="lg:w-3/4">
-                                    {/* نظرة عامة */}
-                                    <section
-                                        id="overview"
-                                        className="mb-16 scroll-mt-24"
-                                        // ref={(el) => sectionRefs.current['overview'] = el}
-                                    >
-                                        <div className="bg-gradient-to-br from-gray-700 to-gray-800 p-6 rounded-xl mb-8">
-                                            <h3 className="text-2xl font-bold mb-4">نظرة عامة</h3>
-                                            <p className="mb-6">{activeService.overview}</p>
+            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-38">
+                {/* Title */}
+                <div className="text-center mb-12">
+                    <motion.h1
+                        className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-gray-800"
+                        initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, type: 'spring', bounce: 0.4 }}
+                    >
+                        <h3 className="bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-500 text-transparent bg-clip-text">خدماتنا المتميزة </h3>
+                    </motion.h1>
+                    <motion.p
+                        className="text-lg sm:text-xl text-white max-w-3xl mx-auto"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.8 }}
+                    >
+                        حلول تقنية متكاملة مصممة خصيصاً لتحقيق أهداف عملك وتميزك في السوق
+                    </motion.p>
+                </div>
 
-                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                                                    {activeService.stats.map((stat: { label: string; value: string | number }, index) => (
+                {/* Navigation Buttons */}
+                <div className="flex flex-wrap justify-center gap-4 mb-16">
+                    {services.map(s => (
+                        <motion.button
+                            key={s.id}
+                            onClick={() => handleServiceChange(s)}
+                            className={`
+                flex flex-col items-center px-6 py-5 rounded-2xl border-2 transition-all duration-500
+                ${activeService.id === s.id
+                                ? `bg-black/40 ${s.color} shadow-lg shadow-blue-950 text-white scale-115 border-sky-400`
+                                    : 'bg-white/80 border-black-1 text-gray-700 hover:shadow-red'}
+              `}
+                            whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}
+                        >
+                            <div className="mb-3 text-3xl text-sky-500">{s.icon}</div>
+                            <span className="font-semibold">{s.title}</span>
+                        </motion.button>
+                    ))}
+                </div>
 
-                                                    <motion.div
-                                                        key={index}
-                                                        className="bg-gray-800/50 p-4 rounded-lg text-center"
-                                                        initial={{ opacity: 0, y: 20 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        transition={{ delay: 0.1 * index }}
-                                                    >
-                                                        <div className="text-3xl font-bold mb-2">{stat.value}</div>
-                                                        <div className="text-gray-300">{stat.label}</div>
-                                                    </motion.div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </section>
-
-                                    {/* مميزاتنا */}
-                                    <section
-                                        id="features"
-                                        className="mb-16 scroll-mt-24"
-                                        // ref={(el) => sectionRefs.current['features'] = el}
-                                    >
-                                        <h3 className="text-2xl font-bold mb-6">مميزاتنا</h3>
-                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                                {activeService.features.map((feature: { icon: React.ReactNode; title: string; description: string }, index) => (
-
-                                                <motion.div
-                                                    key={index}
-                                                    className="bg-gray-700/50 backdrop-blur-sm p-6 rounded-xl"
-                                                    initial={{ opacity: 0, y: 20 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.1 * index }}
-                                                >
-                                                    <div className="flex items-start mb-4">
-                                                        {feature.icon}
-                                                        <h4 className="text-xl font-bold ml-4">{feature.title}</h4>
-                                                    </div>
-                                                    <p className="text-gray-300">{feature.description}</p>
-                                                </motion.div>
-                                            ))}
-                                        </div>
-                                    </section>
-
-                                    {/* كيف نعمل */}
-                                    <section
-                                        id="process"
-                                        className="mb-16 scroll-mt-24"
-                                        // ref={(el) => sectionRefs.current['process'] = el}
-                                    >
-                                        <h3 className="text-2xl font-bold mb-6">كيف نعمل</h3>
-                                        <div className="relative">
-                                            <div className="absolute left-0 top-10 bottom-10 w-0.5 bg-gray-700 transform translate-x-4"></div>
-
-                                            <div className="space-y-12">
-                                                    {activeService.process.map((step: { title: string; description: string }, index) => (
-
-                                                    <motion.div
-                                                        key={index}
-                                                        className="flex relative"
-                                                        initial={{ opacity: 0, x: -20 }}
-                                                        animate={{ opacity: 1, x: 0 }}
-                                                        transition={{ delay: 0.1 * index }}
-                                                    >
-                                                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center z-10">
-                                                            {/* {step} */}
-                                                        </div>
-                                                        <div className="ml-8">
-                                                            <h4 className="text-xl font-bold mb-2">{step.title}</h4>
-                                                            <p className="text-gray-300">{step.description}</p>
-                                                        </div>
-                                                    </motion.div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </section>
-
-                                    {/* الأسئلة الشائعة */}
-                                    <section
-                                        id="faqs"
-                                        className="mb-16 scroll-mt-24"
-                                        // ref={(el) => sectionRefs.current['faqs'] = el}
-                                    >
-                                        <h3 className="text-2xl font-bold mb-6">الأسئلة الشائعة</h3>
-                                        <div className="bg-gray-700/50 backdrop-blur-sm rounded-xl p-6">
-                                                {activeService.faqs.map((faq: { question: string; answer: string }, index) => (
-
-                                                <FAQItem key={index} question={faq.question} answer={faq.answer} />
-                                            ))}
-                                        </div>
-                                    </section>
-
-                                    {/* معرض أعمالنا */}
-                                    {/* <section
-                                        id="gallery"
-                                        className="mb-16 scroll-mt-24"
-                                        // ref={(el) => sectionRefs.current['gallery'] = el}
-                                    >
-                                        <div className="flex justify-between items-center mb-6">
-                                            <h3 className="text-2xl font-bold">معرض أعمالنا</h3>
-                                            <div className="flex space-x-2">
-                                                <button className="bg-gray-700 p-2 rounded-full hover:bg-gray-600">
-                                                    <FaArrowLeft />
-                                                </button>
-                                                <button className="bg-gray-700 p-2 rounded-full hover:bg-gray-600">
-                                                    <FaArrowRight />
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                                {activeService.gallery.map((project, index) => (
-
-                                                <ProjectCard
-                                                    key={project.id}
-                                                    title={project.title}
-                                                    category={project.category}
-                                                    color={activeService.color}
-                                                    image={project.image}
-                                                />
-                                            ))}
-                                        </div>
-                                    </section> */}
-
-                                    {/* آراء العملاء */}
-                                    {/* <section
-                                        id="testimonials"
-                                        className="scroll-mt-24"
-                                        ref={(el) => sectionRefs.current['testimonials'] = el}
-                                    >
-                                        <h3 className="text-2xl font-bold mb-6">آراء العملاء</h3>
-                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                            {testimonials.map((testimonial) => (
-                                                <TestimonialCard key={testimonial.id} {...testimonial} />
-                                            ))}
-                                        </div>
-                                    </section> */}
-                                </div>
+                {/* Content Panel */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={activeService.id}
+                        initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -30 }}
+                        transition={{ duration: 0.7, ease: 'easeInOut' }}
+                        className="bg-white/70 backdrop-blur-lg rounded-3xl p-8 border border-sky-300 shadow-xl shadow-sky-200/20"
+                    >
+                        {/* Header */}
+                        <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-12 gap-6">
+                            <div className="max-w-xl">
+                                <motion.h2
+                                    className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-sky-500 to-cyan-500 text-transparent bg-clip-text"
+                                    initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}
+                                >
+                                    {activeService.title}
+                                </motion.h2>
+                                <motion.p
+                                    className="text-lg text-gray-600"
+                                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
+                                >
+                                    {activeService.description}
+                                </motion.p>
                             </div>
-                        )}
+                            <motion.button
+                                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-sky-500 to-cyan-500 text-white rounded-xl font-semibold text-lg shadow-md hover:opacity-95 transition"
+                                whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(14,165,233,0.3)' }}
+                                whileTap={{ scale: 0.97 }}
+                                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
+                            >
+                                اطلب الخدمة الآن <FaArrowRight className="ml-3" />
+                            </motion.button>
+                        </div>
+
+                        {/* Sections */}
+                        {isTransitioning
+                            ? <div className="flex justify-center items-center h-64"><div className="animate-spin w-12 h-12  border-4 border-sky-500 rounded-full"></div></div>
+                            : (
+                                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                                    {/* Sidebar */}
+                                    <nav className="lg:col-span-1 sticky top-32 space-y-4">
+                                        {[
+                                            { id: 'overview', label: 'نظرة عامة', icon: <FaEye /> },
+                                            { id: 'features', label: 'مميزاتنا', icon: <FaStar /> },
+                                            { id: 'process', label: 'كيف نعمل', icon: <FaCogs /> },
+                                            { id: 'faqs', label: 'الأسئلة الشائعة', icon: <FaQuestionCircle /> }
+                                        ].map(it => (
+                                            <motion.button
+                                                key={it.id}
+                                                onClick={() => scrollToSection(it.id)}
+                                                className={`
+                          flex items-center w-full px-4 py-3 rounded-lg text-lg transition
+                          ${activeSection === it.id
+                                                        ? 'bg-sky-100 text-gray-900 border border-sky-300 shadow'
+                                                        : 'hover:bg-sky-50'}
+                        `}
+                                                whileHover={{ x: 8 }}
+                                            >
+                                                <span className="text-xl text-sky-500 ml-3">{it.icon}</span>
+                                                {it.label}
+                                            </motion.button>
+                                        ))}
+                                    </nav>
+
+                                    {/* Main Content */}
+                                    <div className="lg:col-span-3 space-y-16">
+                                        {/* نظرة عامة */}
+                                        <section id="overview" ref={el => sectionRefs.current.overview = el} className="scroll-mt-24">
+                                            <div className="bg-white p-6 rounded-2xl border border-sky-200 shadow-sm">
+                                                <h3 className="text-2xl font-bold text-sky-600 mb-4">نظرة عامة</h3>
+                                                <p className="text-gray-700 leading-relaxed">{activeService.overview}</p>
+                                            </div>
+                                        </section>
+
+                                        {/* مميزاتنا */}
+                                        <section id="features" ref={el => sectionRefs.current.features = el} className="scroll-mt-24">
+                                            <h3 className="text-2xl font-bold text-sky-600 mb-6">مميزاتنا</h3>
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                                {activeService.features.map((f, i) => (
+                                                    <motion.div
+                                                        key={i}
+                                                        className="bg-white p-6 rounded-xl border border-sky-200 shadow-sm"
+                                                        whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(125,211,252,0.2)' }}
+                                                    >
+                                                        <div className="flex items-center mb-4">
+                                                            <div className="text-2xl text-sky-500">{f.icon}</div>
+                                                            <h4 className="text-xl font-semibold ml-3">{f.title}</h4>
+                                                        </div>
+                                                        <p className="text-gray-700">{f.description}</p>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                        </section>
+
+                                        {/* كيف نعمل */}
+                                        <section id="process" ref={el => sectionRefs.current.process = el} className="scroll-mt-24">
+                                            <h3 className="text-2xl font-bold text-sky-600 mb-6">كيف نعمل</h3>
+                                            <div className="relative pl-8 before:absolute before:left-4 before:top-6 before:bottom-6 before:w-0.5 before:bg-sky-300">
+                                                {activeService.process.map((p, i) => (
+                                                    <motion.div key={i}
+                                                        className="flex items-start mb-8"
+                                                        whileHover={{ x: 5 }}
+                                                    >
+                                                        <div className="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center text-white font-bold">
+                                                            {i + 1}
+                                                        </div>
+                                                        <div className="mr-6">
+                                                            <h4 className="text-lg font-semibold mb-1">{p.title}</h4>
+                                                            <p className="text-gray-700">{p.description}</p>
+                                                        </div>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                        </section>
+
+                                        {/* الأسئلة الشائعة */}
+                                        <section id="faqs" ref={el => sectionRefs.current.faqs = el} className="scroll-mt-24">
+                                            <h3 className="text-2xl font-bold text-sky-600 mb-6">الأسئلة الشائعة</h3>
+                                            <div className="space-y-4">
+                                                {activeService.faqs.map((q, i) => (
+                                                    <FAQItem key={i} question={q.question} answer={q.answer} />
+                                                ))}
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            )
+                        }
                     </motion.div>
                 </AnimatePresence>
-
-                {/* قسم العملاء */}
-                {/* <div className="mt-20">
-                    <h2 className="text-3xl font-bold mb-6 text-center">عملاؤنا الثقة</h2>
-                    <p className="text-gray-400 mb-10 max-w-2xl mx-auto text-center">
-                        نفتخر بشراكتنا مع أبرز العلامات التجارية في المنطقة
-                    </p>
-
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                        {[...Array(6)].map((_, i) => (
-                            <motion.div
-                                key={i}
-                                className="bg-gray-800 p-6 rounded-xl flex items-center justify-center h-32"
-                                whileHover={{ y: -10 }}
-                            >
-                                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
-                            </motion.div>
-                        ))}
-                    </div>
-                </div> */}
             </div>
         </div>
     );
+
+
 }

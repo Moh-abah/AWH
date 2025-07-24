@@ -1,23 +1,125 @@
 'use client';
 
-import { FaRocket } from 'react-icons/fa';
+import { FaRocket, FaArrowRight } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 export default function Intro() {
     return (
-        <div className="text-center">
-            
-            <h2 className="text-4xl font-extrabold mb-6 text-indigo-700">مرحباً بك في DWH</h2>
-            <h2 className="text-4xl font-extrabold mb-6 text-indigo-700"> Digital World Horizon آفاق العالم الرقمي
+        <section
+            className="relative bg-cover bg-center py-16 md:py-34 px-4 overflow-hidden "
+            style={{ backgroundImage: "url('/images/projects/nohba.jpg')" }}
+        >
+            {/* Overlay متدرج بدلاً من الأبيض الصلب */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-sky-500/50"></div>
 
- </h2>
-            <div className="relative inline-block mx-auto max-w-3xl">
-                <p className="text-gray-700 text-lg leading-relaxed bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-md border border-white transition-all duration-500 hover:shadow-lg">
-                    نحن مزوّد حلول رقمية متعددة، نقدم تصميم وتطوير مواقع ويب، متاجر الكترونية، وتطبيقات أندرويد حديثة تساعد المشاريع على التوسع، الظهور، وجذب العملاء، وتصاميم جرافيكيه وفريده ذات هويه بصرية مميزه، ادارة سوشيال ميديا، صنع اعلانات فعاله ذات عاد مرتفع، ندمج الإبداع بالتقنية الحديثة لتقديم تجربة رقمية متكاملة.
-                </p>
-                <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-full flex items-center justify-center text-white text-xl shadow-lg animate-bounce">
-                    <FaRocket />
-                </div>
+
+            {/* تأثيرات بصرية إضافية */}
+            <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-blue-900/50 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
+
+            {/* نقاط متحركة في الخلفية */}
+            <div className="absolute inset-0">
+                {[...Array(15)].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute rounded-full bg-white/10"
+                        style={{
+                            top: `${Math.random() * 100}%`,
+                            left: `${Math.random() * 100}%`,
+                            width: `${Math.random() * 10 + 5}px`,
+                            height: `${Math.random() * 10 + 5}px`,
+                        }}
+                        animate={{
+                            y: [0, -20, 0],
+                            opacity: [0.3, 0.7, 0.3],
+                        }}
+                        transition={{
+                            duration: Math.random() * 4 + 3,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                    />
+                ))}
             </div>
-        </div>
+
+            <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                {/* النص والزر */}
+                <motion.div
+                    className="space-y-6 text-white"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <div className="inline-block bg-gradient-to-r from-sky-400 to-blue-900 p-1 rounded-full mb-6">
+                        <div className="bg-white rounded-full p-3">
+                            <FaRocket className="text-3xl text-blue-900" />
+                        </div>
+                    </div>
+
+                    <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight border-black">
+                        <span className="block mb-2">مرحباً بك في</span>
+                        <span className="block text-5xl sm:text-6xl bg-gradient-to-r from-sky-400 to-white bg-clip-text text-transparent">
+                            Digital World Horizon
+                        </span>
+                        <span className="block text-2xl sm:text-3xl text-black-300 mt-3 font-normal">
+                            آفاق العالم الرقمي
+                        </span>
+                    </h1>
+
+                    <motion.div
+                        className="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 shadow-xl"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <p className="text-lg leading-relaxed text-black/50">
+                            نحن مزوّد حلول رقمية متعددة، نقدم تصميم وتطوير مواقع ويب، متاجر إلكترونية، وتطبيقات أندرويد حديثة تساعد المشاريع على التوسع والظهور وجذب العملاء. كما نقدّم تصاميم جرافيكية فريدة ذات هوية بصرية مميّزة، إدارة سوشيال ميديا، وصنع إعلانات فعّالة ذات عائد مرتفع.
+                        </p>
+                    </motion.div>
+
+                    <div className="flex flex-wrap gap-4 mt-6">
+                        <motion.a
+                            href="/profile"
+                            className="flex items-center gap-3 bg-gradient-to-r from-sky-500 to-blue-900 text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity shadow-lg"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            اعرف المزيد عنا
+                            <FaArrowRight />
+                        </motion.a>
+
+                        <motion.a
+                            href="/contact"
+                            className="flex items-center gap-3 bg-transparent border-2 border-white text-white font-bold px-6 py-3 rounded-full hover:bg-white/10 transition-colors"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            تواصل معنا
+                            <FaArrowRight />
+                        </motion.a>
+                    </div>
+                </motion.div>
+
+                {/* الصورة التوضيحية */}
+                <motion.div
+                    className="hidden lg:flex justify-center"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    
+                </motion.div>
+            </div>
+
+            {/* موجات في الأسفل */}
+            <div className="absolute bottom-0 left-0 w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full">
+                    <path
+                        fill="#FFFFFF"
+                        fillOpacity="0.2"
+                        d="M0,64L60,58.7C120,53,240,43,360,48C480,53,600,75,720,74.7C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"
+                    ></path>
+                </svg>
+            </div>
+        </section>
     );
 }

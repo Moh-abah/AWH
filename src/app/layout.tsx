@@ -2,7 +2,7 @@
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import MouseFollower from "@/components/ui/MouseFollower";
+
 
 export const metadata = {
   title: " تطوير برمجيات متكاملة |  افاق العالم الرقمي",
@@ -137,7 +137,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ar" dir="rtl">
       <body className="bg-white text-gray-900">
-        <MouseFollower />
+        
         <Navbar />
         <main>{children}</main>
         <Footer />

@@ -35,7 +35,7 @@ export default function Achievements() {
             >
                 إنجازاتنا وجوائزنا
             </motion.h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 ">
                 {achievementsData.map(({ title, description, date }, idx) => (
                     <motion.div
                         key={idx}

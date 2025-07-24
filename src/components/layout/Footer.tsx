@@ -12,7 +12,7 @@ export default function Footer() {
                 {/* 1. شعار + وصف */}
                 <div className="space-y-4">
                     <Link href="/" className="flex items-center gap-3">
-                        <Image src="/iimages/logo.png" alt="DWH Logo" width={48} height={48} className="rounded-full" />
+                        <Image src="/images/logo1.png" alt="DWH Logo" width={118} height={118} className="rounded-full" />
                         <span className="text-white font-bold text-2xl tracking-wide">DWH</span>
                     </Link>
                     <p className="text-gray-400 leading-relaxed text-sm md:text-base">
@@ -25,14 +25,14 @@ export default function Footer() {
                     <h3 className="text-white text-xl font-semibold mb-5 border-b border-gray-700 pb-2">روابط سريعة</h3>
                     <ul className="space-y-3 text-gray-300 text-sm md:text-base">
                         <li><Link href="/" className="hover:text-blue-400 transition duration-300">الرئيسية</Link></li>
-                        {/* <li><Link href="/about" className="hover:text-blue-400 transition duration-300">من نحن</Link></li>
+                        <li><Link href="/about" className="hover:text-blue-400 transition duration-300">من نحن</Link></li>
                         <li><Link href="/services" className="hover:text-blue-400 transition duration-300">خدماتنا</Link></li>
                         <li><Link href="/work" className="hover:text-blue-400 transition duration-300">أعمالنا</Link></li>
-                        <li><Link href="/contact" className="hover:text-blue-400 transition duration-300">تواصل معنا</Link></li> */}
-                        <li><Link href="#" className="hover:text-blue-400 transition duration-300">من نحن</Link></li>
+                        <li><Link href="/contact" className="hover:text-blue-400 transition duration-300">تواصل معنا</Link></li>
+                        {/* <li><Link href="#" className="hover:text-blue-400 transition duration-300">من نحن</Link></li>
                         <li><Link href="#" className="hover:text-blue-400 transition duration-300">خدماتنا</Link></li>
                         <li><Link href="#" className="hover:text-blue-400 transition duration-300">أعمالنا</Link></li>
-                        <li><Link href="#" className="hover:text-blue-400 transition duration-300">تواصل معنا</Link></li>
+                        <li><Link href="#" className="hover:text-blue-400 transition duration-300">تواصل معنا</Link></li> */}
                     </ul>
                 </div>
 

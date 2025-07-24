@@ -14,6 +14,13 @@ import {
 } from 'react-icons/fa';
 
 export interface Service {
+    id: any;
+    color: any;
+    icon: ReactNode;
+    overview: ReactNode;
+    features: any;
+    process: any;
+    faqs: any;
     slug: string;
     title: string;
     description: string;
@@ -50,20 +57,7 @@ export const services: Service[] = [
         Icon: FaSearch,
         iconColorClass: 'text-amber-600',
     },
-    // {
-    //     slug: 'artificial-intelligence',
-    //     title: 'الذكاء الاصطناعي',
-    //     description: 'دمج التعلم الآلي والخوارزميات.',
-    //     Icon: FaBrain,
-    //     iconColorClass: 'text-emerald-600',
-    // },
-    // {
-    //     slug: 'hosting-and-server-management',
-    //     title: 'الاستضافة وإدارة السيرفرات',
-    //     description: 'خوادم سريعة وآمنة.',
-    //     Icon: FaServer,
-    //     iconColorClass: 'text-purple-600',
-    // },
+    
     {
         slug: 'social-media-management',
         title: 'إدارة السوشيال ميديا',

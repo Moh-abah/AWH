@@ -1,4 +1,3 @@
-// components/work/WorkPage.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -15,7 +14,6 @@ export default function Workside() {
 
     const handleNext = () => {
         if (isAnimating) return;
-
         setIsAnimating(true);
         setDirection('right');
         setTimeout(() => {
@@ -23,17 +21,9 @@ export default function Workside() {
             setIsAnimating(false);
         }, 300);
     };
-    const cardColor = {
-        web: 'bg-blue-100',
-        mobile: 'bg-green-100',
-        ecommerce: 'bg-yellow-100',
-        marketing: 'bg-purple-100',
-    }[currentProject.category];
-      
 
     const handlePrev = () => {
         if (isAnimating) return;
-
         setIsAnimating(true);
         setDirection('left');
         setTimeout(() => {
@@ -43,46 +33,49 @@ export default function Workside() {
     };
 
     useEffect(() => {
-        // تغيير المشروع تلقائيًا كل 7 ثواني
         const interval = setInterval(() => {
             handleNext();
         }, 7000);
-
         return () => clearInterval(interval);
     }, []);
 
+    const cardColor = {
+        web: 'bg-blue-50',
+        mobile: 'bg-green-50',
+        ecommerce: 'bg-yellow-50',
+        marketing: 'bg-purple-50',
+    }[currentProject.category];
+
     return (
-        <section id="work-section" className="py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-blue-50">
+        <section id="work-section" className="py-20 px-4 sm:px-6 bg-gradient-to-br from-white to-blue-50 text-slate-800">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
-                    <SectionTitle
-                        title="أعمالنا التي نفخر بها"
-                        
-                    />
+                    <SectionTitle title="أعمالنا التي نفخر بها" />
                 </div>
 
-                {/* عرض المشروع الحالي */}
+                {/* عرض المشروع */}
                 <div className="relative flex items-center justify-center min-h-[550px]">
-                    {/* زر التمرير لليسار */}
+                    {/* زر يسار */}
                     <button
                         onClick={handlePrev}
-                        className="absolute left-0 md:left-4 z-10 bg-white rounded-full p-4 shadow-xl hover:bg-blue-600 hover:text-white transition-all duration-300 group"
+                        className="absolute left-0 md:left-4 z-10 bg-white border border-blue-100 rounded-full p-4 shadow-md hover:bg-blue-600 hover:text-white transition-all duration-300 group"
                         aria-label="المشروع السابق"
                     >
                         <FaArrowLeft className="text-xl group-hover:scale-110 transition-transform" />
                     </button>
 
-                    {/* بطاقة المشروع */}
+                    {/* البطاقة */}
                     <div className="w-full max-w-4xl mx-auto">
-
-
-                        <div className={`${cardColor} rounded-3xl shadow-xl overflow-hidden transition-all duration-500
-                ${isAnimating ? (direction === 'right'
-                                ? 'animate-slideOutLeft'
-                                : 'animate-slideOutRight') :
-                                (direction === 'right'
-                                    ? 'animate-slideInRight'
-                                    : 'animate-slideInLeft')}`}
+                        <div
+                            className={`${cardColor} border border-blue-100 rounded-3xl shadow-lg overflow-hidden transition-all duration-500 
+                            ${isAnimating
+                                    ? direction === 'right'
+                                        ? 'animate-slideOutLeft'
+                                        : 'animate-slideOutRight'
+                                    : direction === 'right'
+                                        ? 'animate-slideInRight'
+                                        : 'animate-slideInLeft'
+                                }`}
                         >
                             <div className="flex flex-col md:flex-row">
                                 {/* صورة المشروع */}
@@ -92,11 +85,10 @@ export default function Workside() {
                                         style={{
                                             backgroundImage: `url(${currentProject.gallery[0]?.url || '/fallback.jpg'})`
                                         }}
-
                                     />
                                 </div>
 
-                                {/* تفاصيل المشروع */}
+                                {/* محتوى المشروع */}
                                 <div className="md:w-1/2 p-8 flex flex-col justify-between">
                                     <div>
                                         <div className="flex items-center gap-2 mb-4">
@@ -106,14 +98,13 @@ export default function Workside() {
                                                 {currentProject.category === 'ecommerce' && 'متجر إلكتروني'}
                                                 {currentProject.category === 'marketing' && 'حل تسويقي'}
                                             </span>
-                                            
                                         </div>
 
-                                        <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                                        <h3 className="text-2xl font-bold text-blue-900 mb-4">
                                             {currentProject.title}
                                         </h3>
 
-                                        <p className="text-gray-600 mb-6 leading-relaxed">
+                                        <p className="text-slate-700 mb-6 leading-relaxed">
                                             {currentProject.description}
                                         </p>
                                     </div>
@@ -121,10 +112,9 @@ export default function Workside() {
                                     <div>
                                         <a
                                             href={currentProject.liveUrl}
-
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-block w-full md:w-auto bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center px-6 py-3 rounded-lg font-medium hover:opacity-90 transition shadow-lg"
+                                            className="inline-block w-full md:w-auto bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center px-6 py-3 rounded-lg font-medium hover:opacity-90 transition shadow"
                                         >
                                             عرض المشروع
                                         </a>
@@ -134,84 +124,66 @@ export default function Workside() {
                         </div>
                     </div>
 
-                    {/* زر التمرير لليمين */}
+                    {/* زر يمين */}
                     <button
                         onClick={handleNext}
-                        className="absolute right-0 md:right-4 z-10 bg-white rounded-full p-4 shadow-xl hover:bg-blue-600 hover:text-white transition-all duration-300 group"
+                        className="absolute right-0 md:right-4 z-10 bg-white border border-blue-100 rounded-full p-4 shadow-md hover:bg-blue-600 hover:text-white transition-all duration-300 group"
                         aria-label="المشروع التالي"
                     >
                         <FaArrowRight className="text-xl group-hover:scale-110 transition-transform" />
                     </button>
                 </div>
 
-                {/* مؤشر المشاريع */}
+                {/* المؤشر السفلي */}
                 <div className="flex justify-center mt-10">
-                    <div className="flex items-center gap-2 bg-white p-3 rounded-full shadow-md">
-                        <button
-                            onClick={handlePrev}
-                            className="absolute left-0 md:left-4 z-10 bg-white rounded-full p-4 shadow-xl hover:bg-blue-600 hover:text-white transition-all duration-300 group"
-                            aria-label="المشروع السابق"
-                        >
-                            <FaArrowLeft className="text-xl group-hover:scale-110 transition-transform" />
-                        </button>
-
-
-                        <div className="text-gray-700 px-4">
+                    <div className="flex items-center gap-2 bg-white border border-blue-100 p-3 rounded-full shadow-sm">
+                        <div className="text-blue-800 px-4 font-medium">
                             <span className="font-bold text-blue-600">{currentProjectIndex + 1}</span>
                             <span className="mx-1">/</span>
                             <span>{projects.length}</span>
                         </div>
-
-                        <button
-                            onClick={handleNext}
-                            className="absolute right-0 md:right-4 z-10 bg-white rounded-full p-4 shadow-xl hover:bg-blue-600 hover:text-white transition-all duration-300 group"
-                            aria-label="المشروع التالي"
-                        >
-                            <FaArrowRight className="text-xl group-hover:scale-110 transition-transform" />
-                        </button>
-
                     </div>
                 </div>
             </div>
 
-            {/* أنماط CSS للرسوم المتحركة */}
+            {/* أنميشن CSS */}
             <style jsx>{`
-        @keyframes slideInRight {
-          from { transform: translateX(100%); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideInLeft {
-          from { transform: translateX(-100%); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes slideOutRight {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(-100%); opacity: 0; }
-        }
-        
-        @keyframes slideOutLeft {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(100%); opacity: 0; }
-        }
-        
-        .animate-slideInRight {
-          animation: slideInRight 0.5s forwards;
-        }
-        
-        .animate-slideInLeft {
-          animation: slideInLeft 0.5s forwards;
-        }
-        
-        .animate-slideOutRight {
-          animation: slideOutRight 0.5s forwards;
-        }
-        
-        .animate-slideOutLeft {
-          animation: slideOutLeft 0.5s forwards;
-        }
-      `}</style>
+                @keyframes slideInRight {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+
+                @keyframes slideInLeft {
+                    from { transform: translateX(-100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+
+                @keyframes slideOutRight {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(-100%); opacity: 0; }
+                }
+
+                @keyframes slideOutLeft {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+
+                .animate-slideInRight {
+                    animation: slideInRight 0.5s forwards;
+                }
+
+                .animate-slideInLeft {
+                    animation: slideInLeft 0.5s forwards;
+                }
+
+                .animate-slideOutRight {
+                    animation: slideOutRight 0.5s forwards;
+                }
+
+                .animate-slideOutLeft {
+                    animation: slideOutLeft 0.5s forwards;
+                }
+            `}</style>
         </section>
     );
 }

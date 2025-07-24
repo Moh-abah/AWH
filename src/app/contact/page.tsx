@@ -3,8 +3,10 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaPaperPlane, FaWhatsapp, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import ParticleBackground from '@/styles/ParticleBackground';
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -93,64 +95,84 @@ export default function ContactPage() {
     }, []);
 
     return (
-        <div className="relative min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-            <AnimatedBackground />
-            
-            
-            {/* القسم العلوي */}
-            <div className="relative bg-black from-blue-600 to-indigo-700 text-white py-24 px-4 overflow-hidden">
-                
-                <AnimatedBackground />
+        <div className="min-h-screen bg-gradient-to-b from-blue-900/40 to-sky-500/50  text-gray-700 overflow-hidden">
+            {/* خلفية جسيمات متحركة */}
 
-                
-                
 
-                <div className="container mx-auto relative z-10">
-                    
-                    <div className="text-center max-w-3xl mx-auto">
-                        
-                        <motion.h1
-                            className="text-4xl md:text-6xl font-bold mb-6"
-                            
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            تواصل معنا
-                        </motion.h1>
-                        <motion.p
-                            className="text-xl mb-8"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.2, duration: 0.5 }}
-                        >
-                            نحن هنا للإجابة على استفساراتك ومساعدتك في أي شيء تحتاجه
-                        </motion.p>
+            {/* تأثيرات بصرية إضافية */}
+            <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-gradient-to-b from-sky-25 via-sky-300/90  to-sky-25 z-10"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-sky-25/60 to-sky-50/40 z-20"></div>
 
-                        {/* <div className="flex justify-center gap-4">
-                            <motion.button
-                                className={`px-6 py-3 rounded-full font-medium transition ${activeTab === 'form' ? 'bg-white text-blue-600' : 'bg-blue-500 hover:bg-blue-400'}`}
-                                onClick={() => setActiveTab('form')}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                نموذج التواصل
-                            </motion.button>
-                            <motion.button
-                                className={`px-6 py-3 rounded-full font-medium transition ${activeTab === 'info' ? 'bg-white text-blue-600' : 'bg-blue-500 hover:bg-blue-400'}`}
-                                onClick={() => setActiveTab('info')}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                معلومات التواصل
-                            </motion.button>
-                        </div> */}
-                    </div>
+                {/* تأثير جسيمات متحركة */}
+                <div className="absolute inset-0">
+                    {[...Array(30)].map((_, i) => (
+                        <motion.div
+                            key={i}
+                            className="absolute rounded-full bg-sky-100/30"
+                            style={{
+                                width: Math.random() * 20 + 5,
+                                height: Math.random() * 20 + 5,
+                                top: `${Math.random() * 100}%`,
+                                left: `${Math.random() * 100}%`,
+                            }}
+                            animate={{
+                                y: [0, -100],
+                                x: [0, (Math.random() - 0.5) * 50],
+                                opacity: [0.1, 0.8, 0],
+                                scale: [1, 1.5]
+                            }}
+                            transition={{
+                                duration: Math.random() * 5 + 3,
+                                repeat: Infinity,
+                                delay: Math.random() * 3
+                            }}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            {/* الترويسة */}
+            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-38">
+                <div className="text-center max-w-3xl mx-auto">
+                    <motion.h1
+                        className="text-4xl md:text-6xl font-bold mb-6"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        تواصل معنا
+                    </motion.h1>
+                    <motion.p
+                        className="text-xl mb-8 text-gray-600"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.2, duration: 0.5 }}
+                    >
+                        نحن هنا للإجابة على استفساراتك ومساعدتك في أي شيء تحتاجه
+                    </motion.p>
                 </div>
             </div>
 
             {/* المحتوى الرئيسي */}
-            <div className="container mx-auto px-4 py-16 -mt-16 relative z-20">
+            <div className="container mx-auto px-4 py-8 -mt-16 relative z-20">
+                <div className="flex justify-center mb-12">
+                    <div className="bg-white rounded-full p-1 shadow-md">
+                        <button
+                            onClick={() => setActiveTab('form')}
+                            className={`px-6 py-3 rounded-full text-lg font-medium transition-all ${activeTab === 'form' ? 'bg-sky-500 text-white' : 'text-gray-600 hover:text-sky-500'}`}
+                        >
+                            أرسل رسالة
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('info')}
+                            className={`px-6 py-3 rounded-full text-lg font-medium transition-all ${activeTab === 'info' ? 'bg-sky-500 text-white' : 'text-gray-600 hover:text-sky-500'}`}
+                        >
+                            معلومات التواصل
+                        </button>
+                    </div>
+                </div>
+
                 {activeTab === 'form' ? (
                     <motion.div
                         className="grid grid-cols-1 lg:grid-cols-2 gap-12"
@@ -158,10 +180,9 @@ export default function ContactPage() {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                     >
-                        
                         {/* نموذج التواصل */}
-                        <div className="bg-gray rounded-2xl shadow-xl p-8">
-                            <h2 className="text-3xl font-bold mb-6 text-white">أرسل لنا رسالة</h2>
+                        <div className="bg-white rounded-2xl shadow-xl p-8">
+                            <h2 className="text-3xl font-bold mb-6 text-gray-800">أرسل لنا رسالة</h2>
 
                             {submitSuccess && (
                                 <div className="bg-green-100 text-green-700 p-4 rounded-lg mb-6 flex items-center">
@@ -172,9 +193,9 @@ export default function ContactPage() {
                                 </div>
                             )}
 
-                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-10">
+                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                                 <div>
-                                    <label htmlFor="name" className="block text-white font-medium mb-2">
+                                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
                                         الاسم الكامل
                                     </label>
                                     <input
@@ -184,14 +205,14 @@ export default function ContactPage() {
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition opacity-0 transform translate-y-4"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-300 focus:border-sky-300 transition opacity-0 transform translate-y-4"
                                         placeholder="أدخل اسمك"
                                         style={{ transition: 'opacity 0.5s, transform 0.5s' }}
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" className="block text-white font-medium mb-3">
+                                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
                                         البريد الإلكتروني
                                     </label>
                                     <input
@@ -201,14 +222,14 @@ export default function ContactPage() {
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition opacity-0 transform translate-y-4"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-300 focus:border-sky-300 transition opacity-0 transform translate-y-4"
                                         placeholder="أدخل بريدك الإلكتروني"
                                         style={{ transition: 'opacity 0.5s, transform 0.5s' }}
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="subject" className="block text-white font-medium mb-2">
+                                    <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
                                         الموضوع
                                     </label>
                                     <input
@@ -218,14 +239,14 @@ export default function ContactPage() {
                                         value={formData.subject}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition opacity-0 transform translate-y-4"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-300 focus:border-sky-300 transition opacity-0 transform translate-y-4"
                                         placeholder="موضوع الرسالة"
                                         style={{ transition: 'opacity 0.5s, transform 0.5s' }}
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="message" className="block text-white font-medium mb-2">
+                                    <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
                                         الرسالة
                                     </label>
                                     <textarea
@@ -235,7 +256,7 @@ export default function ContactPage() {
                                         onChange={handleChange}
                                         required
                                         rows={5}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition opacity-0 transform translate-y-4"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-300 focus:border-sky-300 transition opacity-0 transform translate-y-4"
                                         placeholder="أدخل رسالتك"
                                         style={{ transition: 'opacity 0.5s, transform 0.5s' }}
                                     ></textarea>
@@ -244,7 +265,7 @@ export default function ContactPage() {
                                 <motion.button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-4 rounded-lg font-bold text-lg hover:opacity-90 transition flex items-center justify-center"
+                                    className="w-full bg-gradient-to-r from-sky-500 to-sky-700 text-white py-4 rounded-lg font-bold text-lg hover:opacity-90 transition flex items-center justify-center"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
@@ -262,14 +283,14 @@ export default function ContactPage() {
 
                         {/* معلومات التواصل */}
                         <div>
-                            <div className="bg-white/30 from-blue-50 to-indigo-30 opacity-60 rounded-2xl p-8 h-full">
-                                <h2 className="text-3xl font-bold mb-6 text-800">طرق التواصل الأخرى</h2>
+                            <div className="bg-white rounded-2xl shadow-xl p-8 h-full">
+                                <h2 className="text-3xl font-bold mb-6 text-gray-800">طرق التواصل الأخرى</h2>
 
                                 <div className="space-y-6">
                                     {contactInfo.map((item, index) => (
                                         <motion.div
                                             key={index}
-                                            className="bg-white p-6 rounded-xl shadow-md flex items-start border border-gray-100"
+                                            className="bg-sky-50 p-6 rounded-xl border border-sky-100 flex items-start"
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: index * 0.1 }}
@@ -284,7 +305,7 @@ export default function ContactPage() {
                                                 <p className="text-gray-500 text-sm mb-3">{item.description}</p>
                                                 <a
                                                     href={item.link}
-                                                    className="text-blue-600 font-medium hover:underline inline-flex items-center"
+                                                    className="text-sky-600 font-medium hover:underline inline-flex items-center"
                                                 >
                                                     {item.action}
                                                     <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,12 +319,12 @@ export default function ContactPage() {
 
                                 <div className="mt-10">
                                     <h3 className="font-bold text-lg text-gray-800 mb-4">تواصل معنا عبر</h3>
-                                    <div className="flex gap-3">
+                                    <div className="flex gap-3 flex-wrap">
                                         {socialMedia.map((social, index) => (
                                             <motion.a
                                                 key={index}
                                                 href={social.link}
-                                                className={`${social.color} w-12 h-12 rounded-full flex items-center justify-center text-white text-xl`}
+                                                className={`${social.color} w-12 h-12 rounded-full flex items-center justify-center text-white text-xl transition-colors`}
                                                 whileHover={{ y: -5 }}
                                                 whileTap={{ scale: 0.9 }}
                                                 aria-label={social.name}
@@ -326,14 +347,14 @@ export default function ContactPage() {
                     >
                         {/* معلومات التواصل */}
                         <div>
-                            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 h-full">
+                            <div className="bg-white rounded-2xl shadow-xl p-8 h-full">
                                 <h2 className="text-3xl font-bold mb-8 text-gray-800">معلومات التواصل</h2>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                                     {contactInfo.map((item, index) => (
                                         <motion.div
                                             key={index}
-                                            className="bg-white p-6 rounded-xl shadow-md flex flex-col border border-gray-100"
+                                            className="bg-sky-50 p-6 rounded-xl border border-sky-100 flex flex-col"
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: index * 0.1 }}
@@ -349,7 +370,7 @@ export default function ContactPage() {
                                             <p className="text-gray-500 text-sm mb-4">{item.description}</p>
                                             <a
                                                 href={item.link}
-                                                className="mt-auto text-blue-600 font-medium hover:underline inline-flex items-center"
+                                                className="mt-auto text-sky-600 font-medium hover:underline inline-flex items-center"
                                             >
                                                 {item.action}
                                                 <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -362,10 +383,10 @@ export default function ContactPage() {
 
                                 <div className="mt-8">
                                     <h3 className="font-bold text-lg text-gray-800 mb-4">ساعات العمل</h3>
-                                    <div className="bg-white rounded-xl p-5 shadow-sm">
+                                    <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
                                         <div className="flex justify-between py-3 border-b border-gray-100">
                                             <span>السبت - الخميس</span>
-                                            <span className="font-medium">9:00 صباحاً - 5:00 مساءً</span>
+                                            <span className="font-medium text-gray-700">9:00 صباحاً - 5:00 مساءً</span>
                                         </div>
                                         <div className="flex justify-between py-3">
                                             <span>الجمعة </span>
@@ -381,34 +402,34 @@ export default function ContactPage() {
                             <div className="bg-white rounded-2xl shadow-xl p-8">
                                 <h2 className="text-3xl font-bold mb-6 text-gray-800">موقعنا على الخريطة</h2>
 
-                                <div className="aspect-video bg-gray-200 rounded-xl overflow-hidden relative">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600 opacity-20"></div>
+                                <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden relative border border-gray-200">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-sky-100 to-sky-200 opacity-60"></div>
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <div className="text-center">
-                                            <div className="text-5xl mb-4">📍</div>
-                                            <p className="text-xl font-bold">صنعاء اليمن</p>
+                                            <div className="text-5xl mb-4 text-sky-500">📍</div>
+                                            <p className="text-xl font-bold text-gray-800">صنعاء اليمن</p>
                                             <p className="text-gray-600 mt-2">شارع الملك فهد، مبنى رقم 123</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="mt-6">
-                                    <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition flex items-center">
+                                    <button className="bg-sky-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-sky-600 transition flex items-center justify-center">
                                         <FaMapMarkerAlt className="ml-2" />
                                         الحصول على الاتجاهات
                                     </button>
                                 </div>
                             </div>
 
-                            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
+                            <div className="bg-white rounded-2xl shadow-xl p-8">
                                 <h2 className="text-3xl font-bold mb-6 text-gray-800">تواصل معنا عبر</h2>
 
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     {socialMedia.map((social, index) => (
                                         <motion.a
                                             key={index}
                                             href={social.link}
-                                            className={`${social.color} p-4 rounded-xl text-white flex items-center`}
+                                            className={`${social.color} p-4 rounded-xl text-white flex items-center transition-colors`}
                                             whileHover={{ y: -5 }}
                                             whileTap={{ scale: 0.95 }}
                                         >
@@ -417,7 +438,7 @@ export default function ContactPage() {
                                             </div>
                                             <div>
                                                 <div className="font-medium">{social.name}</div>
-                                                <div className="text-sm opacity-80">تابعنا على {social.name}</div>
+                                                <div className="text-sm opacity-90">تابعنا على {social.name}</div>
                                             </div>
                                         </motion.a>
                                     ))}
@@ -429,11 +450,11 @@ export default function ContactPage() {
             </div>
 
             {/* قسم الأسئلة الشائعة */}
-            <div className="bg-50 ">
+            <div className="bg-sky-50 py-16 mt-16">
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-3xl font-bold text-800 mb-4">أسئلة شائعة</h2>
-                        <p className="text-600">إجابات على أكثر الأسئلة شيوعاً حول التواصل معنا</p>
+                        <h2 className="text-3xl font-bold text-gray-800 mb-4">أسئلة شائعة</h2>
+                        <p className="text-gray-600">إجابات على أكثر الأسئلة شيوعاً حول التواصل معنا</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -470,6 +491,23 @@ export default function ContactPage() {
                     </div>
                 </div>
             </div>
+
+            {/* الفوتر */}
+            <footer className="bg-sky-800 text-white py-12">
+                <div className="container mx-auto px-4 text-center">
+                    <div className="text-4xl mb-4">📱</div>
+                    <h3 className="text-2xl font-bold mb-4">هل لديك سؤال آخر؟</h3>
+                    <p className="max-w-2xl mx-auto mb-6 text-sky-100">
+                        فريق الدعم لدينا مستعد للإجابة على جميع استفساراتك على مدار الساعة
+                    </p>
+                    <button className="bg-white text-sky-700 px-8 py-3 rounded-full font-bold hover:bg-sky-100 transition">
+                        تواصل معنا الآن
+                    </button>
+                    <div className="mt-8 text-sky-200">
+                        <p>© 2023 شركة التواصل الرقمي. جميع الحقوق محفوظة</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 }
