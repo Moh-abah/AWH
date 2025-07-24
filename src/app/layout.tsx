@@ -6,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata = {
   title: " تطوير برمجيات متكاملة |  افاق العالم الرقمي",
-  description: "شركة AWH لتطوير البرمجيات، تقدم حلولاً احترافية في تطوير مواقع الويب، تطبيقات الجوال بـ Next.js وFlutter، لوحات تحكم Power BI، وخدمات تقنية متكاملة تلبي احتياجات أعمالك.",
+  description: "شركة DWH لتطوير البرمجيات، تقدم حلولاً احترافية في تطوير مواقع الويب، تطبيقات الجوال بـ Next.js وFlutter، لوحات تحكم Power BI، وخدمات تقنية متكاملة تلبي احتياجات أعمالك.",
   keywords: `
 تطوير برمجيات,
 تطوير مواقع ويب,
@@ -101,7 +101,7 @@ export const metadata = {
 تطوير تطبيقات واجهات استخدام عربية,
 تصميم وتطوير تطبيقات موبايل ذكية,
 `,
-  authors: [{ name: "شركة AWH لتطوير البرمجيات" }],
+  authors: [{ name: "شركة DWH لتطوير البرمجيات" }],
   viewport: { width: 'device-width', initialScale: 1, maximumScale: 1, userScalable: "no" },
   robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   openGraph: {
@@ -116,14 +116,14 @@ export const metadata = {
         url: "https://awh-ma.vercel.app/logo.png",
         width: 1200,
         height: 630,
-        alt: "شركة AWH – تطوير برمجيات",
+        alt: "شركة DWH – تطوير برمجيات",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "شركة AWH | مطور برمجيات محترف",
-    description: "شركة AWH تقدم حلولاً تقنية متقدمة ومخصصة لاحتياجات عملك.",
+    title: "شركة DWH | مطور برمجيات محترف",
+    description: "شركة DWH تقدم حلولاً تقنية متقدمة ومخصصة لاحتياجات عملك.",
     creator: "@YourTwitterHandle",
     images: ["https://awh-ma.vercel.app/twitter-image.jpg"],
   },
