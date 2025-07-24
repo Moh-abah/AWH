@@ -73,7 +73,7 @@ export default function ServicesList() {
             {services.map(({ slug, title, description, Icon, iconColorClass }) => (
                 <motion.div
                     key={slug}
-                    variants={item}
+                    // variants={item}
                     whileHover={{
                         y: -15,
                         scale: 1.03,

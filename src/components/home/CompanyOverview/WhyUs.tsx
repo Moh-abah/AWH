@@ -29,7 +29,7 @@ const items = [
 ];
 
 export default function WhyUs() {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
         <section className="py-20 px-6 bg-gradient-to-br from-sky-50 to-white relative overflow-hidden">

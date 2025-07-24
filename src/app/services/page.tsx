@@ -504,7 +504,7 @@ export default function ServicesPage() {
                                     {/* Main Content */}
                                     <div className="lg:col-span-3 space-y-16">
                                         {/* نظرة عامة */}
-                                        <section id="overview" ref={el => sectionRefs.current.overview = el} className="scroll-mt-24">
+                                        <section id="overview" ref={el => { sectionRefs.current.overview = el }} className="scroll-mt-24">
                                             <div className="bg-white p-6 rounded-2xl border border-sky-200 shadow-sm">
                                                 <h3 className="text-2xl font-bold text-sky-600 mb-4">نظرة عامة</h3>
                                                 <p className="text-gray-700 leading-relaxed">{activeService.overview}</p>
@@ -512,7 +512,7 @@ export default function ServicesPage() {
                                         </section>
 
                                         {/* مميزاتنا */}
-                                        <section id="features" ref={el => sectionRefs.current.features = el} className="scroll-mt-24">
+                                        <section id="features" ref={el => { sectionRefs.current.features = el }} className="scroll-mt-24">
                                             <h3 className="text-2xl font-bold text-sky-600 mb-6">مميزاتنا</h3>
                                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                                 {activeService.features.map((f, i) => (
@@ -532,7 +532,7 @@ export default function ServicesPage() {
                                         </section>
 
                                         {/* كيف نعمل */}
-                                        <section id="process" ref={el => sectionRefs.current.process = el} className="scroll-mt-24">
+                                        <section id="process" ref={el => { sectionRefs.current.process = el }} className="scroll-mt-24">
                                             <h3 className="text-2xl font-bold text-sky-600 mb-6">كيف نعمل</h3>
                                             <div className="relative pl-8 before:absolute before:left-4 before:top-6 before:bottom-6 before:w-0.5 before:bg-sky-300">
                                                 {activeService.process.map((p, i) => (
@@ -553,7 +553,7 @@ export default function ServicesPage() {
                                         </section>
 
                                         {/* الأسئلة الشائعة */}
-                                        <section id="faqs" ref={el => sectionRefs.current.faqs = el} className="scroll-mt-24">
+                                        <section id="faqs" ref={el => { sectionRefs.current.faqs = el }} className="scroll-mt-24">
                                             <h3 className="text-2xl font-bold text-sky-600 mb-6">الأسئلة الشائعة</h3>
                                             <div className="space-y-4">
                                                 {activeService.faqs.map((q, i) => (

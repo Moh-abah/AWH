@@ -128,11 +128,12 @@ const features = [
 ];
 
 export default function FeaturesGrid() {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
-    const [expandedCard, setExpandedCard] = useState(null);
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    
     const [activeFilter, setActiveFilter] = useState('all');
     const [filteredFeatures, setFilteredFeatures] = useState(features);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -156,7 +157,7 @@ export default function FeaturesGrid() {
         }
     }, [activeFilter]);
 
-    const handleCardClick = (id) => {
+    const handleCardClick = (id: number) => {
         if (expandedCard === id) {
             setExpandedCard(null);
         } else {

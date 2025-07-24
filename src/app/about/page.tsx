@@ -164,10 +164,10 @@ export default function About() {
                     transition={{ delay: 0.8, duration: 0.6 }}
                 >
                     {[
-                        { value: "200+", label: "مشروع ناجح", icon: <FaMedal className="text-2xl text-amber-400" /> },
-                        { value: "50+", label: "عميل راضي", icon: <FaUsers className="text-2xl text-sky-400" /> },
-                        { value: "98%", label: "رضا العملاء", icon: <FaChartLine className="text-2xl text-emerald-400" /> },
-                        { value: "5+", label: "سنوات خبرة", icon: <FaRocket className="text-2xl text-purple-400" /> }
+                        { value: "17+", label: "مشروع ناجح", icon: <FaMedal className="text-2xl text-amber-400" /> },
+                        { value: "10+", label: "عميل راضي", icon: <FaUsers className="text-2xl text-sky-400" /> },
+                        { value: "99%", label: "رضا العملاء", icon: <FaChartLine className="text-2xl text-emerald-400" /> },
+                        { value: "3+", label: "سنوات خبرة", icon: <FaRocket className="text-2xl text-purple-400" /> }
                     ].map((item, index) => (
                         <motion.div
                             key={index}
@@ -176,7 +176,7 @@ export default function About() {
                             transition={{ duration: 0.3 }}
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.9 + index * 0.1 }}
+                            // transition={{ delay: 0.9 + index * 0.1 }}
                         >
                             <div className="flex items-center justify-between mb-4">
                                 <div className="text-4xl font-bold text-white">{item.value}</div>
