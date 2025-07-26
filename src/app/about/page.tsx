@@ -61,7 +61,7 @@ export default function About() {
                         whileTap={{ scale: 0.95 }}
                     >
                         <FaRocket className="text-xl" />
-                        <span className="font-bold">AWH</span>
+                        <span className="font-bold">DWH</span>
                     </motion.div>
 
                     <motion.h1
@@ -74,7 +74,7 @@ export default function About() {
                     </motion.h1>
 
                     <motion.p
-                        className="text-xl text-sky-200 max-w-3xl mx-auto"
+                        className="text-xl text-sky-200 max-w-3xl mx-auto py-5"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4, duration: 0.6 }}
@@ -92,8 +92,8 @@ export default function About() {
                 >
                     <div className="relative flex-shrink-0">
                         <motion.img
-                            src="/images/logo.png"
-                            alt="شعار AWH"
+                            src="/images/logo1.png"
+                            alt="شعار DWH"
                             className="rounded-2xl shadow-xl w-full max-w-md"
                             loading="lazy"
                             whileHover={{ scale: 1.03 }}
@@ -312,35 +312,7 @@ export default function About() {
                     <Achievements />
                 </motion.div>
 
-                {/* قسم تواصل معنا */}
-                <motion.div
-                    className="bg-gradient-to-r from-sky-200 to-indigo-900 rounded-3xl p-10 text-center relative overflow-hidden "
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 2.0 }}
-                >
-                    <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full filter blur-[80px]"></div>
-                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-900/40 rounded-full filter blur-[100px]"></div>
-
-                    <div className="relative z-10 max-w-3xl mx-auto ">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">مستعد لبدء مشروعك معنا؟</h2>
-                        <p className="text-xl text-sky-100 mb-10">
-                            تواصل معنا اليوم لتحويل رؤيتك إلى واقع رقمي متميز
-                        </p>
-
-                        <motion.button
-                            className="bg-white text-blue-900 font-bold py-4 px-12 rounded-full hover:opacity-90 transition-opacity relative overflow-hidden group text-lg"
-                            whileHover={{
-                                scale: 1.05,
-                                boxShadow: "0 10px 25px rgba(255, 255, 255, 0.3)"
-                            }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <span className="relative z-10">تواصل معنا الآن</span>
-                            <span className="absolute inset-0 bg-gradient-to-r from-sky-100 to-indigo-100 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        </motion.button>
-                    </div>
-                </motion.div>
+               
             </div>
         </div>
     );

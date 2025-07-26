@@ -6,7 +6,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/f
 
 export default function Footer() {
     return (
-        <footer className="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-900 text-gray-300 pt-14 pb-8">
+        <footer className="bg-blue-900/30 text-gray-300 pt-14 pb-8">
             <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
 
                 {/* 1. شعار + وصف */}

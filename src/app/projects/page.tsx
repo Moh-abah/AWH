@@ -224,8 +224,9 @@ export default function ProjectsPage() {
                 </motion.div>
 
                 {/* عناصر التحكم */}
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
-                    <div className="flex flex-wrap gap-4">
+                <div className="flex flex-col gap-6 mb-12 md:flex-row md:justify-between md:items-center">
+                    {/* الأقسام (الفئات) */}
+                    <div className=" hidden sm:flex flex-wrap gap-4 justify-center md:justify-start">
                         {categories.map((category) => (
                             <CategoryCard
                                 key={category.id}
@@ -238,12 +239,14 @@ export default function ProjectsPage() {
                         ))}
                     </div>
 
-                    <div className="flex items-center gap-4">
-                        <div className="relative">
+                    {/* أدوات التصفية والعرض */}
+                    <div className="flex flex-col gap-4 items-center w-full md:flex-row md:justify-end md:w-auto">
+                        {/* قائمة الفرز */}
+                        <div className="relative w-full md:w-auto">
                             <select
                                 value={sortBy}
                                 onChange={(e) => setSortBy(e.target.value)}
-                                className="bg-white border border-sky-200 rounded-xl py-3 pl-4 pr-10 appearance-none focus:outline-none focus:ring-2 focus:ring-sky-300 text-gray-700"
+                                className="w-full bg-white border border-sky-200 rounded-xl py-3 pl-4 pr-10 appearance-none focus:outline-none focus:ring-2 focus:ring-sky-300 text-gray-700"
                             >
                                 <option value="newest">الأحدث</option>
                                 <option value="oldest">الأقدم</option>
@@ -255,7 +258,8 @@ export default function ProjectsPage() {
                             </div>
                         </div>
 
-                        <div className="flex bg-white rounded-xl overflow-hidden border border-sky-200">
+                        {/* زر العرض الشبكي أو القائمي */}
+                        <div className="hidden sm:flex bg-white rounded-xl overflow-hidden border border-sky-200">
                             <button
                                 onClick={() => setIsGrid(true)}
                                 className={`p-3 ${isGrid ? 'bg-sky-50' : 'hover:bg-sky-50'}`}
@@ -289,60 +293,141 @@ export default function ProjectsPage() {
                         <p className="text-gray-500 mt-2">جرب تغيير كلمات البحث أو الفئة المحددة</p>
                     </div>
                 ) : isGrid ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {filteredProjects.map((project, index) => (
-                            <ProjectCard key={project.id} project={project} index={index} />
-                        ))}
-                    </div>
-                ) : (
-                    <div className="space-y-8">
-                        {filteredProjects.map((project, index) => (
-                            <motion.div
-                                key={project.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                className="flex flex-col md:flex-row gap-6 bg-white backdrop-blur-sm rounded-2xl p-6 border border-sky-100 hover:border-sky-300 transition-all shadow-sm hover:shadow-md"
-                            >
-                                <div className="md:w-1/3 aspect-video bg-sky-50 rounded-xl overflow-hidden relative border border-sky-100">
-                                    <Image
-                                        src={project.gallery[0]?.url || '/images/default.jpg'}
-                                        alt={project.gallery[0]?.caption || project.title}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
-                                <div className="md:w-2/3">
-                                    <div className="flex flex-wrap gap-2 mb-4">
-                                        <span
-                                            className={`bg-gradient-to-r ${getCategoryColor(project.category)} text-white px-3 py-1 rounded-full text-sm`}
-                                        >
-                                            {project.category === 'web' && 'موقع ويب'}
-                                            {project.category === 'mobile' && 'تطبيق جوال'}
-                                            {project.category === 'hosting' && 'استضافة وسحابة'}
-                                            {project.category === 'identity' && 'هوية بصرية'}
-                                            {project.category === 'social' && 'سوشيال ميديا'}
-                                            {project.category === 'digitalMarketing' && 'تسويق إلكتروني'}
-                                        </span>
-                                        <span className="bg-sky-100 text-sky-700 px-3 py-1 rounded-full text-sm">{project.year}</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {filteredProjects.map((project, index) => {
+                            const extraTechs = project.technologies.length - 3;
+
+                            return (
+                                <div
+                                    key={project.id}
+                                    className="bg-sky-50 rounded-2xl shadow-sm border border-sky-100 hover:border-sky-300 p-4 transition-all flex flex-col"
+                                >
+                                    <div className="aspect-video bg-white rounded-xl overflow-hidden relative border border-sky-100 mb-4">
+                                        <Image
+                                            src={project.gallery[0]?.url || '/images/default.jpg'}
+                                            alt={project.gallery[0]?.caption || project.title}
+                                            fill
+                                            className="object-cover"
+                                        />
                                     </div>
 
-                                    <h3 className="text-2xl font-bold mb-3 text-gray-800">{project.title}</h3>
-                                    <p className="text-gray-600 mb-6">{project.description}</p>
-                                    <div className="flex flex-wrap gap-2 mb-6">
-                                        {project.technologies.slice(0, 4).map((tech, i) => (
-                                            <span key={i} className="bg-sky-50 text-sky-700 px-3 py-1 rounded-full text-sm border border-sky-100">
+                                    <h3 className="text-base font-bold mb-1 text-gray-800 truncate">
+                                        {project.title}
+                                    </h3>
+
+                                    <p className="text-gray-600 text-sm line-clamp-2 mb-2">
+                                        {project.description}
+                                        <Link href={`/projects/${project.id}`} className="text-sky-500 ml-1">
+                                            قراءة المزيد
+                                        </Link>
+                                    </p>
+
+                                    <div className="flex flex-wrap gap-1 mb-3">
+                                        {project.technologies.slice(0, 3).map((tech, i) => (
+                                            <span
+                                                key={i}
+                                                className="bg-gray-800 text-white text-[10px] px-2 py-0.5 rounded-full"
+                                            >
                                                 {tech}
                                             </span>
                                         ))}
+                                        {extraTechs > 0 && (
+                                            <span className="bg-gray-800 text-white text-[10px] px-2 py-0.5 rounded-full">
+                                                +{extraTechs}
+                                            </span>
+                                        )}
                                     </div>
-                                    <button className="flex items-center gap-2 text-sky-600 group font-medium">
+
+                                    <Link
+                                        href={`/projects/${project.id}`}
+                                        className="mt-auto text-sky-600 text-sm flex items-center gap-1 group font-medium"
+                                    >
                                         <span>عرض التفاصيل</span>
                                         <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                                    </button>
+                                    </Link>
                                 </div>
-                            </motion.div>
-                        ))}
+                            );
+                        })}
+                    </div>
+                ) : (
+                    <div className="space-y-6">
+                        {filteredProjects.map((project, index) => {
+                            const extraTechs = project.technologies.length - 3;
+
+                            return (
+                                <motion.div
+                                    key={project.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="flex flex-col md:flex-row gap-5 bg-sky-50 backdrop-blur-sm rounded-2xl p-5 border border-sky-100 hover:border-sky-300 transition-all shadow-sm hover:shadow-md"
+                                >
+                                    <div className="md:w-1/3 aspect-video bg-white rounded-xl overflow-hidden relative border border-sky-100">
+                                        <Image
+                                            src={project.gallery[0]?.url || '/images/default.jpg'}
+                                            alt={project.gallery[0]?.caption || project.title}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+
+                                    <div className="md:w-2/3 mt-4 md:mt-0">
+                                        <div className="flex flex-wrap gap-2 mb-2">
+                                            <span
+                                                className={`bg-gradient-to-r ${getCategoryColor(project.category)} text-white px-3 py-1 rounded-full text-sm`}
+                                            >
+                                                {{
+                                                    web: 'موقع ويب',
+                                                    mobile: 'تطبيق جوال',
+                                                    hosting: 'استضافة وسحابة',
+                                                    identity: 'هوية بصرية',
+                                                    social: 'سوشيال ميديا',
+                                                    digitalMarketing: 'تسويق إلكتروني',
+                                                }[project.category]}
+                                            </span>
+                                            <span className="bg-sky-100 text-sky-700 px-3 py-1 rounded-full text-sm">
+                                                {project.year}
+                                            </span>
+                                        </div>
+
+                                        <h3 className="text-base font-bold mb-1 text-gray-800">
+                                            {project.title}
+                                        </h3>
+
+                                        <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                                            {project.description}
+                                            <Link href={`/projects/${project.id}`} className="text-sky-500 ml-1">
+                                                قراءة المزيد
+                                            </Link>
+                                        </p>
+
+                                        <div className="flex flex-wrap gap-1 mb-4">
+                                            {project.technologies.slice(0, 3).map((tech, i) => (
+                                                <span
+                                                    key={i}
+                                                    className="bg-gray-800 text-white text-[10px] px-2 py-0.5 rounded-full"
+                                                >
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                            {extraTechs > 0 && (
+                                                <span className="bg-gray-800 text-white text-[10px] px-2 py-0.5 rounded-full">
+                                                    +{extraTechs}
+                                                </span>
+                                            )}
+                                        </div>
+
+                                        <Link
+                                            href={`/projects/${project.id}`}
+                                            className="text-sky-600 text-sm flex items-center gap-1 group font-medium"
+                                        >
+                                            <span>عرض التفاصيل</span>
+                                            <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                                        </Link>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 )}
 

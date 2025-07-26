@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaPaperPlane, FaWhatsapp, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaPaperPlane, FaWhatsapp, FaTwitter, FaLinkedin, FaInstagram, FaTiktok } from 'react-icons/fa';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import ParticleBackground from '@/styles/ParticleBackground';
 
@@ -44,7 +44,7 @@ export default function ContactPage() {
         {
             icon: <FaPhone className="text-blue-500" />,
             title: 'الهاتف',
-            content: '+967 780090882',
+            content: '+966 555864375',
             description: 'اتصل بنا خلال ساعات العمل',
             action: 'اتصل الآن',
             link: 'tel:+967780090882'
@@ -52,10 +52,10 @@ export default function ContactPage() {
         {
             icon: <FaEnvelope className="text-green-500" />,
             title: 'البريد الإلكتروني',
-            content: 'info@awh.com',
+            content: 'digitalworldhorizon@gmail.com',
             description: 'ارسل لنا استفسارك على البريد',
             action: 'ارسل بريد',
-            link: 'mailto:awakewordhorizon@gmail.com'
+            link: 'mailto:digitalworldhorizon@gmail.com'
         },
         {
             icon: <FaMapMarkerAlt className="text-red-500" />,
@@ -68,7 +68,7 @@ export default function ContactPage() {
         {
             icon: <FaClock className="text-purple-500" />,
             title: 'ساعات العمل',
-            content: 'الأحد - الخميس: 9 صباحاً - 5 مساءً',
+            content: 'الأحد - الخميس: 9 صباحاً - 8 مساءً',
             description: 'الجمعة والسبت إجازة',
             action: 'جدولة موعد',
             link: '#'
@@ -77,9 +77,10 @@ export default function ContactPage() {
 
     const socialMedia = [
         { icon: <FaWhatsapp />, name: 'واتساب', link: '#', color: 'bg-green-500' },
-        { icon: <FaTwitter />, name: 'تويتر', link: '#', color: 'bg-blue-400' },
-        { icon: <FaLinkedin />, name: 'لينكد إن', link: '#', color: 'bg-blue-600' },
-        { icon: <FaInstagram />, name: 'إنستغرام', link: '#', color: 'bg-gradient-to-r from-purple-500 to-pink-500' }
+        { icon: <FaTwitter />, name: 'تويتر', link: 'https://x.com/DigWorldHorizon/', color: 'bg-blue-400' },
+        { icon: <FaLinkedin />, name: 'لينكد إن', link: 'https://www.linkedin.com/company/digitalworldhorizon/', color: 'bg-blue-600' },
+        { icon: <FaInstagram />, name: 'إنستغرام', link: 'https://www.instagram.com/digitalworldhorizon/?utm_source=ig_web_button_share_sheet', color: 'bg-gradient-to-r from-purple-500 to-pink-500' },
+        { icon: <FaTiktok />, name: 'تيك توك', link: 'http://www.tiktok.com/@digitalworldhorizon', color: 'bg-gray-500' },
     ];
 
     useEffect(() => {
@@ -136,7 +137,7 @@ export default function ContactPage() {
             <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-38">
                 <div className="text-center max-w-3xl mx-auto">
                     <motion.h1
-                        className="text-4xl md:text-6xl font-bold mb-6"
+                        className="text-4xl md:text-6xl font-bold mb-6 text-white "
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
@@ -144,7 +145,7 @@ export default function ContactPage() {
                         تواصل معنا
                     </motion.h1>
                     <motion.p
-                        className="text-xl mb-8 text-gray-600"
+                        className="text-xl mb-8 text-white"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2, duration: 0.5 }}
@@ -157,16 +158,16 @@ export default function ContactPage() {
             {/* المحتوى الرئيسي */}
             <div className="container mx-auto px-4 py-8 -mt-16 relative z-20">
                 <div className="flex justify-center mb-12">
-                    <div className="bg-white rounded-full p-1 shadow-md">
+                    <div className="bg-sky-400 border border-black/40 rounded-full p-1 shadow-md">
                         <button
                             onClick={() => setActiveTab('form')}
-                            className={`px-6 py-3 rounded-full text-lg font-medium transition-all ${activeTab === 'form' ? 'bg-sky-500 text-white' : 'text-gray-600 hover:text-sky-500'}`}
+                            className={`px-6 py-3  rounded-full text-lg font-medium transition-all ${activeTab === 'form' ? 'border border-black/20 bg-sky-500 text-white ' : 'text-gray-600 hover:text-black'}`}
                         >
                             أرسل رسالة
                         </button>
                         <button
                             onClick={() => setActiveTab('info')}
-                            className={`px-6 py-3 rounded-full text-lg font-medium transition-all ${activeTab === 'info' ? 'bg-sky-500 text-white' : 'text-gray-600 hover:text-sky-500'}`}
+                            className={`px-6 py-3 rounded-full text-lg font-medium transition-all ${activeTab === 'info' ? 'border border-black/20 bg-sky-500 text-white' : 'text-gray-600 hover:text-black'}`}
                         >
                             معلومات التواصل
                         </button>
@@ -175,13 +176,13 @@ export default function ContactPage() {
 
                 {activeTab === 'form' ? (
                     <motion.div
-                        className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+                        className="grid grid-cols-1 lg:grid-cols-2 gap-12 "
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                     >
                         {/* نموذج التواصل */}
-                        <div className="bg-white rounded-2xl shadow-xl p-8">
+                        <div className="bg-white rounded-2xl shadow-xl p-8 border border-black  ">
                             <h2 className="text-3xl font-bold mb-6 text-gray-800">أرسل لنا رسالة</h2>
 
                             {submitSuccess && (
@@ -195,7 +196,7 @@ export default function ContactPage() {
 
                             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                                 <div>
-                                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                                    <label htmlFor="name" className="block text-gray-700 font-medium mb-2 ">
                                         الاسم الكامل
                                     </label>
                                     <input
@@ -205,9 +206,9 @@ export default function ContactPage() {
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-300 focus:border-sky-300 transition opacity-0 transform translate-y-4"
+                                        className="w-full px-4 py-3 border border-gray-300  rounded-lg focus:ring-2 focus:ring-sky-300 focus:border-sky-300 transition opacity-0 transform translate-y-4"
                                         placeholder="أدخل اسمك"
-                                        style={{ transition: 'opacity 0.5s, transform 0.5s' }}
+                                       
                                     />
                                 </div>
 
@@ -224,7 +225,7 @@ export default function ContactPage() {
                                         required
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-300 focus:border-sky-300 transition opacity-0 transform translate-y-4"
                                         placeholder="أدخل بريدك الإلكتروني"
-                                        style={{ transition: 'opacity 0.5s, transform 0.5s' }}
+                                       
                                     />
                                 </div>
 
@@ -241,7 +242,7 @@ export default function ContactPage() {
                                         required
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-300 focus:border-sky-300 transition opacity-0 transform translate-y-4"
                                         placeholder="موضوع الرسالة"
-                                        style={{ transition: 'opacity 0.5s, transform 0.5s' }}
+                                      
                                     />
                                 </div>
 
@@ -265,7 +266,7 @@ export default function ContactPage() {
                                 <motion.button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full bg-gradient-to-r from-sky-500 to-sky-700 text-white py-4 rounded-lg font-bold text-lg hover:opacity-90 transition flex items-center justify-center"
+                                    className="w-full bg-gradient-to-r from-sky-400 to-sky-700 text-white py-4 rounded-lg font-bold text-lg hover:opacity-90 transition flex items-center justify-center"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
@@ -327,9 +328,10 @@ export default function ContactPage() {
                                                 className={`${social.color} w-12 h-12 rounded-full flex items-center justify-center text-white text-xl transition-colors`}
                                                 whileHover={{ y: -5 }}
                                                 whileTap={{ scale: 0.9 }}
-                                                aria-label={social.name}
+                                                aria-label={social.name }
                                             >
                                                 {social.icon}
+                                                
                                             </motion.a>
                                         ))}
                                     </div>
@@ -347,14 +349,14 @@ export default function ContactPage() {
                     >
                         {/* معلومات التواصل */}
                         <div>
-                            <div className="bg-white rounded-2xl shadow-xl p-8 h-full">
+                                <div className="bg-white rounded-2xl shadow-xl p-8 h-full border border-black">
                                 <h2 className="text-3xl font-bold mb-8 text-gray-800">معلومات التواصل</h2>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 ">
                                     {contactInfo.map((item, index) => (
                                         <motion.div
                                             key={index}
-                                            className="bg-sky-50 p-6 rounded-xl border border-sky-100 flex flex-col"
+                                            className="bg-sky-50 p-6 rounded-xl border border-black/20 flex flex-col "
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: index * 0.1 }}
@@ -363,6 +365,7 @@ export default function ContactPage() {
                                             <div className="flex items-start mb-4">
                                                 <div className="text-2xl mr-3">
                                                     {item.icon}
+                                                    item
                                                 </div>
                                                 <h3 className="font-bold text-lg text-gray-800">{item.title}</h3>
                                             </div>
@@ -429,16 +432,17 @@ export default function ContactPage() {
                                         <motion.a
                                             key={index}
                                             href={social.link}
-                                            className={`${social.color} p-4 rounded-xl text-white flex items-center transition-colors`}
+                                            className={`${social.color} p-4 rounded-xl text-white text-bold flex items-center transition-colors`}
                                             whileHover={{ y: -5 }}
                                             whileTap={{ scale: 0.95 }}
                                         >
-                                            <div className="text-2xl mr-3">
+                                            <div className="text-5xl mr-3">
                                                 {social.icon}
+                                                
                                             </div>
                                             <div>
-                                                <div className="font-medium">{social.name}</div>
-                                                <div className="text-sm opacity-90">تابعنا على {social.name}</div>
+                                                <div className="font-medium mr-3">{social.name}</div>
+                                                <div className="text-sm opacity-90 mr-3">تابعنا على {social.name}</div>
                                             </div>
                                         </motion.a>
                                     ))}
@@ -492,22 +496,7 @@ export default function ContactPage() {
                 </div>
             </div>
 
-            {/* الفوتر */}
-            <footer className="bg-sky-800 text-white py-12">
-                <div className="container mx-auto px-4 text-center">
-                    <div className="text-4xl mb-4">📱</div>
-                    <h3 className="text-2xl font-bold mb-4">هل لديك سؤال آخر؟</h3>
-                    <p className="max-w-2xl mx-auto mb-6 text-sky-100">
-                        فريق الدعم لدينا مستعد للإجابة على جميع استفساراتك على مدار الساعة
-                    </p>
-                    <button className="bg-white text-sky-700 px-8 py-3 rounded-full font-bold hover:bg-sky-100 transition">
-                        تواصل معنا الآن
-                    </button>
-                    <div className="mt-8 text-sky-200">
-                        <p>© 2023 شركة التواصل الرقمي. جميع الحقوق محفوظة</p>
-                    </div>
-                </div>
-            </footer>
+            
         </div>
     );
 }

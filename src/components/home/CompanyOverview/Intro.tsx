@@ -17,7 +17,7 @@ export default function Intro() {
                 muted
                 playsInline
             >
-                <source src="/images/viddwh.mp4" type="video/mp4" />
+                <source src="/vid/viddwhhh.mp4" type="video/mp4" />
                 متصفحك لا يدعم تشغيل الفيديو.
             </video>
             {/* Overlay متدرج بدلاً من الأبيض الصلب */}
@@ -78,7 +78,7 @@ export default function Intro() {
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <p className="text-lg leading-relaxed text-blue-900/80 border-black/20">
+                        <p className="text-lg leading-relaxed text-white-900/80 border-black/20">
                             نحن مزوّد حلول رقمية متعددة، نقدم تصميم وتطوير مواقع ويب، متاجر إلكترونية، وتطبيقات أندرويد حديثة تساعد المشاريع على التوسع والظهور وجذب العملاء. كما نقدّم تصاميم جرافيكية فريدة ذات هوية بصرية مميّزة، إدارة سوشيال ميديا، وصنع إعلانات فعّالة ذات عائد مرتفع.
                         </p>
                     </motion.div>

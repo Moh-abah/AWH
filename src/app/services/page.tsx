@@ -268,11 +268,11 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
 
     return (
         <motion.div
-            className="mb-4 last:mb-0 border-b border-gray-700 pb-4"
+            className="mb-4 last:mb-0 border-b border-gray-700 pb-4 "
             whileHover={{ borderColor: "rgba(56, 189, 248, 0.5)" }}
         >
             <button
-                className="flex justify-between items-center w-full text-left text-lg font-medium text-white"
+                className="flex justify-between items-center w-full text-left text-lg font-medium text-sky-900"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span>{question}</span>
@@ -292,7 +292,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
                 }}
                 className="overflow-hidden"
             >
-                <p className="pt-3 text-blue-200">{answer}</p>
+                <p className="pt-3 text-sky-700">{answer}</p>
             </motion.div>
         </motion.div>
     );
@@ -555,10 +555,10 @@ export default function ServicesPage() {
                                         {/* الأسئلة الشائعة */}
                                         <section id="faqs" ref={el => { sectionRefs.current.faqs = el }} className="scroll-mt-24">
                                             <h3 className="text-2xl font-bold text-sky-600 mb-6">الأسئلة الشائعة</h3>
-                                            <div className="space-y-4">
+                                            <div className="space-y-4 ">
                                                 {activeService.faqs.map((q, i) => (
-                                                    <FAQItem key={i} question={q.question} answer={q.answer} />
-                                                ))}
+                                                    <FAQItem key={i} question={q.question} answer={q.answer }  />
+                                                )) }
                                             </div>
                                         </section>
                                     </div>

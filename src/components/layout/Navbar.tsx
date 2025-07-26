@@ -64,7 +64,7 @@ export default function Navbar() {
                         className="h-full w-auto rounded-full transition-transform duration-300 hover:scale-110 object-cover"
                     />
                     <span
-                        className={`text-2xl font-extrabold tracking-wide transition-colors duration-300 ${scrolled ? 'text-blue-700' : 'text-white'
+                        className={`text-2xl font-extrabold tracking-wide transition-colors duration-300 ${scrolled ? 'text-sky-200' : 'text-white'
                             }`}
                     >
                         DWH
@@ -72,7 +72,7 @@ export default function Navbar() {
                 </Link>
 
                 {/* desktop links */}
-                <nav className="hidden md:flex items-center gap-8 text-base font-semibold text-gray-700">
+                <nav className="hidden md:flex items-center gap-8 text-base font-semibold text-white">
                     {links.map((link) => (
                         <Link
                             key={link.href}
@@ -99,7 +99,7 @@ export default function Navbar() {
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-label="Toggle menu"
-                    className={`md:hidden z-50 focus:outline-none text-2xl transition-colors duration-300 ${scrolled ? 'text-blue-700' : 'text-white'
+                    className={`md:hidden z-50 focus:outline-none text-2xl transition-colors duration-300 ${scrolled ? 'text-white' : 'text-white'
                         }`}
                 >
                     {menuOpen ? '×' : '☰'}
@@ -122,7 +122,7 @@ export default function Navbar() {
                                     key={link.href}
                                     href={link.href}
                                     onClick={() => handleLinkClick(link.href)}
-                                    className={`block text-lg font-semibold transition-colors duration-200 ${activeLink === link.href ? 'text-blue-700' : 'text-gray-700'
+                                    className={`block text-lg font-semibold transition-colors duration-200 ${activeLink === link.href ? 'text-blue-900' : 'text-sky-200'
                                         }`}
                                 >
                                     {link.label}

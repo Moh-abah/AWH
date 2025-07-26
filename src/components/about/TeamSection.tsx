@@ -9,13 +9,13 @@ const teamMembers = [
     },
     {
         name: ' علي سليمان',
-        role: 'مثير تنفيذي لقسم تصمم جرافيك والتسويق الالكتروني  الكتروني ',
+        role: 'مدير تنفيذي لقسم تصمم جرافيك والتسويق الالكتروني  الكتروني ',
         photo: '/images/teams/alisuliman.jpg',
     },
     {
         name: ' شعيب المقرع ',
         role: ' مدير قسم العلاقات    ',
-        photo: '/images/teams/salah.jpg',
+        photo: '/images/teams/.jpg',
     },
     // {
     //     name: ' صلاح القاره',

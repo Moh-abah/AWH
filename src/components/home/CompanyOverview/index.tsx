@@ -8,9 +8,6 @@ import Workside from './workamazi';
 
 import WhyUs from './WhyUs';
 
-import CTA from '@/components/ui/CTA';
-import AnimatedBackground from '@/components/AnimatedBackground';
-
 export default function CompanyOverviews() {
     return (
         <section >
@@ -25,7 +22,7 @@ export default function CompanyOverviews() {
                 <WhyUs /> 
                 
                 
-                <CTA />
+                
                 
                 
           
