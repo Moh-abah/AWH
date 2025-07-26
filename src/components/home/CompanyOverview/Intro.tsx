@@ -7,10 +7,21 @@ export default function Intro() {
     return (
         <section
             className="relative bg-cover bg-center py-16 md:py-34 px-4 overflow-hidden "
-            style={{ backgroundImage: "url('/images/projects/nohba.jpg')" }}
+            
         >
+
+            <video
+                className="absolute inset-0 w-full h-full object-cover z-0"
+                autoPlay
+                loop
+                muted
+                playsInline
+            >
+                <source src="/vid/viddwh.mp4" type="video/mp4" />
+                متصفحك لا يدعم تشغيل الفيديو.
+            </video>
             {/* Overlay متدرج بدلاً من الأبيض الصلب */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-sky-500/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-sky-500/40"></div>
 
 
             {/* تأثيرات بصرية إضافية */}
@@ -42,7 +53,7 @@ export default function Intro() {
                 ))}
             </div>
 
-            <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16">
                 {/* النص والزر */}
                 <motion.div
                     className="space-y-6 text-white"
@@ -50,11 +61,7 @@ export default function Intro() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="inline-block bg-gradient-to-r from-sky-400 to-blue-900 p-1 rounded-full mb-6">
-                        <div className="bg-white rounded-full p-3">
-                            <FaRocket className="text-3xl text-blue-900" />
-                        </div>
-                    </div>
+                    
 
                     <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight border-black">
                         <span className="block mb-2">مرحباً بك في</span>
@@ -67,11 +74,11 @@ export default function Intro() {
                     </h1>
 
                     <motion.div
-                        className="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/20 shadow-xl"
+                        className="bg-white-30   backdrop-blur-lg p-6 rounded-xl border border-black/20 shadow-xl"
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <p className="text-lg leading-relaxed text-black/50">
+                        <p className="text-lg leading-relaxed text-blue-900/80 border-black/20">
                             نحن مزوّد حلول رقمية متعددة، نقدم تصميم وتطوير مواقع ويب، متاجر إلكترونية، وتطبيقات أندرويد حديثة تساعد المشاريع على التوسع والظهور وجذب العملاء. كما نقدّم تصاميم جرافيكية فريدة ذات هوية بصرية مميّزة، إدارة سوشيال ميديا، وصنع إعلانات فعّالة ذات عائد مرتفع.
                         </p>
                     </motion.div>
