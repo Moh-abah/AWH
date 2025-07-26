@@ -17,7 +17,7 @@ export default function Intro() {
                 muted
                 playsInline
             >
-                <source src="/vid/viddwh.mp4" type="video/mp4" />
+                <source src="/images/viddwh.mp4" type="video/mp4" />
                 متصفحك لا يدعم تشغيل الفيديو.
             </video>
             {/* Overlay متدرج بدلاً من الأبيض الصلب */}
