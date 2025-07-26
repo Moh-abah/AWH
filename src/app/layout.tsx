@@ -1,4 +1,5 @@
 // app/layout.tsx
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -139,7 +140,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-white text-gray-900">
         
         <Navbar />
-        <main>{children}</main>
+        <main>{children} </main>
+        <Analytics />
         <Footer />
       </body>
     </html>
