@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://awh-ma.vercel.app
+Host: https://digitalworldhorizon.com
 
 # Sitemaps
-Sitemap: https://awh-ma.vercel.app/sitemap.xml
+Sitemap: https://digitalworldhorizon.com/sitemap.xml

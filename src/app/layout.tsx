@@ -107,13 +107,13 @@ export const metadata = {
   openGraph: {
     title: "شركة DWH |    افاق العالم الرقمي للتطور التكنولوجي - تطوير برمجيات متكامله",
     description: "شركة DWH تقدم أحدث تقنيات تطوير الويب والموبايل وحلول تسويقيه وتصميمات بصريه مع حلول مخصصة بأعلى جودة.",
-    url: "https://Dwh-ma.vercel.app/",
+    url: "https://digitalworldhorizon.com/",
     siteName: "شركة DWH",
     type: "website",
     locale: "ar_SA",
     images: [
       {
-        url: "https://awh-ma.vercel.app/logo.png",
+        url: "https://digitalworldhorizon.com/logo.png",
         width: 1200,
         height: 630,
         alt: "شركة DWH – تطوير برمجيات",
@@ -125,11 +125,11 @@ export const metadata = {
     title: "شركة DWH | مطور برمجيات محترف",
     description: "شركة DWH تقدم حلولاً تقنية متقدمة ومخصصة لاحتياجات عملك.",
     creator: "@YourTwitterHandle",
-    images: ["https://awh-ma.vercel.app/twitter-image.jpg"],
+    images: ["https://digitalworldhorizon.com/twitter-image.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/images/logo1.png",
   },
 };
 

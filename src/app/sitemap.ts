@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { projects } from '@/constants/projects'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://awh-ma.vercel.app'
+    const baseUrl = 'https://digitalworldhorizon.com'
 
     const staticRoutes = [
         '',
