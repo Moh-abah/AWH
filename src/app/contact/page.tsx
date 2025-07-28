@@ -47,7 +47,7 @@ export default function ContactPage() {
             content: '+966 555864375',
             description: 'اتصل بنا خلال ساعات العمل',
             action: 'اتصل الآن',
-            link: 'tel:+967780090882'
+            link: 'tel:+966 555864375'
         },
         {
             icon: <FaEnvelope className="text-green-500" />,
@@ -60,7 +60,7 @@ export default function ContactPage() {
         {
             icon: <FaMapMarkerAlt className="text-red-500" />,
             title: 'العنوان',
-            content: 'صنعاء، اليمن',
+            content: 'صنعاء، المملكة العربية السعودية',
             description: 'زيارة مقرنا الرئيسي',
             action: 'عرض الخريطة',
             link: '#map'
