@@ -119,7 +119,7 @@ export default function About() {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.7 }}
                         >
-                            شركة <span className="font-bold text-sky-300">AWH</span> متخصصة في تصميم وتطوير المواقع والتطبيقات باستخدام أحدث التقنيات،
+                             <span className="font-bold text-sky-300">DWH</span> متخصصة في تصميم وتطوير المواقع والتطبيقات باستخدام أحدث التقنيات،
                             نسعى لتقديم حلول رقمية مبتكرة تساعد عملائنا على النجاح والتوسع في السوق الرقمي.
                         </motion.p>
 
@@ -129,7 +129,7 @@ export default function About() {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.8 }}
                         >
-                            نحن شركة تقنية إبداعية متكاملة، نقدم خدمات تطوير المواقع والتطبيقات، التصميم الجرافيكي،
+                            نحن موفرون تقنيات إبداعية متكاملة، نقدم خدمات تطوير المواقع والتطبيقات، التصميم الجرافيكي،
                             الهوية البصرية، التسويق الإلكتروني، وحلول السوشيال ميديا، لتساعد العلامات التجارية
                             على النمو والتأثير باحترافية.
                         </motion.p>
@@ -205,7 +205,7 @@ export default function About() {
 
                         <div className="space-y-6">
                             <p className="text-xl leading-relaxed text-sky-100">
-                                مهمتنا في <span className="font-bold text-sky-300">AWH</span> هي تمكين الشركات والعلامات التجارية من خلال تقديم حلول رقمية مبتكرة
+                                مهمتنا في <span className="font-bold text-sky-300">DWH</span> هي تمكين الشركات والعلامات التجارية من خلال تقديم حلول رقمية مبتكرة
                                 تعزز وجودها في السوق الرقمي وتدفع نمو أعمالها إلى الأمام.
                             </p>
 
@@ -242,7 +242,7 @@ export default function About() {
                     </div>
                 </motion.div>
 
-                {/* قسم فريق العمل */}
+                {/* قسم فريق العمل
                 <motion.div
                     className="text-center"
                     initial={{ opacity: 0 }}
@@ -294,7 +294,7 @@ export default function About() {
                     transition={{ delay: 0.6, duration: 0.6 }}
                 >
                     <TeamSection />
-                </motion.div>
+                </motion.div> */}
 
                 <motion.div
                     initial={{ opacity: 0 }}

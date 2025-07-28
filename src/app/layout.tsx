@@ -7,7 +7,7 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata = {
   title: " تطوير برمجيات متكاملة |  افاق العالم الرقمي",
-  description: "شركة DWH لتطوير البرمجيات، تقدم حلولاً احترافية في تطوير مواقع الويب، تطبيقات الجوال بـ Next.js وFlutter، لوحات تحكم Power BI، وخدمات تقنية متكاملة تلبي احتياجات أعمالك.",
+  description: " DWH لتطوير البرمجيات، تقدم حلولاً احترافية في تطوير مواقع الويب، تطبيقات الجوال  Next.js وFlutter، لوحات تحكم Power BI، وخدمات تقنية متكاملة تلبي احتياجات أعمالك.",
   keywords: `
 تطوير برمجيات,
 تطوير مواقع ويب,
@@ -102,14 +102,14 @@ export const metadata = {
 تطوير تطبيقات واجهات استخدام عربية,
 تصميم وتطوير تطبيقات موبايل ذكية,
 `,
-  authors: [{ name: "شركة DWH لتطوير البرمجيات" }],
+  authors: [{ name: " DWH لتطوير البرمجيات" }],
   viewport: { width: 'device-width', initialScale: 1, maximumScale: 1, userScalable: "no" },
   robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   openGraph: {
-    title: "شركة DWH |    افاق العالم الرقمي للتطور التكنولوجي - تطوير برمجيات متكامله",
-    description: "شركة DWH تقدم أحدث تقنيات تطوير الويب والموبايل وحلول تسويقيه وتصميمات بصريه مع حلول مخصصة بأعلى جودة.",
+    title: " DWH |    افاق العالم الرقمي للتطور التكنولوجي - تطوير برمجيات متكامله",
+    description: " DWH تقدم أحدث تقنيات تطوير الويب والموبايل وحلول تسويقيه وتصميمات بصريه مع حلول مخصصة بأعلى جودة.",
     url: "https://digitalworldhorizon.com/",
-    siteName: "شركة DWH",
+    siteName: " DWH",
     type: "website",
     locale: "ar_SA",
     images: [
@@ -117,14 +117,14 @@ export const metadata = {
         url: "https://digitalworldhorizon.com/logo.png",
         width: 1200,
         height: 630,
-        alt: "شركة DWH – تطوير برمجيات",
+        alt: " DWH – تطوير برمجيات",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "شركة DWH | مطور برمجيات محترف",
-    description: "شركة DWH تقدم حلولاً تقنية متقدمة ومخصصة لاحتياجات عملك.",
+    title: " DWH | مطور برمجيات محترف",
+    description: " DWH تقدم حلولاً تقنية متقدمة ومخصصة لاحتياجات عملك.",
     creator: "@YourTwitterHandle",
     images: ["https://digitalworldhorizon.com/twitter-image.jpg"],
   },
