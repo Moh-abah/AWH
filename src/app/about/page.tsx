@@ -79,7 +79,7 @@ export default function About() {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4, duration: 0.6 }}
                     >
-                        شركة تقنية إبداعية متكاملة، نساعد العلامات التجارية على النمو والتأثير باحترافية
+                        آفاق العالم الرقمي توفر تقنية إبداعية متكاملة، نساعد العلامات التجارية على النمو والتأثير باحترافية
                     </motion.p>
                 </motion.div>
 
@@ -119,7 +119,7 @@ export default function About() {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.7 }}
                         >
-                             <span className="font-bold text-sky-300">DWH</span> متخصصة في تصميم وتطوير المواقع والتطبيقات باستخدام أحدث التقنيات،
+                            <span className="font-bold text-sky-300">آفاق العالم الرقمي</span> متخصصة في تصميم وتطوير المواقع والتطبيقات باستخدام أحدث التقنيات،
                             نسعى لتقديم حلول رقمية مبتكرة تساعد عملائنا على النجاح والتوسع في السوق الرقمي.
                         </motion.p>
 
@@ -167,7 +167,7 @@ export default function About() {
                         { value: "17+", label: "مشروع ناجح", icon: <FaMedal className="text-2xl text-amber-400" /> },
                         { value: "10+", label: "عميل راضي", icon: <FaUsers className="text-2xl text-sky-400" /> },
                         { value: "99%", label: "رضا العملاء", icon: <FaChartLine className="text-2xl text-emerald-400" /> },
-                        { value: "3+", label: "سنوات خبرة", icon: <FaRocket className="text-2xl text-purple-400" /> }
+                        { value: "2+", label: "سنوات خبرة", icon: <FaRocket className="text-2xl text-purple-400" /> }
                     ].map((item, index) => (
                         <motion.div
                             key={index}
@@ -205,7 +205,7 @@ export default function About() {
 
                         <div className="space-y-6">
                             <p className="text-xl leading-relaxed text-sky-100">
-                                مهمتنا في <span className="font-bold text-sky-300">DWH</span> هي تمكين الشركات والعلامات التجارية من خلال تقديم حلول رقمية مبتكرة
+                                مهمتنا في <span className="font-bold text-sky-300">آفاق العالم الرقمي </span> هي تمكين الشركات والعلامات التجارية من خلال تقديم حلول رقمية مبتكرة
                                 تعزز وجودها في السوق الرقمي وتدفع نمو أعمالها إلى الأمام.
                             </p>
 

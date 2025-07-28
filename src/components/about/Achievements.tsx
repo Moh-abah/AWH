@@ -3,24 +3,24 @@ import { motion } from "framer-motion";
 
 const achievementsData = [
     {
-        title: "أفضل شركة تقنية 2023",
-        description: "حصلنا على جائزة أفضل شركة تقنية في المنطقة لعام 2023.",
+        title: " أفضل مزود حلول رقمية تقنية   ",
+        description: " أفضل شركة تقنية في المنطقة  .",
         date: "2023",
     },
     {
-        title: "مشاريع ناجحة أكثر من 120 مشروع",
+        title: "مشاريع ناجحة أكثر من 17 مشروع",
         description: "أكملنا بنجاح أكثر من 120 مشروعًا في مجالات متعددة.",
         date: "2018-2025",
     },
-    {
-        title: "شهادات جودة ISO 9001",
-        description: "حصلنا على شهادة ISO 9001 لضمان جودة الخدمات.",
-        date: "2022",
-    },
+    // {
+    //     title: "شهادات جودة ISO 9001",
+    //     description: "حصلنا على شهادة ISO 9001 لضمان جودة الخدمات.",
+    //     date: "2022",
+    // },
     {
         title: "تطوير تطبيقات حائزة على جوائز",
         description: "طورنا تطبيقات نالت جوائز محلية وعالمية في مجال تجربة المستخدم.",
-        date: "2019-2024",
+        date: "2025-2024",
     },
 ];
 
@@ -33,7 +33,7 @@ export default function Achievements() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
             >
-                إنجازاتنا وجوائزنا
+                إنجازاتنا 
             </motion.h2>
             <div className="grid md:grid-cols-2 gap-8 ">
                 {achievementsData.map(({ title, description, date }, idx) => (
