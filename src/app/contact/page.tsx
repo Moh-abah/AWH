@@ -410,7 +410,7 @@ export default function ContactPage() {
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <div className="text-center">
                                             <div className="text-5xl mb-4 text-sky-500">📍</div>
-                                            <p className="text-xl font-bold text-gray-800">صنعاء اليمن</p>
+                                                <p className="text-xl font-bold text-gray-800">الرياض، المملكة العربية السعودية </p>
                                             <p className="text-gray-600 mt-2">شارع الملك فهد، مبنى رقم 123</p>
                                         </div>
                                     </div>
