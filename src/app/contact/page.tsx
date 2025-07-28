@@ -76,7 +76,7 @@ export default function ContactPage() {
     ];
 
     const socialMedia = [
-        { icon: <FaWhatsapp />, name: 'واتساب', link: '#', color: 'bg-green-500' },
+        { icon: <FaWhatsapp />, name: 'واتساب', link: 'https://wa.me/966555864375', color: 'bg-green-500' },
         { icon: <FaTwitter />, name: 'تويتر', link: 'https://x.com/DigWorldHorizon/', color: 'bg-blue-400' },
         { icon: <FaLinkedin />, name: 'لينكد إن', link: 'https://www.linkedin.com/company/digitalworldhorizon/', color: 'bg-blue-600' },
         { icon: <FaInstagram />, name: 'إنستغرام', link: 'https://www.instagram.com/digitalworldhorizon/?utm_source=ig_web_button_share_sheet', color: 'bg-gradient-to-r from-purple-500 to-pink-500' },
