@@ -114,7 +114,7 @@ export default function Navbar() {
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="sm:hidden bg-white/10 backdrop-blur-lg text-white flex flex-col items-center text-center space-y-4 px-6 py-5 text-base font-medium tracking-wide"
+                        className="sm:hidden bg-black/20 backdrop-blur-lg text-white flex flex-col items-center text-center space-y-4 px-6 py-5 text-base font-medium tracking-wide"
                     >
                         <div className="flex flex-col py-4 text-center space-y-4">
                             {links.map((link) => (
