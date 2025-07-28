@@ -60,7 +60,7 @@ export default function ContactPage() {
         {
             icon: <FaMapMarkerAlt className="text-red-500" />,
             title: 'العنوان',
-            content: 'صنعاء، المملكة العربية السعودية',
+            content: 'الرياض ، المملكة العربية السعودية',
             description: 'زيارة مقرنا الرئيسي',
             action: 'عرض الخريطة',
             link: '#map'
@@ -365,7 +365,7 @@ export default function ContactPage() {
                                             <div className="flex items-start mb-4">
                                                 <div className="text-2xl mr-3">
                                                     {item.icon}
-                                                    item
+                                                    
                                                 </div>
                                                 <h3 className="font-bold text-lg text-gray-800">{item.title}</h3>
                                             </div>
