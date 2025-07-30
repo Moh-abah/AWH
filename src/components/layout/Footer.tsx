@@ -49,16 +49,16 @@ export default function Footer() {
                 <div>
                     <h3 className="text-white text-xl font-semibold mb-5 border-b border-gray-700 pb-2">تابعنا أو تواصل</h3>
                     <div className="flex items-center gap-5 mb-6">
-                        <a href="#" aria-label="Facebook" className="text-gray-400 hover:text-blue-600 transition duration-300">
+                        <a href="https://www.facebook.com/share/1CM14gbLUi/" aria-label="Facebook" className="text-gray-400 hover:text-blue-600 transition duration-300">
                             <FaFacebookF size={24} />
                         </a>
-                        <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-sky-400 transition duration-300">
+                        <a href="https://x.com/DigWorldHorizon/" aria-label="Twitter" className="text-gray-400 hover:text-sky-400 transition duration-300">
                             <FaTwitter size={24} />
                         </a>
-                        <a href="#" aria-label="Instagram" className="text-gray-400 hover:text-pink-500 transition duration-300">
+                        <a href="https://www.instagram.com/digitalworldhorizon/?utm_source=ig_web_button_share_sheet" aria-label="Instagram" className="text-gray-400 hover:text-pink-500 transition duration-300">
                             <FaInstagram size={24} />
                         </a>
-                        <a href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-blue-700 transition duration-300">
+                        <a href="https://www.linkedin.com/company/digitalworldhorizon/" aria-label="LinkedIn" className="text-gray-400 hover:text-blue-700 transition duration-300">
                             <FaLinkedinIn size={24} />
                         </a>
                     </div>
