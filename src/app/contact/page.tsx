@@ -25,6 +25,16 @@ export default function ContactPage() {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    const handleMailClick = () => {
+        const subject = encodeURIComponent(formData.subject || '');
+        const body = encodeURIComponent(
+            `الاسم: ${formData.name || ''}\nالبريد الإلكتروني: ${formData.email || ''}\n\n${formData.message || ''}`
+        );
+
+        window.location.href = `mailto:digitalworldhorizon@gmail.com?subject=${subject}&body=${body}`;
+    };
+
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
@@ -63,7 +73,7 @@ export default function ContactPage() {
             content: 'الرياض ، المملكة العربية السعودية',
             description: 'زيارة مقرنا الرئيسي',
             action: 'عرض الخريطة',
-            link: '#map'
+            link: 'https://maps.app.goo.gl/7x936VnZu1hPrtDg8'
         },
         {
             icon: <FaClock className="text-purple-500" />,
@@ -264,21 +274,16 @@ export default function ContactPage() {
                                 </div>
 
                                 <motion.button
-                                    type="submit"
-                                    disabled={isSubmitting}
+                                    type="button"
+                                    onClick={handleMailClick}
                                     className="w-full bg-gradient-to-r from-sky-400 to-sky-700 text-white py-4 rounded-lg font-bold text-lg hover:opacity-90 transition flex items-center justify-center"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
-                                    {isSubmitting ? (
-                                        <span>جاري الإرسال...</span>
-                                    ) : (
-                                        <>
-                                            <span>إرسال الرسالة</span>
-                                            <FaPaperPlane className="mr-2" />
-                                        </>
-                                    )}
+                                    <span>إرسال الرسالة</span>
+                                    <FaPaperPlane className="mr-2" />
                                 </motion.button>
+
                             </form>
                         </div>
 
@@ -416,12 +421,18 @@ export default function ContactPage() {
                                     </div>
                                 </div>
 
-                                <div className="mt-6">
-                                    <button className="bg-sky-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-sky-600 transition flex items-center justify-center">
-                                        <FaMapMarkerAlt className="ml-2" />
-                                        الحصول على الاتجاهات
-                                    </button>
-                                </div>
+                                    <div className="mt-6">
+                                        <a
+                                            href="https://maps.app.goo.gl/7x936VnZu1hPrtDg8"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="bg-sky-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-sky-600 transition flex items-center justify-center"
+                                        >
+                                            <FaMapMarkerAlt className="ml-2" />
+                                            الحصول على الاتجاهات
+                                        </a>
+                                    </div>
+
                             </div>
 
                             <div className="bg-white rounded-2xl shadow-xl p-8">

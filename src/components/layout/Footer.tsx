@@ -41,7 +41,7 @@ export default function Footer() {
                     <h3 className="text-white text-xl font-semibold mb-5 border-b border-gray-700 pb-2">تواصل معنا</h3>
                     <div className="space-y-3 text-gray-300 text-sm md:text-base">
                         <p>📞 <a href="tel:+966555864375" className="hover:text-blue-400 transition duration-300">+966 55 586 4375</a></p>
-                        <p>✉️ <a href="mailto:musst92@gmail.com" className="hover:text-blue-400 transition duration-300">digitalworldhorizon@gmail.com</a></p>
+                        <p>✉️ <a href="mailto:digitalworldhorizon@gmail.com" className="hover:text-blue-400 transition duration-300">digitalworldhorizon@gmail.com</a></p>
                     </div>
                 </div>
 
