@@ -13,7 +13,12 @@ import {
     FaTags
 } from 'react-icons/fa';
 import { FaNetworkWired } from 'react-icons/fa6';
+import { Metadata } from 'next';
 
+
+export const metadata: Metadata = {
+    title: "Services",
+};
 // بيانات الخدمات المحدثة
 const services = [
     

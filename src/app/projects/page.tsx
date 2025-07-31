@@ -11,7 +11,11 @@ import { projects } from '@/constants/projects';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getCategoryColor } from '@/components/ui/categoryColors';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+    title: "Projects",
+};
 // مكون بطاقة الفئة
 const CategoryCard = ({
     icon,

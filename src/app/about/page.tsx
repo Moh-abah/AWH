@@ -5,9 +5,12 @@ import CompanyIntro from "@/components/about/CompanyIntro";
 import TeamSection from "@/components/about/TeamSection";
 import ValuesVision from "@/components/about/ValuesVision";
 import { motion } from "framer-motion";
+import { Metadata } from "next";
 import { FaRocket, FaLightbulb, FaUsers, FaChartLine, FaMedal, FaGlobe } from "react-icons/fa";
 
-
+export const metadata: Metadata = {
+    title: "About",
+};
 export default function About() {
     return (
         <div className="min-h-screen bg-gradient-to-b from-blue-900/40 to-sky-500/50  text-gray-700 overflow-hidden">

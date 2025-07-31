@@ -7,7 +7,11 @@ import { motion } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaPaperPlane, FaWhatsapp, FaTwitter, FaLinkedin, FaInstagram, FaTiktok } from 'react-icons/fa';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import ParticleBackground from '@/styles/ParticleBackground';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+    title: "Contact",
+};
 export default function ContactPage() {
     const [formData, setFormData] = useState({
         name: '',

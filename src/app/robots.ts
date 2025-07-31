@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: ['/api/', '/admin/'], // لو عندك مسارات تبغاها محجوبة من القوقل
+            disallow: ['/ap i/', '/admin/'], // لو عندك مسارات تبغاها محجوبة من القوقل
         },
         sitemap: 'https://digitalworldhorizon.com/sitemap.xml',
         host: 'https://digitalworldhorizon.com',

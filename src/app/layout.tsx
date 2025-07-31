@@ -3,9 +3,10 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Metadata } from "next";
 
 
-export const metadata = {
+export const metadata :Metadata={
   title: " تطوير برمجيات متكاملة |  افاق العالم الرقمي",
   description: " DWH لتطوير البرمجيات، تقدم حلولاً احترافية في تطوير مواقع الويب، تطبيقات الجوال  Next.js وFlutter، لوحات تحكم Power BI، وخدمات تقنية متكاملة تلبي احتياجات أعمالك.",
   keywords: `
@@ -103,7 +104,7 @@ export const metadata = {
 تصميم وتطوير تطبيقات موبايل ذكية,
 `,
   authors: [{ name: " DWH لتطوير البرمجيات" }],
-  viewport: { width: 'device-width', initialScale: 1, maximumScale: 1, userScalable: "no" },
+  
   robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   openGraph: {
     title: " DWH |    افاق العالم الرقمي للتطور التكنولوجي - تطوير برمجيات متكامله",
@@ -133,6 +134,15 @@ export const metadata = {
     apple: "/images/logo1.png",
   },
 };
+export function generateViewport() {
+  return {
+    viewport: {
+      width: "device-width",
+      initialScale: 1,
+      maximumScale: 1,
+    }
+  };
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
