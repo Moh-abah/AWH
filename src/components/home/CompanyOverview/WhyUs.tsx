@@ -54,7 +54,7 @@ export default function WhyUs() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                        لماذا تختار <span className="text-blue-600">DWH</span>؟
+                        لماذا تختار <span className="text-blue-600">افاق العالم الرقمي </span>؟
                     </motion.h2>
 
                     <motion.p
@@ -97,8 +97,8 @@ export default function WhyUs() {
                                     {/* أيقونة مع تأثير التدرج */}
                                     <div className={`mb-6 w-16 h-16 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center text-white mx-auto`}>
                                         <motion.div
-                                            whileHover={{ rotate: 15, scale: 1.1 }}
-                                            transition={{ duration: 0.3 }}
+                                            whileHover={{ rotate: 360, scale: 1.1 }}
+                                            transition={{ duration: 0.9 }}
                                         >
                                             {item.icon}
                                         </motion.div>
@@ -120,6 +120,7 @@ export default function WhyUs() {
                                         className="mt-auto mx-auto"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
+                                        
                                     >
                                         <div className="w-12 h-1 bg-gradient-to-r from-blue-400 to-indigo-600 rounded-full"></div>
                                     </motion.div>

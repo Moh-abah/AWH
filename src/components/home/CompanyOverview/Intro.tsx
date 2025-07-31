@@ -79,13 +79,13 @@ export default function Intro() {
                         transition={{ duration: 0.3 }}
                     >
                         <p className="text-lg leading-relaxed text-white-900/80 border-black/20">
-                            نحن مزوّد حلول رقمية متعددة، نقدم تصميم وتطوير مواقع ويب، متاجر إلكترونية، وتطبيقات أندرويد حديثة تساعد المشاريع على التوسع والظهور وجذب العملاء. كما نقدّم تصاميم جرافيكية فريدة ذات هوية بصرية مميّزة، إدارة سوشيال ميديا، وصنع إعلانات فعّالة ذات عائد مرتفع.
+                            نحن مزوّد حلول رقمية متعددة، نقدم تصميم وتطوير مواقع ويب، متاجر إلكترونية، وتطبيقات أندرويد حديثة تساعد المشاريع على التوسع والظهور وجذب، انظمة مخصصه وخدمات سيرفرات والدومينات. كما نقدّم تصاميم جرافيكية فريدة ذات هوية بصرية مميّزة، إدارة سوشيال ميديا، وصنع إعلانات فعّالة ذات عائد مرتفع.
                         </p>
                     </motion.div>
 
                     <div className="flex flex-wrap gap-4 mt-6">
                         <motion.a
-                            href="/profile"
+                            href="/about"
                             className="flex items-center gap-3 bg-gradient-to-r from-sky-500 to-blue-900 text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity shadow-lg"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}

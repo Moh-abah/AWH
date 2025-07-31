@@ -47,7 +47,7 @@ export default function Workside() {
     }[currentProject.category];
 
     return (
-        <section id="work-section" className="py-20 px-4 sm:px-6 bg-gradient-to-br from-white to-blue-50 text-slate-800">
+        <section id="work-section" className="py-20 px-4 sm:px-6 bg-sky-100 border border-sky-500  text-slate-800">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
                     <SectionTitle title="أعمالنا التي نفخر بها" />
@@ -58,7 +58,7 @@ export default function Workside() {
                     {/* زر يسار */}
                     <button
                         onClick={handlePrev}
-                        className="absolute left-0 md:left-4 z-10 bg-white border border-blue-100 rounded-full p-4 shadow-md hover:bg-blue-600 hover:text-white transition-all duration-300 group"
+                        className="absolute left-0 md:left-4 z-10 bg-sky-200 border border-blue-500 rounded-full p-4 shadow-md hover:bg-sky-400 hover:text-white transition-all duration-300 group"
                         aria-label="المشروع السابق"
                     >
                         <FaArrowLeft className="text-xl group-hover:scale-110 transition-transform" />
@@ -111,13 +111,14 @@ export default function Workside() {
 
                                     <div>
                                         <a
-                                            href={currentProject.liveUrl}
+                                            href={`/projects/`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="inline-block w-full md:w-auto bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center px-6 py-3 rounded-lg font-medium hover:opacity-90 transition shadow"
                                         >
-                                            عرض المشروع
+                                            عرض المشاريع
                                         </a>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +128,7 @@ export default function Workside() {
                     {/* زر يمين */}
                     <button
                         onClick={handleNext}
-                        className="absolute right-0 md:right-4 z-10 bg-white border border-blue-100 rounded-full p-4 shadow-md hover:bg-blue-600 hover:text-white transition-all duration-300 group"
+                        className="absolute right-0 md:right-4 z-10 bg-sky-200 border border-blue-500 rounded-full p-4 shadow-md hover:bg-sky-400 hover:text-white transition-all duration-300 group"
                         aria-label="المشروع التالي"
                     >
                         <FaArrowRight className="text-xl group-hover:scale-110 transition-transform" />

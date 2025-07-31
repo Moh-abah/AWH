@@ -48,9 +48,9 @@ export default function Navbar() {
 
     return (
         <header
-            className={`fixed w-full top-0 z-50 transition-all duration-500 transform ${scrolled
-                    ? 'bg-white/10 backdrop-blur-lg'
-                    : 'bg-white/10'
+            className={`fixed w-full top-0 z-50 transition-all  border border-blue-900/30 duration-500 transform ${scrolled
+                ? 'bg-sky-100/20 backdrop-blur-lg text-sky-400 '
+                    : 'bg-white/10 '
                 } ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}
         >
             <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -64,7 +64,7 @@ export default function Navbar() {
                         className="h-full w-auto rounded-full transition-transform duration-300 hover:scale-110 object-cover"
                     />
                     <span
-                        className={`text-2xl font-extrabold tracking-wide transition-colors duration-300 ${scrolled ? 'text-sky-200' : 'text-white'
+                        className={`text-2xl font-extrabold tracking-wide transition-colors duration-300 ${scrolled ? 'text-sky-500' : 'text-white'
                             }`}
                     >
                         DWH

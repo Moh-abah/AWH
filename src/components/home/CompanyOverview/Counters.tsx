@@ -20,20 +20,19 @@ const StatsSection: React.FC = () => {
         clients: 0,
         satisfaction: 0,
         experience: 0,
-        coffees: 0,
+       
         codeLines: 0,
         countries: 0,
         teamMembers: 0,
     });
 
     const finalStats = {
-        projects: 150,
-        clients: 75,
+        projects: 17,
+        clients: 15,
         satisfaction: 99,
-        experience: 5,
-        coffees: 2847,
-        codeLines: 500000,
-        countries: 12,
+        experience: 2,
+        codeLines: 50000,
+        countries: 3,
         teamMembers: 15,
     };
 
@@ -78,16 +77,7 @@ const StatsSection: React.FC = () => {
             bgColor: 'bg-purple-500/10',
             description: 'سنوات من الخبرة في التطوير',
         },
-        {
-            key: 'coffees',
-            icon: Coffee,
-            value: finalStats.coffees,
-            label: 'كوب قهوة',
-            suffix: '+',
-            color: 'text-amber-500',
-            bgColor: 'bg-amber-500/10',
-            description: 'أكواب القهوة التي شربناها أثناء العمل',
-        },
+        
         {
             key: 'codeLines',
             icon: Code,
@@ -137,7 +127,6 @@ const StatsSection: React.FC = () => {
                     clients: Math.floor(finalStats.clients * easeOutQuart),
                     satisfaction: Math.floor(finalStats.satisfaction * easeOutQuart),
                     experience: Math.floor(finalStats.experience * easeOutQuart),
-                    coffees: Math.floor(finalStats.coffees * easeOutQuart),
                     codeLines: Math.floor(finalStats.codeLines * easeOutQuart),
                     countries: Math.floor(finalStats.countries * easeOutQuart),
                     teamMembers: Math.floor(finalStats.teamMembers * easeOutQuart),

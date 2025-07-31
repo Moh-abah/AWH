@@ -145,6 +145,10 @@ export default function About() {
                                 <span className="text-sky-100">تطوير المواقع</span>
                             </div>
                             <div className="bg-sky-900/40 px-4 py-2 rounded-full flex items-center gap-2">
+                                <FaChartLine className="text-sky-400" />
+                                <span className="text-sky-100">تطوير البرامج المخصصه والانظمة الداخليه</span>
+                            </div>
+                            <div className="bg-sky-900/40 px-4 py-2 rounded-full flex items-center gap-2">
                                 <FaMedal className="text-sky-400" />
                                 <span className="text-sky-100">الهوية البصرية</span>
                             </div>
