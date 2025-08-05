@@ -1,4 +1,4 @@
-export const GA_MEASUREMENT_ID = 'G-K953T969DH';
+export const GA_MEASUREMENT_ID = 'G-Q8J07PG3QE';
 
 // Track page views
 export const pageview = (url) => {
