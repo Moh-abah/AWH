@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer";
 import { Metadata } from "next";
 import Script from "next/script";
 import GATracker from "@/components/GATracker";
-const GA_MEASUREMENT_ID = "G-Q8J07PG3QE";
+const GA_MEASUREMENT_ID = "G-K953T969DH";
 
 
 
