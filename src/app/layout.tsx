@@ -1,9 +1,12 @@
 // app/layout.tsx
-import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Metadata } from "next";
+import Script from "next/script";
+import GATracker from "@/components/GATracker";
+const GA_MEASUREMENT_ID = "G-K953T969DH";
+
 
 
 export const metadata :Metadata={
@@ -147,11 +150,35 @@ export function generateViewport() {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ar" dir="rtl">
+
+      <head>
+        {/* سكريبتات Google Analytics */}
+        <Script
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+      </head>
       <body className="bg-white text-gray-900">
+        <GATracker />
         
         <Navbar />
+        
         <main>{children} </main>
-        <Analytics />
+     
         <Footer />
       </body>
     </html>
