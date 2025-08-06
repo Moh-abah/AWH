@@ -25,6 +25,7 @@ export default function ContactPage() {
     const pathname = usePathname();
     const searchParams = useSearchParams();
     
+    
         // إعداد تتبع البيانات
         useEffect(() => {
             const page_path = pathname + '?' + searchParams.toString();

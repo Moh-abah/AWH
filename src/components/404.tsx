@@ -1,12 +1,17 @@
-// app/404.tsx أو app/404/page.tsx
-
+"use client";
 import { Suspense } from "react";
-import GATracker from "@/components/GATracker";
+import { useSearchParams } from "next/navigation";
+import ContactPage from "@/app/contact/clintcontact";
 
-export default function NotFound() {
+function Content() {
+    const searchParams = useSearchParams();
+    return <div>Page Not Found</div>;
+}
+
+export default function NotFoundPage() {
     return (
-        <Suspense fallback={null}>
-            <GATracker />
+        <Suspense fallback={<div>Loading...</div>}>
+            <ContactPage />
         </Suspense>
     );
 }
