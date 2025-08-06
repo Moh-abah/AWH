@@ -48,8 +48,8 @@ const LeadFormWithTracking = () => {
         }
 
         const currentPage = window.location.pathname + window.location.search;
-        let pages = localStorage.getItem('visited_pages');
-        let pagesArray = pages ? JSON.parse(pages) : [];
+        const pages = localStorage.getItem('visited_pages');
+        const pagesArray = pages ? JSON.parse(pages) : [];
         if (!pagesArray.includes(currentPage)) {
             pagesArray.push(currentPage);
             localStorage.setItem('visited_pages', JSON.stringify(pagesArray));
