@@ -5,6 +5,8 @@ import Footer from "@/components/layout/Footer";
 import { Metadata } from "next";
 import Script from "next/script";
 import GATracker from "@/components/GATracker";
+import LeadForm from "@/components/lead";
+import LeadFormWithTracking from "@/components/lead";
 const GA_MEASUREMENT_ID = "G-K953T969DH";
 
 
@@ -175,10 +177,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-white text-gray-900">
         <GATracker />
         
+        
         <Navbar />
         
         <main>{children} </main>
-     
+
+        {/* <LeadFormWithTracking /> */}
         <Footer />
       </body>
     </html>

@@ -7,20 +7,62 @@ import { motion } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaPaperPlane, FaWhatsapp, FaTwitter, FaLinkedin, FaInstagram, FaTiktok } from 'react-icons/fa';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import ParticleBackground from '@/styles/ParticleBackground';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
-        subject: '',
-        message: ''
+        emailAddress: '',
+        phoneNumber: '',
+        description: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [activeTab, setActiveTab] = useState('form');
     const formRef = useRef<HTMLFormElement>(null);
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    
+        // إعداد تتبع البيانات
+        useEffect(() => {
+            const page_path = pathname + '?' + searchParams.toString();
+            const page_location = window.location.href;
+            const page_title = document.title;
+    
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'page_view', {
+                    page_path,
+                    page_location,
+                    page_title,
+                });
+            }
+    
+            const utmParams = ['utm_source', 'utm_medium', 'utm_campaign'];
+            utmParams.forEach((param) => {
+                const value = searchParams.get(param);
+                if (value) localStorage.setItem(param, value);
+            });
+    
+            if (!localStorage.getItem('visit_start')) {
+                localStorage.setItem('visit_start', Date.now().toString());
+            }
+    
+            if (!localStorage.getItem('country')) {
+                localStorage.setItem('country', 'Yemen');
+            }
+    
+            const currentPage = window.location.pathname + window.location.search;
+            let pages = localStorage.getItem('visited_pages');
+            let pagesArray = pages ? JSON.parse(pages) : [];
+            if (!pagesArray.includes(currentPage)) {
+                pagesArray.push(currentPage);
+                localStorage.setItem('visited_pages', JSON.stringify(pagesArray));
+            }
+        }, [pathname, searchParams]);
+    
+        
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -28,29 +70,29 @@ export default function ContactPage() {
     };
 
     const handleMailClick = () => {
-        const subject = encodeURIComponent(formData.subject || '');
+        const phonnumber = encodeURIComponent(formData.phoneNumber || '');
         const body = encodeURIComponent(
-            `الاسم: ${formData.name || ''}\nالبريد الإلكتروني: ${formData.email || ''}\n\n${formData.message || ''}`
+            `الاسم: ${formData.name || ''}\nالبريد الإلكتروني: ${formData.emailAddress || ''}\n\n${formData.description || ''}`
         );
 
-        window.location.href = `mailto:digitalworldhorizon@gmail.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:digitalworldhorizon@gmail.com?subject=${phonnumber}&body=${body}`;
     };
 
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
+    // const handleSubmit = async (e: React.FormEvent) => {
+    //     e.preventDefault();
+    //     setIsSubmitting(true);
 
-        // محاكاة إرسال البيانات
-        await new Promise(resolve => setTimeout(resolve, 1500));
+    //     // محاكاة إرسال البيانات
+    //     await new Promise(resolve => setTimeout(resolve, 1500));
 
-        setIsSubmitting(false);
-        setSubmitSuccess(true);
-        setFormData({ name: '', email: '', subject: '', message: '' });
+    //     setIsSubmitting(false);
+    //     setSubmitSuccess(true);
+    //     setFormData({ name: '', email: '', phoneNumber: '', message: '' });
 
-        // إعادة تعيين النجاح بعد 5 ثواني
-        setTimeout(() => setSubmitSuccess(false), 5000);
-    };
+    //     // إعادة تعيين النجاح بعد 5 ثواني
+    //     setTimeout(() => setSubmitSuccess(false), 5000);
+    // };
 
     const contactInfo = [
         {
@@ -86,6 +128,57 @@ export default function ContactPage() {
             link: '#'
         }
     ];
+
+    
+    const handleSubmittrue = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        const cUtmsource = localStorage.getItem("cUtmsource") || "";
+        const cUtmmedium = localStorage.getItem("cUtmmedium") || "";
+        const cUtmcampaign = localStorage.getItem("cUtmcampaign") || "";
+        const addressCountry = localStorage.getItem("addressCountry") || "";
+        const visitStart = localStorage.getItem("visit_start");
+        const cVisitDurationMs = visitStart ? Date.now() - parseInt(visitStart, 10) : 0;
+        const cVisitedPages = localStorage.getItem("cVisitedPages") || "[]";
+
+        const payload = {
+            name: formData.name,
+            firstName: formData.name,
+            emailAddress: formData.emailAddress,
+            phoneNumber: formData.phoneNumber,
+            description: formData.description,
+            cUtmsource,
+            cUtmmedium,
+            cUtmcampaign,
+            addressCountry,
+            cVisitDurationMs,
+            cVisitedPages: JSON.parse(cVisitedPages)
+        };
+
+        try {
+            const res = await fetch("http://62.169.17.101:8080/api/v1/Lead", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Api-Key": "66812b53c6f13a7200fd0376aba832fd",
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (res.ok) {
+                setSubmitSuccess(true);
+                setFormData({ name: '', emailAddress: '', phoneNumber: '', description: '' });
+            } else {
+                console.error("فشل إرسال البيانات:", await res.text());
+            }
+        } catch (err) {
+            console.error("خطأ أثناء الإرسال إلى EspoCRM:", err);
+        }
+
+        setIsSubmitting(false);
+        setTimeout(() => setSubmitSuccess(false), 5000);
+    };
 
     const socialMedia = [
         { icon: <FaWhatsapp />, name: 'واتساب', link: 'https://wa.me/966555864375', color: 'bg-green-500' },
@@ -206,7 +299,7 @@ export default function ContactPage() {
                                 </div>
                             )}
 
-                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                            <form ref={formRef} onSubmit={handleSubmittrue} className="space-y-6">
                                 <div>
                                     <label htmlFor="name" className="block text-gray-700 font-medium mb-2 ">
                                         الاسم الكامل
@@ -225,14 +318,14 @@ export default function ContactPage() {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                                    <label htmlFor="emailAddress" className="block text-gray-700 font-medium mb-2">
                                         البريد الإلكتروني
                                     </label>
                                     <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
+                                        type="emailAddress"
+                                        id="emailAddress"
+                                        name="emailAddress"
+                                        value={formData.emailAddress}
                                         onChange={handleChange}
                                         required
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-300 focus:border-sky-300 transition opacity-0 transform translate-y-4"
@@ -242,30 +335,30 @@ export default function ContactPage() {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
-                                        الموضوع
+                                    <label htmlFor="phoneNumber" className="block text-gray-700 font-medium mb-2">
+                                        رقم الهاتف
                                     </label>
                                     <input
-                                        type="text"
-                                        id="subject"
-                                        name="subject"
-                                        value={formData.subject}
+                                        type="tel"
+                                        id="phoneNumber"
+                                        name="phoneNumber"
+                                        value={formData.phoneNumber}
                                         onChange={handleChange}
                                         required
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-300 focus:border-sky-300 transition opacity-0 transform translate-y-4"
-                                        placeholder="موضوع الرسالة"
+                                        placeholder="رقم الهاتف "
 
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                                    <label htmlFor="description" className="block text-gray-700 font-medium mb-2">
                                         الرسالة
                                     </label>
                                     <textarea
-                                        id="message"
-                                        name="message"
-                                        value={formData.message}
+                                        id="description"
+                                        name="description"
+                                        value={formData.description}
                                         onChange={handleChange}
                                         required
                                         rows={5}
@@ -277,7 +370,7 @@ export default function ContactPage() {
 
                                 <motion.button
                                     type="button"
-                                    onClick={handleMailClick}
+                                    onClick={handleSubmittrue}
                                     className="w-full bg-gradient-to-r from-sky-400 to-sky-700 text-white py-4 rounded-lg font-bold text-lg hover:opacity-90 transition flex items-center justify-center"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
