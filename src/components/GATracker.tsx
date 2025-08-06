@@ -41,19 +41,19 @@ declare global {
 
 export default function GATracker() {
     const pathname = usePathname();
-    const searchParams = useSearchParams();
+   
 
     // 1. تتبع صفحة العرض وتخزين UTM
     useEffect(() => {
         if (typeof window.gtag !== "function") return;
 
-        const page_path = pathname + "?" + searchParams.toString();
+       
         const page_location = window.location.href;
         const page_title = document.title;
 
         // إرسال حدث page_view إلى Google Analytics
         window.gtag("event", "page_view", {
-            page_path,
+           
             page_location,
             page_title,
         });
@@ -61,10 +61,8 @@ export default function GATracker() {
         // تخزين UTM parameters في localStorage
         const utmParams = ["utm_source", "utm_medium", "utm_campaign"];
         utmParams.forEach((param) => {
-            const value = searchParams.get(param);
-            if (value) {
-                localStorage.setItem(param, value);
-            }
+            
+           
         });
 
         // تخزين وقت الدخول لو لم يكن مخزناً مسبقاً
@@ -85,7 +83,7 @@ export default function GATracker() {
             pagesArray.push(currentPage);
             localStorage.setItem("visited_pages", JSON.stringify(pagesArray));
         }
-    }, [pathname, searchParams]);
+    }, [pathname]);
 
     // 2. تتبع ضغط زر CTA (مثلاً زر تواصل)
     useEffect(() => {
