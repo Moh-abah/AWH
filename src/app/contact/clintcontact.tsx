@@ -23,12 +23,12 @@ export default function ContactPage() {
     const [activeTab, setActiveTab] = useState('form');
     const formRef = useRef<HTMLFormElement>(null);
     const pathname = usePathname();
-    const searchParams = useSearchParams();
+  
     
     
         // إعداد تتبع البيانات
         useEffect(() => {
-            const page_path = pathname + '?' + searchParams.toString();
+            const page_path = pathname + '?' 
             const page_location = window.location.href;
             const page_title = document.title;
     
@@ -42,8 +42,8 @@ export default function ContactPage() {
     
             const utmParams = ['utm_source', 'utm_medium', 'utm_campaign'];
             utmParams.forEach((param) => {
-                const value = searchParams.get(param);
-                if (value) localStorage.setItem(param, value);
+                
+                
             });
     
             if (!localStorage.getItem('visit_start')) {
@@ -61,7 +61,7 @@ export default function ContactPage() {
                 pagesArray.push(currentPage);
                 localStorage.setItem('visited_pages', JSON.stringify(pagesArray));
             }
-        }, [pathname, searchParams]);
+        }, [pathname]);
     
         
 
