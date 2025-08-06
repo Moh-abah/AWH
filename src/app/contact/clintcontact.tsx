@@ -158,7 +158,7 @@ export default function ContactPage() {
         };
 
         try {
-            const res = await fetch("http://62.169.17.101:8080/api/v1/Lead", {
+            const res = await fetch("https://digitalworldhorizon.com/api/lead", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
