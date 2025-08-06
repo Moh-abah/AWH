@@ -5,8 +5,7 @@ import Footer from "@/components/layout/Footer";
 import { Metadata } from "next";
 import Script from "next/script";
 import GATracker from "@/components/GATracker";
-import LeadForm from "@/components/lead";
-import LeadFormWithTracking from "@/components/lead";
+
 const GA_MEASUREMENT_ID = "G-K953T969DH";
 
 
