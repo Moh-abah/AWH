@@ -26,9 +26,12 @@ const item = {
             stiffness: 120
         }
     }
-};
+};// أولاً، نعرّف نوعًا للمفاتيح الصالحة
 
-// دالة مساعدة للحصول على ألوان ثابتة بناءً على نوع اللون
+
+type ColorKey = 'blue' | 'indigo' | 'pink' | 'amber' | 'cyan' | 'orange' | 'yellow' | 'teal';
+
+// ثم نعدل الدالة لاستخدام هذا النوع
 const getColorClasses = (color: string | number) => {
     const colorMap = {
         blue: {
@@ -97,7 +100,12 @@ const getColorClasses = (color: string | number) => {
         }
     };
 
-    return colorMap[color] || colorMap.blue; // Default to blue if color not found
+    // نتحقق مما إذا كان color موجودًا في المفاتيح الصالحة
+    const validColor = Object.keys(colorMap).includes(color.toString()) 
+        ? color.toString() as ColorKey 
+        : 'blue'; // نستخدم الأزرق كقيمة افتراضية
+
+    return colorMap[validColor];
 };
 
 export default function ServicesList() {
@@ -158,7 +166,7 @@ export default function ServicesList() {
                         return (
                             <motion.div
                                 key={slug}
-                                variants={item}
+                                // variants={item}
                                 whileHover={{
                                     y: -12,
                                     scale: 1.02,

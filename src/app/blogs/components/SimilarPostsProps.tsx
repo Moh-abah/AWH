@@ -33,9 +33,10 @@ export default function SimilarPostsWidget({ posts }: Props) {
                         <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
                             <Image
                                 src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${coverUrl}`}
-                                alt={post.Tital}
+                                alt={post.Tital || 'Default alt text'}
                                 className="w-full h-full object-cover"
                             />
+                            
                         </div>
                         <div className="flex-1">
                             <h4 className="font-medium text-gray-800 mb-1 line-clamp-2">

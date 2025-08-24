@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { useParams } from "next/navigation";
 import { useCategories } from "@/lib/useCategories";
 import { usePostsByCategory } from "@/lib/usePostsByCategory";
@@ -71,12 +71,19 @@ const StatusDisplay = ({ icon, title, message, children }: { icon: string, title
 // ==================================================================
 // ==                   المكون الرئيسي للصفحة                     ==
 // ==================================================================
-export default function BlogCategoryPage() {
+
+interface BlogPageProps {
+    params: Promise<{ categoryId: string; slug?: string }>;
+    
+}
+
+export default function BlogCategoryPage({ params }: BlogPageProps) {
+    const { categoryId, slug } = use(params);
+
+    
+
     const { categories, loading: catLoading, error: catError } = useCategories();
     const [category, setCategory] = useState<Category | null>(null);
-
-    const params = useParams();
-    const categoryId = params.id;
 
     useEffect(() => {
         if (!catLoading && categories.length > 0) {
@@ -84,8 +91,8 @@ export default function BlogCategoryPage() {
             setCategory(cat);
         }
     }, [categories, catLoading, categoryId]);
-    const { posts, loading: postsLoading, error: postsError } = usePostsByCategory(category?.id ?? 0);
 
+    const { posts, loading: postsLoading, error: postsError } = usePostsByCategory(category?.id ?? 0);
 
     const isLoading = catLoading || (!!categoryId && !category && !catError) || (!!category && postsLoading);
 
@@ -113,6 +120,51 @@ export default function BlogCategoryPage() {
     const coverUrl: string | undefined = category?.CoverImage?.url
         ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${category.CoverImage.url}`
         : undefined;
+
+// export default function BlogCategoryPage({ params }: BlogPageProps) {
+//     const categoryId = params.id;
+
+//     const { categories, loading: catLoading, error: catError } = useCategories();
+//     const [category, setCategory] = useState<Category | null>(null);
+
+  
+    
+
+//     useEffect(() => {
+//         if (!catLoading && categories.length > 0) {
+//             const cat = categories.find(c => c.id.toString() === categoryId) || null;
+//             setCategory(cat);
+//         }
+//     }, [categories, catLoading, categoryId]);
+//     const { posts, loading: postsLoading, error: postsError } = usePostsByCategory(category?.id ?? 0);
+
+
+//     const isLoading = catLoading || (!!categoryId && !category && !catError) || (!!category && postsLoading);
+
+//     if (isLoading) {
+//         return <StatusDisplay icon="⏳" title="جاري التحميل..." message="نجهز لك المقالات بلمسة من الإبداع، لحظات من فضلك." />;
+//     }
+
+//     if (catError || postsError) {
+//         return (
+//             <StatusDisplay icon="⚠️" title="حدث خطأ" message={`${catError || postsError}`}>
+//                 <button
+//                     onClick={() => window.location.reload()}
+//                     className="mt-6 bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-8 py-3 rounded-full hover:shadow-lg transition-all font-semibold"
+//                 >
+//                     إعادة المحاولة
+//                 </button>
+//             </StatusDisplay>
+//         );
+//     }
+
+//     if (!category) {
+//         return <StatusDisplay icon="🔍" title="الفئة غير موجودة" message="عذرًا، لم نتمكن من العثور على الفئة المطلوبة." />;
+//     }
+
+//     const coverUrl: string | undefined = category?.CoverImage?.url
+//         ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${category.CoverImage.url}`
+//         : undefined;
 
     return (
         <div className="relative min-h-screen">

@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useEffect, useState, useRef, ReactNode } from "react";
+import React, { useEffect, useState, useRef, ReactNode, use } from "react";
 import { useParams } from "next/navigation";
 import { usePostBySlug } from "@/lib/usePostBySlug"; // تأكد من صحة المسار
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
@@ -514,13 +514,25 @@ const SocialShare = ({ postTitle, postUrl }: { postTitle: string, postUrl: strin
 ================================================================================
 */
 
-interface PostPageProps {
-  id: number;
-}
+// interface PostPageProps {
+//   id: number;
+// }
+// interface PostPageProps {
+//   params: { id: string; slug?: string };
+//   searchParams?: any;
+// }
+// interface PostPageProps {
+//   params: { id: string; slug?: string };
+// }
 
-export default function PostPage({ id }: PostPageProps) {
-  const params = useParams();
-  const slug = (params?.slug as string) || "";
+interface PostPageProps {
+  params: Promise<{ id: string; slug?: string }>;
+}
+export default  function  PostPage({ params }: PostPageProps) {
+  // const slug = params.slug || "";
+  // const postId = Number(params.id);
+  const { id, slug } = use(params);
+  const postId = Number(id);
 
   // ───────────── Hooks الأساسية ─────────────
   const { post, loading, error } = usePostBySlug(slug) as { post?: PostItem | null; loading: boolean; error: any };
