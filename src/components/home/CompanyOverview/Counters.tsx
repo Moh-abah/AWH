@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import {
     Award,
@@ -26,7 +26,7 @@ const StatsSection: React.FC = () => {
         teamMembers: 0,
     });
 
-    const finalStats = {
+    const finalStats = useMemo(() => ({
         projects: 17,
         clients: 15,
         satisfaction: 99,
@@ -34,7 +34,7 @@ const StatsSection: React.FC = () => {
         codeLines: 50000,
         countries: 3,
         teamMembers: 15,
-    };
+    }), []);
 
     const stats = [
         {
@@ -144,7 +144,7 @@ const StatsSection: React.FC = () => {
         // Start animation when component mounts
         const timer = setTimeout(animateCounters, 500);
         return () => clearTimeout(timer);
-    }, []);
+    }, [finalStats]);
 
     const formatNumber = (num: number) => {
         if (num >= 1000000) {

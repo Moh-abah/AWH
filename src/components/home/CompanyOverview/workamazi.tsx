@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { projects } from '@/constants/projects';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
@@ -12,7 +12,7 @@ export default function Workside() {
 
     const currentProject = projects[currentProjectIndex];
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         if (isAnimating) return;
         setIsAnimating(true);
         setDirection('right');
@@ -20,7 +20,8 @@ export default function Workside() {
             setCurrentProjectIndex((prev) => (prev + 1) % projects.length);
             setIsAnimating(false);
         }, 300);
-    };
+    }, [isAnimating]);
+
 
     const handlePrev = () => {
         if (isAnimating) return;
@@ -37,8 +38,7 @@ export default function Workside() {
             handleNext();
         }, 7000);
         return () => clearInterval(interval);
-    }, []);
-
+    }, [handleNext]); // ✅ الآن التحذير اختفى
     const cardColor = {
         web: 'bg-blue-50',
         mobile: 'bg-green-50',

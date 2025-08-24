@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Post } from "@/types/category";
+import Image from "next/image";
 
 interface Props {
     posts: Post[];
@@ -30,7 +31,7 @@ export default function SimilarPostsWidget({ posts }: Props) {
                         className="flex gap-4 hover:bg-sky-50 rounded-lg p-2 transition-all"
                     >
                         <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-                            <img
+                            <Image
                                 src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${coverUrl}`}
                                 alt={post.Tital}
                                 className="w-full h-full object-cover"

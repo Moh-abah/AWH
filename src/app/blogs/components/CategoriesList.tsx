@@ -184,7 +184,9 @@ export default function CategoriesList() {
                         animate={{ opacity: 1 }}
                         className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 text-center mb-8 shadow-lg border border-blue-100/30"
                     >
-                        <p className="text-gray-600">لم يتم العثور على أي نتائج لـ "{searchQuery}"</p>
+              
+                        <p className="text-gray-600">لم يتم العثور على أي نتائج لـ &apos;{searchQuery}&apos;</p>
+
                     </motion.div>
                 )}
 

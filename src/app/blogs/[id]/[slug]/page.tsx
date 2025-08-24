@@ -262,6 +262,27 @@ const ContentRenderer = ({ content }: { content: any[] }) => {
           }
 
           // عرض الفقرات
+          // if (elementType === "paragraph") {
+          //   return (
+          //     <motion.p
+          //       key={index}
+          //       {...getMotionProps(index)}
+          //       className="text-justify text-gray-900 leading-loose text-lg"
+          //     >
+          //       {children.map((child: any, i: number) => {
+          //         const content = processTextWithDots(child.text || "");
+
+          //         let el = <span key={i}>{content}</span>;
+          //         if (child.bold) el = <strong key={i} className="font-black text-slate-900 bg-yellow-100 px-1 py-0.5 rounded">{content}</strong>;
+          //         if (child.italic) el = <em key={i} className="italic text-blue-800 font-medium">{content}</em>;
+          //         if (child.underline) el = <u key={i} className="underline decoration-wavy decoration-blue-500 decoration-2 underline-offset-4">{content}</u>;
+          //         if (child.code) el = <code key={i} className="bg-gray-900 text-green-400 px-3 py-1.5 rounded-md text-sm font-mono border border-gray-700">{content}</code>;
+          //         return el;
+          //       })}
+          //     </motion.p>
+          //   );
+          // }
+
           if (elementType === "paragraph") {
             return (
               <motion.p
@@ -270,18 +291,42 @@ const ContentRenderer = ({ content }: { content: any[] }) => {
                 className="text-justify text-gray-900 leading-loose text-lg"
               >
                 {children.map((child: any, i: number) => {
-                  let content = processTextWithDots(child.text || "");
-
+                  
                   let el = <span key={i}>{content}</span>;
-                  if (child.bold) el = <strong key={i} className="font-black text-slate-900 bg-yellow-100 px-1 py-0.5 rounded">{content}</strong>;
-                  if (child.italic) el = <em key={i} className="italic text-blue-800 font-medium">{content}</em>;
-                  if (child.underline) el = <u key={i} className="underline decoration-wavy decoration-blue-500 decoration-2 underline-offset-4">{content}</u>;
-                  if (child.code) el = <code key={i} className="bg-gray-900 text-green-400 px-3 py-1.5 rounded-md text-sm font-mono border border-gray-700">{content}</code>;
+                  if (child.bold)
+                    el = (
+                      <strong
+                        key={i}
+                        className="font-black text-slate-900 bg-yellow-100 px-1 py-0.5 rounded"
+                      >
+                        {content}
+                      </strong>
+                    );
+                  if (child.italic)
+                    el = (
+                      <em key={i} className="italic text-blue-800 font-medium">
+                        {content}
+                      </em>
+                    );
+                  if (child.underline)
+                    el = (
+                      <u className="underline decoration-wavy decoration-blue-500 decoration-2 underline-offset-4">
+                        {content}
+                      </u>
+                    );
+                  if (child.code)
+                    el = (
+                      <code className="bg-gray-900 text-green-400 px-3 py-1.5 rounded-md text-sm font-mono border border-gray-700">
+                        {content}
+                      </code>
+                    );
                   return el;
                 })}
               </motion.p>
             );
           }
+
+
 
           // عرض الاقتباسات
           if (elementType === 'quote') {
@@ -291,7 +336,7 @@ const ContentRenderer = ({ content }: { content: any[] }) => {
                 {...getMotionProps(index)}
                 className="relative my-8 p-8 bg-gradient-to-r from-blue-50 via-white to-blue-50 border-l-4 border-blue-500 rounded-r-xl shadow-lg"
               >
-                <div className="absolute top-4 left-4 text-4xl text-blue-400 opacity-30">"</div>
+                <div className="absolute top-4 left-4 text-4xl text-blue-400 opacity-30"></div>
                 <div className="ml-8 text-gray-800 text-xl leading-relaxed font-medium italic">
                   {processTextWithDots(text)}
                 </div>
@@ -356,7 +401,7 @@ const ContentRenderer = ({ content }: { content: any[] }) => {
                 className="my-10 text-center"
               >
                 <div className="relative inline-block">
-                  <img
+                  <Image
                     src={block.src || block.url}
                     alt={block.alt || block.alternativeText || 'صورة'}
                     className="mx-auto rounded-2xl shadow-2xl max-w-full h-auto border border-gray-200"
@@ -418,8 +463,9 @@ const ContentRenderer = ({ content }: { content: any[] }) => {
 
 // معرض صور متكامل
 const ImageGallery = ({ images }: { images: Media[] }) => {
-  if (!images || images.length === 0) return null;
   const [selected, setSelected] = useState<string | null>(null);
+  if (!images || images.length === 0) return null;
+  
   return (
     <section className="mt-16">
       <h3 className="text-2xl font-bold text-blue-900 mb-6">معرض الصور</h3>

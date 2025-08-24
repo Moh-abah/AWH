@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Postat } from "@/types/category";
+import { Post } from "@/types/category";
 
 export function usePostsByCategory(categoryId: number) {
-    const [posts, setPosts] = useState<Postat[]>([]);
+    const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 

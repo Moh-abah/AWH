@@ -5,9 +5,9 @@ import { useParams } from "next/navigation";
 import { useCategories } from "@/lib/useCategories";
 import { usePostsByCategory } from "@/lib/usePostsByCategory";
 import ArticleCard from "../../blogs/components/ArticleCard"; // تأكد من استخدام النسخة الفاخرة
-import { Category, Postat } from "@/types/category";
+import { Category, Post } from "@/types/category";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Image from "next/image";
 // ==================================================================
 // ==   تأثيرات بصرية (محسّنة لتكون أكثر تكاملاً)   ==
 // ==================================================================
@@ -110,7 +110,9 @@ export default function BlogCategoryPage() {
         return <StatusDisplay icon="🔍" title="الفئة غير موجودة" message="عذرًا، لم نتمكن من العثور على الفئة المطلوبة." />;
     }
 
-    const coverUrl = category.CoverImage?.url ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${category.CoverImage.url}` : null;
+    const coverUrl: string | undefined = category?.CoverImage?.url
+        ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${category.CoverImage.url}`
+        : undefined;
 
     return (
         <div className="relative min-h-screen">
@@ -130,7 +132,18 @@ export default function BlogCategoryPage() {
                             transition={{ duration: 1.5, ease: "easeOut" }}
                             className="w-full h-full"
                         >
-                            <img src={coverUrl} alt={category.Name} className="w-full h-full object-cover" />
+                            {/* <img src={coverUrl} alt={category.Name} className="w-full h-full object-cover" /> */}
+                            {coverUrl && (
+                                <Image
+                                    src={coverUrl}
+                                    alt={category.Name || "Category Image"}
+                                    width={500}
+                                    height={300}
+                                    style={{ objectFit: "cover" }}
+                                    className="w-full h-full object-cover"
+                                />
+                            )}
+
                         </motion.div>
                     </div>
                 )}
@@ -176,13 +189,17 @@ export default function BlogCategoryPage() {
                             >
                                 {posts.map((post) => (
                                     <motion.div key={post.id} variants={{ hidden: { y: 20, opacity: 0 }, show: { y: 0, opacity: 1 } }}>
-                                        <ArticleCard post={post as Postat} />
+                                        <ArticleCard post={post as Post} />
                                     </motion.div>
                                 ))}
                             </motion.div>
                         ) : (
                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                                <StatusDisplay icon="📝" title="لا توجد مقالات بعد" message={`لم يتم نشر أي مقالات في فئة "${category.Name}" حتى الآن.`} />
+                                    <StatusDisplay
+                                        icon="📝"
+                                        title="لا توجد مقالات بعد"
+                                        message={`لم يتم نشر أي مقالات في فئة &quot;${category.Name}&quot; حتى الآن.`}
+                                    />
                             </motion.div>
                         )}
                     </AnimatePresence>

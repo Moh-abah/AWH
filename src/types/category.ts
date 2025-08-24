@@ -60,7 +60,7 @@ export interface Tag {
 
 
 
-export interface Postat {
+export interface Post {
     ip: number;
     documentId?: string;
     Tital?: string;
@@ -80,7 +80,7 @@ export interface Category {
     Slug?: string;
     Description?: string;
     CoverImage?: CoverImage;
-    posts: Postat[]; // الآن الفئة تحتوي على الـ posts
+    posts: Post[]; // الآن الفئة تحتوي على الـ posts
     createdAt?: string;
     updatedAt?: string;
     publishedAt?: string;

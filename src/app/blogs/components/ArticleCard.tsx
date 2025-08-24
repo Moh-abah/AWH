@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Postat } from "@/types/category"; // تأكد من أن هذا المسار صحيح
-
+import { Post } from "@/types/category"; // تأكد من أن هذا المسار صحيح
+import Image from "next/image";
 // أيقونات لتحسين التصميم
 const EyeIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -19,7 +19,7 @@ const ClockIcon = () => (
 );
 
 interface Props {
-    post: Postat;
+    post: Post;
 }
 
 export default function LuxuryArticleCard({ post }: Props) {
@@ -49,7 +49,7 @@ export default function LuxuryArticleCard({ post }: Props) {
             <div className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 ease-in-out border border-gray-100 flex flex-col h-full font-sans">
                 {/* --- قسم الصورة --- */}
                 <div className="relative h-56 overflow-hidden rounded-t-2xl">
-                    <img
+                    <Image
                         src={finalCoverUrl}
                         alt={title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -91,10 +91,14 @@ export default function LuxuryArticleCard({ post }: Props) {
                 {/* --- قسم الكاتب --- */}
                 <div className="bg-gray-50/70 p-4 flex items-center justify-between rounded-b-2xl border-t">
                     <div className="flex items-center">
-                        <img
+                        <Image
                             src={finalAuthorImageUrl}
                             alt={authorName}
                             className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
+                            width={64}   // قيمة تقريبية حسب تصميمك
+                            height={64}  // قيمة تقريبية حسب تصميمك
+                           
+                           
                         />
                         <span className="mr-3 font-semibold text-gray-800">{authorName}</span>
                     </div>

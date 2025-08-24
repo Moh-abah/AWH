@@ -49,6 +49,7 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { Category } from "../../../types/category";
+import Image from "next/image";
 
 interface Props {
   category: Category;
@@ -86,10 +87,13 @@ export default function CategoryCard({ category }: Props) {
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
         {/* صورة الفئة */}
         <div className="relative h-48 overflow-hidden">
-          <img
+          <Image
             src={cover ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${cover}` : "/placeholder.png"}
             alt={name}
-            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            width={64}   // قيمة تقريبية حسب تصميمك
+            height={64}  // قيمة تقريبية حسب تصميمك
+            className="w-full h-full object-cover"
+            style={{ objectFit: "cover" }}
           />
           <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
             {postsCount} مقالات
