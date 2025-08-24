@@ -13,7 +13,7 @@ export default function Footer() {
                 <div className="space-y-4">
                     <Link href="/" className="flex items-center gap-3">
                         <Image src="/images/logo1.png" alt="DWH Logo" width={118} height={118} className="rounded-full" />
-                        <span className="text-white font-bold text-2xl tracking-wide">DWH</span>
+                        <span className="text-white font-bold text-2xl tracking-wide"> Digital World Horizon  </span>
                     </Link>
                     <p className="text-gray-400 leading-relaxed text-sm md:text-base">
                         نطوّر مواقع وتطبيقات تلبي احتياجاتك الرقمية، تساعدك على جذب عملاء وتحقيق نمو استراتيجي.
@@ -27,7 +27,9 @@ export default function Footer() {
                         <li><Link href="/" className="hover:text-blue-400 transition duration-300">الرئيسية</Link></li>
                         <li><Link href="/about" className="hover:text-blue-400 transition duration-300">من نحن</Link></li>
                         <li><Link href="/services" className="hover:text-blue-400 transition duration-300">خدماتنا</Link></li>
+                        
                         <li><Link href="/work" className="hover:text-blue-400 transition duration-300">أعمالنا</Link></li>
+                        <li><Link href="/blogs" className="hover:text-blue-400 transition duration-300">المدونة</Link></li>
                         <li><Link href="/contact" className="hover:text-blue-400 transition duration-300">تواصل معنا</Link></li>
                         {/* <li><Link href="#" className="hover:text-blue-400 transition duration-300">من نحن</Link></li>
                         <li><Link href="#" className="hover:text-blue-400 transition duration-300">خدماتنا</Link></li>
@@ -40,7 +42,7 @@ export default function Footer() {
                 <div>
                     <h3 className="text-white text-xl font-semibold mb-5 border-b border-gray-700 pb-2">تواصل معنا</h3>
                     <div className="space-y-3 text-gray-300 text-sm md:text-base">
-                        <p>📞 <a href="tel:+966555864375" className="hover:text-blue-400 transition duration-300">+966 55 586 4375</a></p>
+                        <p>📞 <a href="tel:+966555864375" className="hover:text-blue-400 transition duration-300">0555864375</a></p>
                         <p>✉️ <a href="mailto:digitalworldhorizon@gmail.com" className="hover:text-blue-400 transition duration-300">digitalworldhorizon@gmail.com</a></p>
                     </div>
                 </div>

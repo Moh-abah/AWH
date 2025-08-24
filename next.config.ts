@@ -5,3 +5,16 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+// next.config.js
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "62.169.17.101",
+        port: "1337",
+        pathname: "/uploads/**",
+      },
+    ],
+  },
+};

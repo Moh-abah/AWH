@@ -248,7 +248,7 @@ export default function ContactPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        تواصل معنا
+                     اتصل بنا 
                     </motion.h1>
                     <motion.p
                         className="text-xl mb-8 text-white"
@@ -289,7 +289,7 @@ export default function ContactPage() {
                     >
                         {/* نموذج التواصل */}
                         <div className="bg-white rounded-2xl shadow-xl p-8 border border-black  ">
-                            <h2 className="text-3xl font-bold mb-6 text-gray-800">أرسل لنا رسالة</h2>
+                            <h2 className="text-3xl font-bold mb-6 text-gray-800">تواصل معنا   </h2>
 
                             {submitSuccess && (
                                 <div className="bg-green-100 text-green-700 p-4 rounded-lg mb-6 flex items-center">
@@ -512,7 +512,7 @@ export default function ContactPage() {
                                         <div className="text-center">
                                             <div className="text-5xl mb-4 text-sky-500">📍</div>
                                             <p className="text-xl font-bold text-gray-800">الرياض، المملكة العربية السعودية </p>
-                                            <p className="text-gray-600 mt-2">شارع الملك فهد، مبنى رقم 123</p>
+                                            <p className="text-gray-600 mt-2">طريق الملك فهد، مبنى رقم 123</p>
                                         </div>
                                     </div>
                                 </div>
@@ -576,7 +576,7 @@ export default function ContactPage() {
                             },
                             {
                                 question: 'هل تقدمون الدعم خارج ساعات العمل؟',
-                                answer: ' نعم،نعمل على مدار الساعة للرد على الاستفسارات العاجلة. يمكنك الاتصال بنا على الرقم المخصص للدعم العاجل +966 555864375 او +967 780090882.'
+                                answer: ' نعم،نعمل على مدار الساعة للرد على الاستفسارات العاجلة. يمكنك الاتصال بنا على الرقم المخصص للدعم العاجل 0555864375.'
                             },
                             {
                                 question: 'كيف يمكنني متابعة حالة طلبي؟',

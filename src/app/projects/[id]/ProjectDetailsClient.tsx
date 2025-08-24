@@ -233,7 +233,7 @@ export default function ProjectDetailsClient({ project }: { project: Project }) 
                     {/* العمود الأيمن - محتوى المشروع */}
                     <div className="lg:col-span-2">
                         {/* علامات التبويب */}
-                        <div className="flex border-b border-gray-300 mb-8">
+                        <div className="flex border-b border-gray-300 mb-8 relative z-30">
                             <button
                                 onClick={() => setActiveTab('overview')}
                                 className={`pb-3 px-6 ${activeTab === 'overview' ? 'text-black border-b-5 border-black' : 'text-sky-800'

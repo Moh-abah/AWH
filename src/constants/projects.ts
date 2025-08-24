@@ -424,6 +424,48 @@
             duration: '3 أشهر',
             liveUrl: ""
         },
+        {
+            id: 'asall',
+            title: 'حملة تسويق إلكتروني لمتجر عسل   ',
+            description: 'تحليلات وحملات إعلانية باستخدام Google Ads، Console، AdSense، Snapchat ،Tik tok، وتحليل الأسهم.',
+            category: 'digitalMarketing',
+            year: '2025',
+            client: ' متجر عسل',
+            technologies: ['Google Ads',  'Snapchat', 'Tik tok', 'Search Console', 'AdSense', 'Google Analytics'],
+            challenges: [
+                'تحقيق عائد استثمار إيجابي',
+                'تحليل بيانات دقيقة من Google Console وAdSense و Tik tok و Snapchat',
+                'استهداف الجمهور المناسب'
+            ],
+            solutions: [
+                'إنشاء حملات Google Ads + تحسين محركات',
+                'تحليل بيانات AdSense لتوجيه الإعلانات',
+                'تقارير شهرية وتحسين مستمر'
+            ],
+            results: [
+                { metric: 'زيادة النقرات', value: '60%', icon: 'FaChartLine' },
+                { metric: 'العائد على الاستثمار (ROI)', value: '120%', icon: 'FaDollarSign' }
+            ],
+            gallery: [
+                { type: 'image', url: '/images/projects/m1.jpg', caption: 'تحليل إعلانات Google' },
+                { type: 'image', url: '/images/projects/m2.jpg', caption: 'تحليل إعلانات Google' },
+                { type: 'image', url: '/images/projects/m3.jpg', caption: 'تحليل إعلانات Google' },
+                { type: 'image', url: '/images/projects/m4.jpg', caption: 'تحليل إعلانات Google' },
+                { type: 'image', url: '/images/projects/m5.jpg', caption: 'تحليل إعلانات Google' },
+                { type: 'image', url: '/images/projects/m6.jpg', caption: 'تحليل إعلانات Google' },
+                { type: 'image', url: '/images/projects/m7.jpg', caption: 'تحليل إعلانات Google' },
+                { type: 'image', url: '/images/projects/m8.jpg', caption: 'تحليل إعلانات Google' },
+                { type: 'image', url: '/images/projects/m9.jpg', caption: 'تحليل إعلانات Google' },
+                { type: 'image', url: '/images/projects/m10.jpg', caption: 'تحليل إعلانات Google' },
+                { type: 'image', url: '/images/projects/m11.jpg', caption: 'تحليل إعلانات Google' },
+                
+            ],
+            testimonials: [],
+            overview: 'حمله تسويق على متجر عسل بحيث زادت مبيعاته 300% ',
+            goal: 'تحقيق نمو ملموس وزيادة في التفاعل والمبيعات.',
+            duration: ' شهر واحد',
+            liveUrl: ""
+        },
 
         // {
         //     id: 'ramadan-guidance-campaign',
