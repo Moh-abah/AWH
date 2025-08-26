@@ -436,17 +436,20 @@ export function generateViewport() {
   }
 }
 
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ar" dir="rtl">
       <head>
         <Script
+          id="organization-structured-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationStructuredData),
           }}
         />
         <Script
+          id="services-structured-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(servicesStructuredData),
