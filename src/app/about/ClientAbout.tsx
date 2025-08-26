@@ -5,6 +5,7 @@ import CompanyIntro from "@/components/about/CompanyIntro";
 import TeamSection from "@/components/about/TeamSection";
 import ValuesVision from "@/components/about/ValuesVision";
 import { motion } from "framer-motion";
+import Script from "next/script";
 
 import { FaRocket, FaLightbulb, FaUsers, FaChartLine, FaMedal, FaGlobe } from "react-icons/fa";
 
@@ -21,7 +22,7 @@ export default function ClientAbout() {
 
                 {/* تأثير جسيمات متحركة */}
                 <div className="absolute inset-0">
-                    {[...Array(30)].map((_, i) => (
+                    {[...Array(15)].map((_, i) => (
                         <motion.div
                             key={i}
                             className="absolute rounded-full bg-sky-100/30"
@@ -48,6 +49,34 @@ export default function ClientAbout() {
             </div>
 
             <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-38">
+
+                <Script
+                    id="organization-schema"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            name: "آفاق العالم الرقمي",
+                            url: "https://digitalworldhorizon.com",
+                            logo: "https://digitalworldhorizon.com/logo1.png",
+                            description: "شركة متخصصة في تطوير المواقع والتطبيقات، التصميم الجرافيكي، الهوية البصرية، التسويق الإلكتروني وحلول السوشيال ميديا في السعودية.",
+                            contactPoint: {
+                                "@type": "ContactPoint",
+                                telephone: "+966555864375",
+                                contactType: "customer service",
+                                email: "info@digitalworldhorizon.com"
+                            },
+                            sameAs: [
+                                "https://twitter.com/digitalworldhorizon",
+                                "https://linkedin.com/company/digitalworldhorizon"
+                            ]
+                        })
+                    }}
+                />
+                <h1 className="sr-only">
+                    آفاق العالم الرقمي - تطوير مواقع، تطبيقات، هوية بصرية، وتسويق إلكتروني في السعودية
+                </h1>
                 {/* عنوان الصفحة مع تأثير مميز */}
                 <motion.div
                     className="text-center"

@@ -13,6 +13,7 @@ import {
     FaTags
 } from 'react-icons/fa';
 import { FaNetworkWired } from 'react-icons/fa6';
+import Script from "next/script";
 
 // بيانات الخدمات المحدثة
 const services = [
@@ -664,6 +665,39 @@ export default function ServicesPage() {
             </div>
 
             <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                import Script from "next/script";
+
+                <Script
+                    id="services-schema"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "ItemList",
+                            "itemListElement": services.map((service: any, index: number) => ({
+                                "@type": "ListItem",
+                                "position": index + 1,
+                                "item": {
+                                    "@type": "Service",
+                                    "name": service.title,
+                                    "description": service.description,
+                                    "provider": {
+                                        "@type": "Organization",
+                                        "name": "آفاق العالم الرقمي",
+                                        "url": "https://digitalworldhorizon.com"
+                                    },
+                                    "offers": service.pricing.map((p: any) => ({
+                                        "@type": "Offer",
+                                        "name": p.tier,
+                                        "price": p.price,
+                                        "priceCurrency": "SAR" // غير العملة حسب الحاجة
+                                    }))
+                                }
+                            }))
+                        })
+                    }}
+                />
+
                 <div className="text-center mb-12">
                     <motion.h1
                         className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-gray-800"
@@ -671,10 +705,9 @@ export default function ServicesPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, type: 'spring', bounce: 0.4 }}
                     >
-                        <h3 className="bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-500 text-transparent bg-clip-text">
-                            خدماتنا المتميزة
-                        </h3>
+                        خدماتنا المتميزة
                     </motion.h1>
+
                     <motion.p
                         className="text-lg sm:text-xl text-white max-w-3xl mx-auto"
                         initial={{ opacity: 0 }}

@@ -21,13 +21,13 @@ export default function Intro() {
         },
         contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+966-XX-XXX-XXXX",
+            telephone: "+966 55 586 4375",
             contactType: "customer service",
-            email: "info@digitalworldhorizon.com",
+            email: "digitalworldhorizon@gmail.com",
             availableLanguage: ["Arabic", "English"],
         },
-        sameAs: ["https://twitter.com/digitalworldhorizon", "https://linkedin.com/company/digitalworldhorizon"],
-        foundingDate: "2019",
+        sameAs: ["https://twitter.com/digworldhorizon", "https://linkedin.com/company/digitalworldhorizon"],
+        foundingDate: "2025",
         numberOfEmployees: "10-50",
         areaServed: {
             "@type": "Country",
