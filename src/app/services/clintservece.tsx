@@ -665,7 +665,7 @@ export default function ServicesPage() {
             </div>
 
             <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-                import Script from "next/script";
+                
 
                 <Script
                     id="services-schema"
