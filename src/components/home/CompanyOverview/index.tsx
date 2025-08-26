@@ -6,6 +6,7 @@ import Counters from './Counters';
 import ServicesList from './ServicesList';
 import Workside from './workamazi';
 import WhyUs from './WhyUs';
+import ServicesPageeee from './ServicesList';
 export default function CompanyOverviews() {
     return (
         <section >
@@ -14,7 +15,9 @@ export default function CompanyOverviews() {
                 <Intro />
                 <FeaturesGrid />
                 <Counters />
-                <ServicesList />
+                <ServicesPageeee />
+                
+                {/* <ServicesPage /> */}
                 <Workside /> 
                 
                 <WhyUs /> 

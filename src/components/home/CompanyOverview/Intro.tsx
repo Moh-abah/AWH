@@ -2,9 +2,97 @@
 
 import { FaRocket, FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-
+import { Code, Smartphone, Globe, ShoppingCart, Database, Shield, Zap, Users, Mail, Phone, MapPin } from "lucide-react"
+import Script from "next/script"
 export default function Intro() {
+
+    const organizationSchema = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "آفاق العالم الرقمي - Digital World Horizon",
+        alternateName: "DWH",
+        url: "https://digitalworldhorizon.com",
+        logo: "https://digitalworldhorizon.com/logo.png",
+        description: "شركة متخصصة في تطوير البرمجيات المتكاملة والحلول التقنية المبتكرة في المملكة العربية السعودية",
+        address: {
+            "@type": "PostalAddress",
+            addressCountry: "SA",
+            addressRegion: "المملكة العربية السعودية",
+        },
+        contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+966-XX-XXX-XXXX",
+            contactType: "customer service",
+            email: "info@digitalworldhorizon.com",
+            availableLanguage: ["Arabic", "English"],
+        },
+        sameAs: ["https://twitter.com/digitalworldhorizon", "https://linkedin.com/company/digitalworldhorizon"],
+        foundingDate: "2019",
+        numberOfEmployees: "10-50",
+        areaServed: {
+            "@type": "Country",
+            name: "Saudi Arabia",
+        },
+        serviceType: [
+            "تطوير مواقع الويب",
+            "تطوير تطبيقات الجوال",
+            "التجارة الإلكترونية",
+            "الحلول السحابية",
+            "الأمان السيبراني",
+        ],
+    }
+
+    const servicesSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: "تطوير البرمجيات",
+        provider: {
+            "@type": "Organization",
+            name: "آفاق العالم الرقمي",
+        },
+        areaServed: {
+            "@type": "Country",
+            name: "Saudi Arabia",
+        },
+        hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "خدمات تطوير البرمجيات",
+            itemListElement: [
+                {
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@type": "Service",
+                        name: "تطوير مواقع الويب",
+                        description: "تطوير مواقع ويب حديثة ومتجاوبة باستخدام أحدث التقنيات",
+                    },
+                },
+                {
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@type": "Service",
+                        name: "تطوير تطبيقات الجوال",
+                        description: "تطوير تطبيقات جوال متطورة لأنظمة iOS و Android",
+                    },
+                },
+            ],
+        },
+    }
     return (
+        <>
+            <Script
+                id="organization-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(organizationSchema),
+                }}
+            />
+            <Script
+                id="services-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(servicesSchema),
+                }}
+            />
         <section
             className="relative bg-cover bg-center py-16 md:py-34 px-4 overflow-hidden "
             
@@ -128,5 +216,6 @@ export default function Intro() {
                 </svg>
             </div>
         </section>
+        </>
     );
 }

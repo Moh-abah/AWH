@@ -370,7 +370,7 @@ export default function Navbar() {
         { href: '/services', label: 'خدماتنا' },
         { href: '/projects', label: 'أعمالنا' },
 
-        // { href: '/blogs', label: 'المدونة' },
+         { href: '/blogs', label: 'المدونة' },
         { href: '/contact', label: 'تواصل معنا' },
     ];
 
