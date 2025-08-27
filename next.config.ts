@@ -4,10 +4,9 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "62.169.17.101",
-        port: "1337",
-        pathname: "/uploads/**",
+        protocol: "https",                     // HTTPS بدل HTTP
+        hostname: "api.digitalworldhorizon.com", // الدومين الفرعي للـ Strapi
+        pathname: "/uploads/**",               // كل الملفات داخل uploads
       },
       {
         protocol: "https",
