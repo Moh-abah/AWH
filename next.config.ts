@@ -1,12 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
-// next.config.js
-module.exports = {
   images: {
     remotePatterns: [
       {
@@ -15,6 +9,14 @@ module.exports = {
         port: "1337",
         pathname: "/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "ui-avatars.com",
+        port: "",
+        pathname: "/api/**",
+      }
     ],
   },
 };
+
+export default nextConfig;

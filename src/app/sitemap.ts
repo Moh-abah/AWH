@@ -42,6 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { route: "/about", priority: 0.9, changeFrequency: "monthly" as const },
         { route: "/contact", priority: 0.8, changeFrequency: "monthly" as const },
         { route: "/services", priority: 0.95, changeFrequency: "weekly" as const },
+        { route: "/blogs", priority: 0.85, changeFrequency: "weekly" as const },
         { route: "/projects", priority: 0.85, changeFrequency: "daily" as const },
     ]
 

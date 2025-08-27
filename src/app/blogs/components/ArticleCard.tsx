@@ -1,3 +1,5 @@
+
+
 "use client";
 
 import React, { useState } from "react";
@@ -46,15 +48,16 @@ export default function LuxuryArticleCard({ post }: Props) {
 
     return (
         <Link href={`/blogs/${category?.id}/${post.Slug}`}>
-            <div className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 ease-in-out border border-gray-100 flex flex-col h-full font-sans">
+            <div className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 ease-in-out border border-sky-300 flex flex-col h-full font-sans">
                 {/* --- قسم الصورة --- */}
                 <div className="relative h-56 overflow-hidden rounded-t-2xl">
                     <Image
                         src={finalCoverUrl}
                         alt={title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                         onError={handleImageError}
-                        loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                     <div className="absolute top-4 left-4">
@@ -95,10 +98,9 @@ export default function LuxuryArticleCard({ post }: Props) {
                             src={finalAuthorImageUrl}
                             alt={authorName}
                             className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
-                            width={64}   // قيمة تقريبية حسب تصميمك
-                            height={64}  // قيمة تقريبية حسب تصميمك
-                           
-                           
+                            width={40}
+                            height={40}
+
                         />
                         <span className="mr-3 font-semibold text-gray-800">{authorName}</span>
                     </div>

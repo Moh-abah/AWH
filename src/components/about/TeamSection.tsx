@@ -17,35 +17,7 @@ const teamMembers = [
         role: ' مدير قسم العلاقات    ',
         photo: '/images/teams/.jpg',
     },
-    // {
-    //     name: ' صلاح القاره',
-    //     role: ' مطور الواجهه الاماميه   ',
-    //     photo: '/images/teams/salah.jpg',
-    // },
-    // {
-    //     name: ' محمد الشرعبي    ',
-    //     role: ' مطور الواجهه الاماميه    ',
-    //     photo: '/images/teams/sharabi.jpg',
-    // },
-    // {
-    //     name: ' عبد الحافظ الماس  ',
-    //     role: ' مطور الواجهه الخلفيه   ',
-    //     photo: '/images/teams/mas.png',
-    // },
-    // {
-    //     name: ' عمار الشيباني ',
-    //     role: ' تسويق الكتروني وفني ',
-    //     photo: '/images/teams/amar.jpg',
-    // },
-    
-    
-    // {
-    //     name: ' ايمن النعماني ',
-    //     role: ' مطور الواجهه الاماميه ومختص بالعلامات التجاريه   ',
-    //     photo: '/images/teams/ayman.jpg',
-    // },
-    
-    // أضف المزيد حسب الحاجة
+   
 ];
 
 export default function TeamSection() {

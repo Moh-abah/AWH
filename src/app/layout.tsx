@@ -28,8 +28,8 @@ const organizationStructuredData = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",
-    availableLanguage: ["Arabic", "English"],
-    telephone: "+966-XXX-XXXX",
+    availableLanguage: ["ar", "en"],
+    telephone: "+966-55-555-5555", // TODO: استبدل هذا برقم الهاتف الصحيح
   },
   sameAs: ["https://twitter.com/digitalworldhorizon", "https://linkedin.com/company/digitalworldhorizon"],
   foundingDate: "2020",
@@ -75,9 +75,13 @@ const servicesStructuredData = {
 }
 
 export const metadata: Metadata = {
-  title: " تطوير برمجيات متكاملة |  افاق العالم الرقمي",
+  metadataBase: new URL("https://digitalworldhorizon.com"),
+  title: {
+    default: "تطوير برمجيات متكاملة وحلول رقمية | افاق العالم الرقمي (DWH)",
+    template: `%s | افاق العالم الرقمي (DWH)`,
+  },
   description:
-    " DWH لتطوير البرمجيات، تقدم حلولاً احترافية في تطوير مواقع الويب، تطبيقات الجوال  Next.js وFlutter، لوحات تحكم Power BI، وخدمات تقنية متكاملة تلبي احتياجات أعمالك.",
+    "شركة افاق العالم الرقمي (DWH) متخصصة في تطوير البرمجيات وحلول الويب. نقدم خدمات تطوير مواقع وتطبيقات جوال باستخدام Next.js وFlutter، تصميم واجهات UX/UI، وحلول تجارة إلكترونية متكاملة لنمو أعمالك في السعودية.",
   keywords: `
 تطوير برمجيات,
 تطوير مواقع ويب,
@@ -98,9 +102,12 @@ Flutter و Next.js,
 `,
   authors: [{ name: " DWH لتطوير البرمجيات" }],
 
-  robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: " DWH |    افاق العالم الرقمي للتطور التكنولوجي - تطوير برمجيات متكامله",
+    title: "DWH | افاق العالم الرقمي للتطور التكنولوجي - تطوير برمجيات متكامله",
     description: " DWH تقدم أحدث تقنيات تطوير الويب والموبايل وحلول تسويقيه وتصميمات بصريه مع حلول مخصصة بأعلى جودة.",
     url: "https://digitalworldhorizon.com/",
     siteName: " DWH",
@@ -108,23 +115,29 @@ Flutter و Next.js,
     locale: "ar_SA",
     images: [
       {
-        url: "https://digitalworldhorizon.com/logo.png",
+        url: "/logo-og.png", // تأكد من وجود هذا الملف في public/
         width: 1200,
         height: 630,
-        alt: " DWH – تطوير برمجيات",
+        alt: "شعار شركة افاق العالم الرقمي (DWH)",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: " DWH | مطور برمجيات محترف",
+    title: "DWH | حلول برمجية مبتكرة للأعمال",
     description: " DWH تقدم حلولاً تقنية متقدمة ومخصصة لاحتياجات عملك.",
-    creator: "@YourTwitterHandle",
-    images: ["https://digitalworldhorizon.com/twitter-image.jpg"],
+    creator: "@dwh_sa", // TODO: استبدل هذا بحساب تويتر الفعلي
+    images: ["/twitter-image.png"], // تأكد من وجود هذا الملف في public/
   },
   icons: {
     icon: "/favicon.ico",
     apple: "/images/logo1.png",
+  },
+  alternates: {
+    canonical: "/",
+    languages: {
+      'ar-SA': '/',
+    },
   },
 }
 
@@ -163,7 +176,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="canonical" href="https://digitalworldhorizon.com" />
 
         <Script
           id="gtm-init"

@@ -4,7 +4,7 @@ import React, { useState, useEffect, use } from "react";
 import { useParams } from "next/navigation";
 import { useCategories } from "@/lib/useCategories";
 import { usePostsByCategory } from "@/lib/usePostsByCategory";
-import ArticleCard from "../../blogs/components/ArticleCard"; // تأكد من استخدام النسخة الفاخرة
+import ArticleCard from "../../blogs/components/ArticleCard"; 
 import { Category, Post } from "@/types/category";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -18,35 +18,40 @@ const BackgroundEffects = () => (
         <div className="absolute -bottom-20 -left-20 w-[40rem] h-[40rem] bg-cyan-200/20 rounded-full blur-3xl animate-pulse [animation-delay:2s]"></div>
     </div>
 );
+const AnimatedParticles = () => {
+    const [particles, setParticles] = useState<Array<React.ReactNode>>([]);
 
-const AnimatedParticles = () => (
-    <div className="absolute inset-0 -z-10">
-        {[...Array(20)].map((_, i) => (
-            <motion.div
-                key={i}
-                className="absolute rounded-full bg-gradient-to-br from-sky-200/50 to-blue-200/50"
-                style={{
-                    width: Math.random() * 15 + 5,
-                    height: Math.random() * 15 + 5,
-                    top: `${Math.random() * 100}%`,
-                    left: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                    y: [0, (Math.random() - 0.5) * 200, 0],
-                    x: [0, (Math.random() - 0.5) * 200, 0],
-                    opacity: [0, 0.8, 0],
-                    scale: [1, 1.5, 1]
-                }}
-                transition={{
-                    duration: Math.random() * 10 + 8,
-                    repeat: Infinity,
-                    delay: Math.random() * 5,
-                    ease: "easeInOut"
-                }}
-            />
-        ))}
-    </div>
-);
+    useEffect(() => {
+        setParticles(
+            [...Array(20)].map((_, i) => (
+                <motion.div
+                    key={i}
+                    className="absolute rounded-full bg-gradient-to-br from-sky-200/50 to-blue-200/50"
+                    style={{
+                        width: Math.random() * 15 + 5,
+                        height: Math.random() * 15 + 5,
+                        top: `${Math.random() * 100}%`,
+                        left: `${Math.random() * 100}%`,
+                    }}
+                    animate={{
+                        y: [0, (Math.random() - 0.5) * 200, 0],
+                        x: [0, (Math.random() - 0.5) * 200, 0],
+                        opacity: [0, 0.8, 0],
+                        scale: [1, 1.5, 1]
+                    }}
+                    transition={{
+                        duration: Math.random() * 10 + 8,
+                        repeat: Infinity,
+                        delay: Math.random() * 5,
+                        ease: "easeInOut"
+                    }}
+                />
+            ))
+        );
+    }, []);
+
+    return <div className="absolute inset-0 -z-10">{particles}</div>;
+};
 
 // ==================================================================
 // ==   مكون عرض الحالات (بتصميم أكثر فخامة)   ==
@@ -72,43 +77,46 @@ const StatusDisplay = ({ icon, title, message, children }: { icon: string, title
 // ==                   المكون الرئيسي للصفحة                     ==
 // ==================================================================
 
-interface BlogPageProps {
-    params: Promise<{ categoryId: string; slug?: string }>;
-    
-}
 
-export default function BlogCategoryPage({ params }: BlogPageProps) {
-    const { categoryId, slug } = use(params);
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+interface Props { }
 
-    
+export default function BlogCategoryPage(_: Props) {
+   
+    const params = useParams(); 
+    console.log("route params:", params);
+
+    const routeId = (params as any)?.id ?? (params as any)?.categoryId;
+    const categoryIdNum: number | undefined = routeId ? Number(routeId) : undefined;
+    console.log("resolved categoryIdNum:", categoryIdNum);
 
     const { categories, loading: catLoading, error: catError } = useCategories();
     const [category, setCategory] = useState<Category | null>(null);
 
     useEffect(() => {
-        if (!catLoading && categories.length > 0) {
-            const cat = categories.find(c => c.id.toString() === categoryId) || null;
-            setCategory(cat);
+        console.log("useEffect - categories length:", categories?.length, "catLoading:", catLoading);
+        if (!catLoading && Array.isArray(categories) && categoryIdNum != null) {
+            // ابحث بالمطابقة على id (تحويل إلى سترينغ لتجنب اختلاف النوع)
+            const found = (categories as any[]).find((c) => String(c.id) === String(categoryIdNum)) || null;
+            console.log("found category:", found);
+            setCategory(found);
         }
-    }, [categories, catLoading, categoryId]);
+        // لو categories فارغة أو categoryIdNum undefined نبقي category كما هو (أو null)
+    }, [categories, catLoading, categoryIdNum]);
 
-    const { posts, loading: postsLoading, error: postsError } = usePostsByCategory(category?.id ?? 0);
+    // استدعاء hook دائماً (ترتيب الـ hooks ثابت) وتمرير رقم أو undefined
+    const { posts, loading: postsLoading, error: postsError } = usePostsByCategory(categoryIdNum as number);
+    console.log("Posts hook:", { categoryIdNum, postsLoading, postsError, posts });
 
-    const isLoading = catLoading || (!!categoryId && !category && !catError) || (!!category && postsLoading);
-
+    const isLoading = catLoading || (categoryIdNum != null && !category && !catError) || postsLoading;
     if (isLoading) {
-        return <StatusDisplay icon="⏳" title="جاري التحميل..." message="نجهز لك المقالات بلمسة من الإبداع، لحظات من فضلك." />;
+        return <StatusDisplay icon="⏳" title="جاري التحميل..." message="جارٍ جلب بيانات الفئة والمقالات..." />;
     }
 
     if (catError || postsError) {
         return (
             <StatusDisplay icon="⚠️" title="حدث خطأ" message={`${catError || postsError}`}>
-                <button
-                    onClick={() => window.location.reload()}
-                    className="mt-6 bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-8 py-3 rounded-full hover:shadow-lg transition-all font-semibold"
-                >
-                    إعادة المحاولة
-                </button>
+                <button onClick={() => window.location.reload()}>إعادة المحاولة</button>
             </StatusDisplay>
         );
     }
@@ -117,54 +125,8 @@ export default function BlogCategoryPage({ params }: BlogPageProps) {
         return <StatusDisplay icon="🔍" title="الفئة غير موجودة" message="عذرًا، لم نتمكن من العثور على الفئة المطلوبة." />;
     }
 
-    const coverUrl: string | undefined = category?.CoverImage?.url
-        ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${category.CoverImage.url}`
-        : undefined;
+    const coverUrl = category?.CoverImage?.url ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${category.CoverImage.url}` : undefined;
 
-// export default function BlogCategoryPage({ params }: BlogPageProps) {
-//     const categoryId = params.id;
-
-//     const { categories, loading: catLoading, error: catError } = useCategories();
-//     const [category, setCategory] = useState<Category | null>(null);
-
-  
-    
-
-//     useEffect(() => {
-//         if (!catLoading && categories.length > 0) {
-//             const cat = categories.find(c => c.id.toString() === categoryId) || null;
-//             setCategory(cat);
-//         }
-//     }, [categories, catLoading, categoryId]);
-//     const { posts, loading: postsLoading, error: postsError } = usePostsByCategory(category?.id ?? 0);
-
-
-//     const isLoading = catLoading || (!!categoryId && !category && !catError) || (!!category && postsLoading);
-
-//     if (isLoading) {
-//         return <StatusDisplay icon="⏳" title="جاري التحميل..." message="نجهز لك المقالات بلمسة من الإبداع، لحظات من فضلك." />;
-//     }
-
-//     if (catError || postsError) {
-//         return (
-//             <StatusDisplay icon="⚠️" title="حدث خطأ" message={`${catError || postsError}`}>
-//                 <button
-//                     onClick={() => window.location.reload()}
-//                     className="mt-6 bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-8 py-3 rounded-full hover:shadow-lg transition-all font-semibold"
-//                 >
-//                     إعادة المحاولة
-//                 </button>
-//             </StatusDisplay>
-//         );
-//     }
-
-//     if (!category) {
-//         return <StatusDisplay icon="🔍" title="الفئة غير موجودة" message="عذرًا، لم نتمكن من العثور على الفئة المطلوبة." />;
-//     }
-
-//     const coverUrl: string | undefined = category?.CoverImage?.url
-//         ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${category.CoverImage.url}`
-//         : undefined;
 
     return (
         <div className="relative min-h-screen">
@@ -189,10 +151,10 @@ export default function BlogCategoryPage({ params }: BlogPageProps) {
                                 <Image
                                     src={coverUrl}
                                     alt={category.Name || "Category Image"}
-                                    width={500}
-                                    height={300}
-                                    style={{ objectFit: "cover" }}
-                                    className="w-full h-full object-cover"
+                                    fill
+                                    sizes="100vw"
+                                    className="object-cover"
+                                    priority
                                 />
                             )}
 

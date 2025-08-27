@@ -8,6 +8,7 @@ export function usePostsByCategory(categoryId: number) {
 
     useEffect(() => {
         if (!categoryId) return;
+        
 
         const fetchPosts = async () => {
             try {

@@ -4,7 +4,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaSearch, FaFilter, FaArrowRight, FaLaptopCode, FaMobileAlt, FaChartLine, FaPalette, FaServer } from 'react-icons/fa';
-import ProjectCard from '@/components/projects/ProjectCard';
+
 
 import { projects } from '@/constants/projects';
 

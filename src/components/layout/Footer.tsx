@@ -29,7 +29,7 @@ export default function Footer() {
                         <li><Link href="/services" className="hover:text-blue-400 transition duration-300">خدماتنا</Link></li>
                         
                         <li><Link href="/work" className="hover:text-blue-400 transition duration-300">أعمالنا</Link></li>
-                        <li><Link href="/blogs" className="hover:text-blue-400 transition duration-300">المدونة</Link></li>
+                        <li><Link href="/blogs" className="hover:text-blue-400 transition duration-500">المدونة</Link></li>
                         <li><Link href="/contact" className="hover:text-blue-400 transition duration-300">تواصل معنا</Link></li>
                         {/* <li><Link href="#" className="hover:text-blue-400 transition duration-300">من نحن</Link></li>
                         <li><Link href="#" className="hover:text-blue-400 transition duration-300">خدماتنا</Link></li>

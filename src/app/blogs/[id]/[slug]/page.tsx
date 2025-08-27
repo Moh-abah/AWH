@@ -1,13 +1,14 @@
 
 "use client";
 
-import React, { useEffect, useState, useRef, ReactNode, use } from "react";
+import React, { useEffect, useState, useRef, ReactNode, use, JSX } from "react";
 import { useParams } from "next/navigation";
 import { usePostBySlug } from "@/lib/usePostBySlug"; // تأكد من صحة المسار
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import CategoriesSidebar from "@/lib/CategoriesSidebar"; // تأكد من صحة المسار
+import StrapiContentRenderer from "../../components/contant";
 // import CommentSection from "../../components/Comment"; // تأكد من صحة المسار
 
 
@@ -92,369 +93,9 @@ const ErrorMessage = ({ error }: { error: any }) => (
 // ==================================================================
 // ==   عارض المحتوى المحسّن - Enhanced Content Renderer   ==
 // ==================================================================
-const ContentRenderer = ({ content }: { content: any[] }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-    return () => setIsVisible(false);
-  }, []);
-
-  if (!content || !Array.isArray(content)) return null;
-
-  // دالة ذكية لتحديد نوع العنصر تلقائياً من خصائص العنصر
-  const detectElementType = (element: any) => {
-    if (!element) return 'paragraph';
-
-    // إذا كان هناك حقل type موجود، استخدمه
-    if (element.type) return element.type;
-
-    const children = Array.isArray(element.children) ? element.children : [];
-    const text = children.map((c: any) => c?.text || "").join("").trim();
-
-    // فحص الخصائص المختلفة لتحديد النوع
-
-    // تحديد العناوين
-    if (element.level || element.heading) return 'heading';
-
-    // تحديد القوائم
-    if (element.listType || element.format === 'ordered' || element.format === 'unordered') return 'list';
-    if (element.type === 'list-item' || element.listItem) return 'list';
-
-    // تحديد الاقتباسات
-    if (element.quote || text.startsWith('>')) return 'quote';
-
-    // تحديد الكود
-    if (element.code || text.startsWith('```') || text.includes('```')) return 'code';
-
-    // تحديد الصور
-    if (element.src || element.url || element.image) return 'image';
-
-    // فحص النص لتحديد إذا كان عنوان أم فقرة
-    if (text.length > 0) {
-      // إذا كان النص قصير ولا يحتوي على نقاط، قد يكون عنوان
-      if (text.length < 80 && !text.includes('.') && !text.includes('،')) {
-        // فحص إضافي: إذا كان النص يحتوي على تنسيق عريض، قد يكون عنوان
-        const hasBoldFormatting = children.some((child: any) => child.bold);
-        if (hasBoldFormatting) return 'heading';
-      }
-
-      // إذا كان النص طويل أو يحتوي على نقاط، فهو فقرة
-      return 'paragraph';
-    }
-
-    // افتراضي
-    return 'paragraph';
-  };
-
-  // معالجة النقاط المتتالية مع تحسينات بصرية
-  const processTextWithDots = (text: string) => {
-    if (!text) return text;
-
-    // إذا كان النص ينتهي بنقطتين أو أكثر
-    if (text.match(/\.{2,}$/)) {
-      const dotCount = (text.match(/\.+$/) || [''])[0].length;
-      const baseText = text.replace(/\.+$/, '');
-
-      return (
-        <span className="relative">
-          {baseText}
-          <span className="dot-sequence absolute">
-            {Array.from({ length: Math.min(dotCount, 5) }).map((_, i) => (
-              <span
-                key={i}
-                className="dot"
-                style={{
-                  animationDelay: `${i * 0.15}s`,
-                  fontSize: `${1 + i * 0.08}em`,
-                  color: i > 2 ? '#3b82f6' : i > 1 ? '#1e40af' : '#1e3a8a'
-                }}
-              >
-                •
-              </span>
-            ))}
-          </span>
-        </span>
-      );
-    }
-
-    // إذا كان النص يحتوي على نقاط متتالية في المنتصف
-    const parts = text.split(/(\.{2,})/);
-    return parts.map((part, i) => {
-      if (part.match(/\.{2,}/)) {
-        const dotCount = Math.min(part.length, 5);
-        return (
-          <span key={i} className="dot-sequence inline">
-            {Array.from({ length: dotCount }).map((_, j) => (
-              <span
-                key={j}
-                className="dot"
-                style={{
-                  animationDelay: `${j * 0.15}s`,
-                  fontSize: `${1 + j * 0.08}em`,
-                  color: j > 2 ? '#3b82f6' : j > 1 ? '#1e40af' : '#1e3a8a'
-                }}
-              >
-                •
-              </span>
-            ))}
-          </span>
-        );
-      }
-      return part;
-    });
-  };
-
-  // تأثيرات الحركة المحسّنة للعناصر
-  const getMotionProps = (index: number) => ({
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-5% 0px -5% 0px" },
-    transition: {
-      duration: 0.6,
-      delay: index * 0.08,
-      ease: "easeOut" as const
-    }
-  });
-
-  return (
-    <div className="max-w-4xl mx-auto px-6 py-8 font-sans">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isVisible ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
-        className="prose prose-xl max-w-none 
-                  prose-p:text-gray-900 prose-p:leading-relaxed prose-p:my-6
-                  prose-headings:font-bold prose-headings:text-slate-900 prose-headings:mt-10 prose-headings:mb-6
-                  prose-a:text-blue-700 prose-a:underline hover:prose-a:text-blue-900
-                  prose-strong:text-slate-900 prose-strong:font-extrabold
-                  prose-blockquote:border-l-4 prose-blockquote:border-blue-500 
-                  prose-blockquote:bg-gradient-to-r prose-blockquote:from-blue-50 prose-blockquote:to-white
-                  prose-blockquote:p-8 prose-blockquote:rounded-r-xl prose-blockquote:text-gray-800
-                  prose-ul:my-6 prose-li:my-2
-                  prose-hr:my-10 prose-hr:border-t-2 prose-hr:border-blue-300"
-      >
-        {content.map((block, index) => {
-          const children = Array.isArray(block.children) ? block.children : [];
-          const text = children.map((c: any) => c?.text || "").join("").trim();
-
-          // تخطي العناصر الفارغة
-          if (!text && !block.src && !block.url) return null;
-
-          // تحديد نوع العنصر تلقائياً
-          const elementType = detectElementType(block);
-
-          // عرض العناوين
-          if (elementType === "heading") {
-            const level = block.level || (text.length < 50 ? 2 : 3);
-           
-
-            return (
-              <motion.div key={index} id={`heading-${index}`} className="scroll-mt-24" {...getMotionProps}>
-                {level === 1 && <h1 className="relative inline-block">{processTextWithDots(text)}<span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></span></h1>}
-                {level === 2 && <h2 className="relative inline-block">{processTextWithDots(text)}<span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></span></h2>}
-                {level === 3 && <h3 className="relative inline-block">{processTextWithDots(text)}<span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></span></h3>}
-                {level === 4 && <h4 className="relative inline-block">{processTextWithDots(text)}<span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></span></h4>}
-                {level === 5 && <h5 className="relative inline-block">{processTextWithDots(text)}<span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></span></h5>}
-                {level === 6 && <h6 className="relative inline-block">{processTextWithDots(text)}<span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></span></h6>}
-              </motion.div>
-            );
-          }
-
-          // عرض الفقرات
-          // if (elementType === "paragraph") {
-          //   return (
-          //     <motion.p
-          //       key={index}
-          //       {...getMotionProps(index)}
-          //       className="text-justify text-gray-900 leading-loose text-lg"
-          //     >
-          //       {children.map((child: any, i: number) => {
-          //         const content = processTextWithDots(child.text || "");
-
-          //         let el = <span key={i}>{content}</span>;
-          //         if (child.bold) el = <strong key={i} className="font-black text-slate-900 bg-yellow-100 px-1 py-0.5 rounded">{content}</strong>;
-          //         if (child.italic) el = <em key={i} className="italic text-blue-800 font-medium">{content}</em>;
-          //         if (child.underline) el = <u key={i} className="underline decoration-wavy decoration-blue-500 decoration-2 underline-offset-4">{content}</u>;
-          //         if (child.code) el = <code key={i} className="bg-gray-900 text-green-400 px-3 py-1.5 rounded-md text-sm font-mono border border-gray-700">{content}</code>;
-          //         return el;
-          //       })}
-          //     </motion.p>
-          //   );
-          // }
-
-          if (elementType === "paragraph") {
-            return (
-              <motion.p
-                key={index}
-                {...getMotionProps(index)}
-                className="text-justify text-gray-900 leading-loose text-lg"
-              >
-                {children.map((child: any, i: number) => {
-                  
-                  let el = <span key={i}>{content}</span>;
-                  if (child.bold)
-                    el = (
-                      <strong
-                        key={i}
-                        className="font-black text-slate-900 bg-yellow-100 px-1 py-0.5 rounded"
-                      >
-                        {content}
-                      </strong>
-                    );
-                  if (child.italic)
-                    el = (
-                      <em key={i} className="italic text-blue-800 font-medium">
-                        {content}
-                      </em>
-                    );
-                  if (child.underline)
-                    el = (
-                      <u className="underline decoration-wavy decoration-blue-500 decoration-2 underline-offset-4">
-                        {content}
-                      </u>
-                    );
-                  if (child.code)
-                    el = (
-                      <code className="bg-gray-900 text-green-400 px-3 py-1.5 rounded-md text-sm font-mono border border-gray-700">
-                        {content}
-                      </code>
-                    );
-                  return el;
-                })}
-              </motion.p>
-            );
-          }
 
 
 
-          // عرض الاقتباسات
-          if (elementType === 'quote') {
-            return (
-              <motion.blockquote
-                key={index}
-                {...getMotionProps(index)}
-                className="relative my-8 p-8 bg-gradient-to-r from-blue-50 via-white to-blue-50 border-l-4 border-blue-500 rounded-r-xl shadow-lg"
-              >
-                <div className="absolute top-4 left-4 text-4xl text-blue-400 opacity-30"></div>
-                <div className="ml-8 text-gray-800 text-xl leading-relaxed font-medium italic">
-                  {processTextWithDots(text)}
-                </div>
-                {block.author && (
-                  <footer className="text-right text-gray-600 mt-4 font-semibold">
-                    — {block.author}
-                  </footer>
-                )}
-              </motion.blockquote>
-            );
-          }
-
-          // عرض القوائم
-          if (elementType === 'list') {
-            const isOrdered = block.listType === 'ordered' || block.format === 'ordered';
-            const ListTag = isOrdered ? 'ol' : 'ul';
-
-            return (
-              <motion.div
-                key={index}
-                {...getMotionProps(index)}
-                className="my-8"
-              >
-                <ListTag className={isOrdered ?
-                  'list-decimal list-inside space-y-3 marker:font-bold marker:text-blue-700' :
-                  'list-disc list-inside space-y-3 marker:text-blue-600'
-                }>
-                  {children.map((item: any, i: number) => {
-                    const itemChildren = Array.isArray(item.children) ? item.children : [];
-                    const itemText = itemChildren.map((c: any) => c?.text || "").join("");
-
-                    return (
-                      <li key={i} className="text-gray-900 text-lg leading-relaxed pl-2">
-                        {processTextWithDots(itemText)}
-                      </li>
-                    );
-                  })}
-                </ListTag>
-              </motion.div>
-            );
-          }
-
-          // عرض الكود
-          if (elementType === 'code') {
-            return (
-              <motion.pre
-                key={index}
-                {...getMotionProps(index)}
-                className="bg-gray-900 text-gray-100 p-6 rounded-xl overflow-x-auto my-8 font-mono text-sm border border-gray-700 shadow-2xl"
-              >
-                <code className="text-green-400">{text}</code>
-              </motion.pre>
-            );
-          }
-
-          // عرض الصور
-          if (elementType === 'image') {
-            return (
-              <motion.figure
-                key={index}
-                {...getMotionProps(index)}
-                className="my-10 text-center"
-              >
-                <div className="relative inline-block">
-                  <Image
-                    src={block.src || block.url}
-                    alt={block.alt || block.alternativeText || 'صورة'}
-                    className="mx-auto rounded-2xl shadow-2xl max-w-full h-auto border border-gray-200"
-                  />
-                </div>
-                {block.caption && (
-                  <figcaption className="text-center text-gray-600 mt-4 italic text-lg">
-                    {processTextWithDots(block.caption)}
-                  </figcaption>
-                )}
-              </motion.figure>
-            );
-          }
-
-          // عرض افتراضي للعناصر غير المعروفة (كفقرة)
-          return (
-            <motion.p
-              key={index}
-              {...getMotionProps(index)}
-              className="text-justify text-gray-900 leading-loose text-lg"
-            >
-              {processTextWithDots(text)}
-            </motion.p>
-          );
-        })}
-      </motion.div>
-
-      <style jsx>{`
-        .dot-sequence {
-          display: inline-block;
-          white-space: nowrap;
-          margin-left: 2px;
-        }
-        .dot {
-          display: inline-block;
-          animation: pulse 2s infinite alternate;
-          font-weight: bold;
-          text-shadow: 0 0 8px currentColor;
-        }
-        @keyframes pulse {
-          0% { 
-            opacity: 0.6; 
-            transform: translateY(0) scale(1); 
-          }
-          100% { 
-            opacity: 1; 
-            transform: translateY(-3px) scale(1.1); 
-          }
-        }
-      `}</style>
-    </div>
-  );
-};
 
 
 
@@ -514,23 +155,13 @@ const SocialShare = ({ postTitle, postUrl }: { postTitle: string, postUrl: strin
 ================================================================================
 */
 
-// interface PostPageProps {
-//   id: number;
-// }
-// interface PostPageProps {
-//   params: { id: string; slug?: string };
-//   searchParams?: any;
-// }
-// interface PostPageProps {
-//   params: { id: string; slug?: string };
-// }
+
 
 interface PostPageProps {
   params: Promise<{ id: string; slug?: string }>;
 }
 export default  function  PostPage({ params }: PostPageProps) {
-  // const slug = params.slug || "";
-  // const postId = Number(params.id);
+  
   const { id, slug } = use(params);
   const postId = Number(id);
 
@@ -727,7 +358,7 @@ else {
                   >
                     {/* تأثير خلفية زخرفية */}
                   
-                    <ContentRenderer content={post.contant || []} />
+                    <StrapiContentRenderer content={post.contant || []} />
                   </motion.div>
 
                   {/* معرض الصور الإضافية */}
@@ -866,141 +497,9 @@ else {
       </div>
 
 
-        {/* 4. الأقسام الإضافية (مقالات ذات صلة والتعليقات) */}
-        {/* <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20">
-          {relatedPosts.length > 0 && (
-            <section>
-              <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">مقالات قد تعجبك أيضًا</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {relatedPosts.slice(0, 4).map(p => (
-                  <Link key={p.id} href={`/blog/${p.categories?.[0]?.id ?? 0}/${p.Slug}`} className="block bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
-                    <h3 className="font-bold text-xl text-blue-800 mb-2">{p.Tital}</h3>
-                    <p className="text-gray-600 line-clamp-2">{p.Excerpt}</p>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
-
-
-        </div> */}
+        
       </div>
     
   );
 }
 
-
-
-
-{/* <section className="mt-20">
-  <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center">التعليقات ({comments.length})</h2>
-
-  {visibleComments.map((comment) => (
-    <div key={comment.id} className="bg-gray-50 rounded-xl p-6 mb-6">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-sky-500 rounded-full flex items-center justify-center text-white font-bold">
-          {comment.author_name.charAt(0)}
-        </div>
-        <div>
-          <h4 className="font-bold text-blue-800">{comment.author_name}</h4>
-          <p className="text-gray-500 text-sm">
-            {new Date(comment.createdAt).toLocaleDateString("ar-SA")}
-          </p>
-          {/* عرض النجوم */}
-//           <div className="flex mt-1">
-//             {[1, 2, 3, 4, 5].map((star) => (
-//               <span
-//                 key={star}
-//                 className={
-//                   star <= (comment.rating ?? 0)
-//                     ? "text-yellow-400"
-//                     : "text-gray-300"
-//                 }
-//               >
-//                 ★
-//               </span>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//       <p className="text-gray-700 leading-7">{comment.content}</p>
-//     </div>
-//   ))}
-
-//   {/* زر عرض المزيد */}
-//   {!showAll && remainingCount > 0 && (
-//     <button
-//       onClick={() => setShowAll(true)}
-//       className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-//     >
-//       عرض {remainingCount} تعليق{remainingCount > 1 ? "ات" : ""}
-//     </button>
-//   )}
-//   <div className="bg-gray-50 rounded-xl p-8">
-//     <h4 className="text-xl font-bold text-blue-800 mb-6">أضف تعليقك</h4>
-//     <form onSubmit={handleSubmit} className="space-y-6">
-//       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-//         <div>
-//           <label htmlFor="name" className="block text-gray-700 mb-2">الاسم</label>
-//           <input
-//             id="name"
-//             type="text"
-//             value={userComment.name}
-//             onChange={(e) => setUserComment({ ...userComment, name: e.target.value })}
-//             className="w-full px-4 py-3 border border-sky-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sky-700"
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label htmlFor="email" className="block text-gray-700 mb-2">البريد الإلكتروني</label>
-//           <input
-//             id="email"
-//             type="email"
-//             value={userComment.email}
-//             onChange={(e) => setUserComment({ ...userComment, email: e.target.value })}
-//             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sky-700"
-//             required
-//           />
-//         </div>
-//       </div>
-
-//       <div>
-//         <label className="block text-gray-700 mb-2">التقييم</label>
-//         <div className="flex gap-1">
-//           {[1, 2, 3, 4, 5].map((star) => (
-//             <button
-//               key={star}
-//               type="button"
-//               onClick={() => setUserComment({ ...userComment, rating: star })}
-//               className="text-2xl focus:outline-none"
-//             >
-//               {star <= userComment.rating ? <span className="text-yellow-400">★</span> : <span className="text-gray-500">☆</span>}
-//             </button>
-//           ))}
-//         </div>
-//       </div>
-
-//       <div>
-//         <label htmlFor="comment" className="block text-gray-700 mb-2">التعليق</label>
-//         <textarea
-//           id="comment"
-//           rows={5}
-//           value={userComment.comment}
-//           onChange={(e) => setUserComment({ ...userComment, comment: e.target.value })}
-//           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sky-700"
-//           required
-//         />
-//       </div>
-
-//       <button
-//         type="submit"
-//         disabled={loading}
-//         className="px-6 py-3 bg-gradient-to-r from-blue-500 to-sky-500 text-white rounded-lg hover:from-blue-600 hover:to-sky-600 transition-all duration-300 flex items-center gap-2"
-//       >
-//         إرسال التعليق
-//       </button>
-//     </form>
-//   </div>
-
-
-// </section> */}

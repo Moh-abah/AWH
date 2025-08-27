@@ -5,8 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaPaperPlane, FaWhatsapp, FaTwitter, FaLinkedin, FaInstagram, FaTiktok } from 'react-icons/fa';
-import AnimatedBackground from '@/components/AnimatedBackground';
-import ParticleBackground from '@/styles/ParticleBackground';
+
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from "next/script";
 

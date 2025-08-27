@@ -275,60 +275,6 @@ export default function ClientAbout() {
                     </div>
                 </motion.div>
 
-                {/* قسم فريق العمل
-                <motion.div
-                    className="text-center"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.6, duration: 0.6 }}
-                >
-                    <div className="inline-flex items-center gap-3 bg-sky-900/50 px-6 py-19 rounded-full mb-15 ">
-                        <FaUsers className="text-sky-400" />
-                        <h2 className="text-2xl font-bold text-sky-200">فريقنا المتميز</h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12  py-18" >
-                        {[
-                            { name: "فريق التطوير", desc: "مطورون مبدعون يمتلكون مهارات متقدمة في أحدث التقنيات" },
-                            { name: "فريق التصميم", desc: "مصممون مبدعون يخلقون هويات بصرية لا تنسى" },
-                            { name: "فريق التسويق", desc: "خبراء تسويق رقمي يحولون الزوار إلى عملاء" }
-                        ].map((item, index) => (
-                            <motion.div
-                                key={index}
-                                className="bg-gradient-to-br from-blue-800/30 to-indigo-900/30 backdrop-blur-lg rounded-2xl p-8 border border-sky-500/20 shadow-xl"
-                                whileHover={{ y: -10 }}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 1.7 + index * 0.1, duration: 0.5 }}
-                            >
-                                <div className="bg-gradient-to-r from-sky-600 to-indigo-700 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <FaUsers className="text-3xl text-white" />
-                                </div>
-                                <h3 className="text-2xl font-bold text-white mb-4">{item.name}</h3>
-                                <p className="text-sky-200">{item.desc}</p>
-                                <div className="mt-6">
-                                    <div className="w-16 h-1 bg-gradient-to-r from-sky-400 to-blue-500 rounded-full mx-auto"></div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4, duration: 0.6 }}
-                >
-                    <CompanyIntro />
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6, duration: 0.6 }}
-                >
-                    <TeamSection />
-                </motion.div> */}
-
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
