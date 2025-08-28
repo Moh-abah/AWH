@@ -16,11 +16,7 @@ import {
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Project } from '@/constants/projects';
-import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-    title: "Projects Details",
-};
 
 const ResultCard = ({ metric, value, icon }: { metric: string; value: string; icon: string }) => (
     <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-4 flex flex-col items-center ">

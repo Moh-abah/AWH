@@ -1,6 +1,7 @@
-import { notFound } from 'next/navigation';
-import ProjectDetailsClient from './ProjectDetailsClient';
-import { projects } from '@/constants/projects';
+// app/projects/[id]/page.tsx
+import { notFound } from "next/navigation";
+import { projects } from "@/constants/projects";
+import ProjectDetailsClient from "./ProjectDetailsClient";
 
 export async function generateStaticParams() {
     return projects.map((project) => ({
@@ -8,15 +9,30 @@ export async function generateStaticParams() {
     }));
 }
 
-// ✅ params كمجموعة بيانات قادمة بصيغة Promise
-export default async function ProjectDetailsPage({
-    params,
-}: {
-    params: Promise<{ id: string }>;
-}) {
-    const { id } = await params;
+// ✅ هنا المهم: توليد meta لكل مشروع
+export async function generateMetadata({ params }: { params: { id: string } }) {
+    const project = projects.find((p) => p.id === params.id);
 
-    const project = projects.find((p) => p.id === id);
+    if (!project) {
+        return {
+            title: "مشروع غير موجود | آفاق العالم الرقمي",
+            description: "الصفحة التي تبحث عنها غير موجودة.",
+        };
+    }
+
+    return {
+        title: `${project.title} | آفاق العالم الرقمي`,
+        description: project.description,
+        openGraph: {
+            title: project.title,
+            description: project.overview,
+            images: project.gallery.length > 0 ? [project.gallery[0].url] : [],
+        },
+    };
+}
+
+export default function ProjectDetailsPage({ params }: { params: { id: string } }) {
+    const project = projects.find((p) => p.id === params.id);
 
     if (!project) {
         notFound();
@@ -24,4 +40,3 @@ export default async function ProjectDetailsPage({
 
     return <ProjectDetailsClient project={project} />;
 }
-
