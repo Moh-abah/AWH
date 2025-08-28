@@ -29,7 +29,7 @@
 
         {
             id: 'ayn',
-            title: ' تطبيق التجارة الإلكترونية المتطورة المدعومه بالخريطه التفاعليه ',
+            title: 'تطبيقات التجارة الإلكترونية المدعومه بالخريطه',
             description: ' حل متكامل للتجارة الإلكترونية بطريقه موثوقه من اجل تقديم تجربة تسوق شخصية فريدة بشكل تنافسي وموثوق',
             category: 'mobile',
             year: '2024',
@@ -84,98 +84,11 @@
             goal: 'إنشاء تطبيق تجارة إلكترونية قابل للتطوير مع تجربة مستخدم استثنائية',
             duration: '6 أشهر من التطوير والاختبار'
         },
-        // {
-        //     id: 'gas',
-        //     title: 'تطبيق الغاز المحلي ',
-        //     description: 'تطبيق جوال متكامل واول تطبيق لتوزيع الغاز المنزلي الى كل منزل ',
-        //     category: 'mobile',
-        //     year: '2025',
-        //     client: 'شركه AWH',
-        //     technologies: ['flutter ', 'Firebase', 'render', 'java ', 'python ', 'getX ', 'dart '],
-        //     challenges: [
-        //         'تتبع الطلبات بدقه ',
-        //         'توصيل الى المنزل باسعار منافسه في السوق المحلي',
-        //         'موثوقيه تامه ',
-        //         //'تحسين استهلاك البطارية'
-        //     ],
-        //     solutions: [
-        //         'نضام تتبع للخريطه بطريقه ذكيه',
-        //         //'محرك توصيات لخطط التدريب',
-        //         'توصيل الى جميع الاماكن البعيده خارج العاصمه ',
-        //         //'تحسينات متقدمة لاستهلاك الطاقة'
-        //     ],
-        //     results: [
-        //         { metric: 'عدد المستخدمين', value: '500K+', icon: 'FaUsers' },
-        //         { metric: 'معدل الاستخدام اليومي', value: '25 دقيقة', icon: 'FaChartLine' },
-        //         { metric: 'تقييم التطبيق', value: '4.7/5', icon: 'FaMobileAlt' },
-        //         { metric: 'نسبة الاحتفاظ', value: '90%', icon: 'FaLightbulb' }
-        //     ],
-        //     gallery: [
-        //         { type: 'image', url: '/images/projects/homeorder-1.jpg', caption: ' واجهه الطلب وارسال الطلب ' },
-        //         { type: 'image', url: '/images/projects/orderhistory-2.jpg', caption: ' متابعه الطلب ' },
-        //     // { type: 'image', url: '/project2-3.jpg', caption: 'المجتمع الرياضي' },
-        //         //{ type: 'video', url: '/project-video2.mp4', caption: 'جولة في التطبيق' }
-        //     ],
-        //     testimonials: [
-                
-        //     ],
-        //     liveUrl: 'https://fitnessapp.com',
-        //     githubUrl: 'https://github.com/fitnessapp',
-        //     overview: 'تطبيق الغاز للطلبات في اي وقت ومن اي مكان هو عباره عن تطبيق متكامل يجمع بين تكنولوجيا الذكي للتطور التكنولوجي ومواكب للتطور التكنولوجي الحديث  .',
-        //     goal: 'تمكين المستخدمين من ارسال واستلام طلباتهم بكل سهوله ومرونه ',
-        //     duration: '8 أشهر من التطوير والاختبار'
-        // },
-
-
-        
-    
-        // {
-        //     id: 'nabdhak2000',
-        //     title: 'نبذك – أرشيف الذكريات',
-        //     description: 'موقع ويب مصمم بعناية لعرض ذكريات من عام 2000 بطريقة تفاعلية وبصرية مؤثرة، باستخدام تصميم عاطفي يستهدف الحنين.',
-        //     category: 'web',
-        //     year: '2024',
-        //     client: 'مشروع شخصي',
-        //     technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
-        //     challenges: [
-        //         'إحياء تجربة الماضي بشكل بصري عصري',
-        //         'دمج الصور والذكريات مع واجهة حديثة',
-        //         'ضبط الأداء رغم كثافة المحتوى',
-        //         'تصميم متجاوب لجميع الأجهزة'
-        //     ],
-        //     solutions: [
-        //         'إنشاء واجهة زمنية بتسلسل أحداث تفاعلي',
-        //         'تطبيق رسوميات متحركة بتقنية Framer Motion',
-        //         'تحسين الصور وضغطها للأداء العالي',
-        //         'بناء تصميم متجاوب بالكامل'
-        //     ],
-        //     results: [
-        //         { metric: 'تفاعل الزوار', value: '80%', icon: 'FaSmile' },
-        //         { metric: 'معدل الرجوع للموقع', value: '60%', icon: 'FaRedo' },
-        //         { metric: 'مدة بقاء المستخدم', value: '5 دقائق', icon: 'FaClock' },
-        //         { metric: 'عدد الذكريات المضافة', value: '200+', icon: 'FaBookOpen' }
-        //     ],
-        //     gallery: [
-        //         { type: 'image', url: '/images/projects/nabdak.png', caption: 'الصفحة الرئيسية' }
-              
-        //     ],
-        //     testimonials: [
-        //         // {
-        //         //     name: 'أحمد عبدالملك',
-        //         //     position: 'مستخدم',
-        //         //     content: 'الموقع لمس قلبي فعلاً، عشت من جديد لحظات قديمة كنت ناسيها. شكراً لهذا العمل الإبداعي.',
-        //         //     avatar: '/avatar1.jpg'
-        //         // }
-        //     ],
-        //     liveUrl: 'https://nabdhak.vercel.app',
-        //     overview: 'منصة رقمية لإحياء ذكريات عام 2000، مصممة لتجمع بين الحنين والحداثة من خلال واجهة غنية بالمشاعر والمحتوى التفاعلي.',
-        //     goal: 'خلق تجربة مستخدم عاطفية تجذب الزائر وتبقيه متصلاً بذكرياته القديمة.',
-        //     duration: '4 أسابيع من التطوير والتصميم'
-        // },
+       
 
         {
             id: 'sportsite2024',
-            title: 'موقع رياضي تجريبي',
+            title: 'تطوير تطبيقات الويب موقع رياضي ',
             description: 'تجربة موقع رياضي متكامل لعرض الأخبار، النتائج، وتحليلات المباريات بواجهة سريعة وسهلة التصفح.',
             category: 'web',
             year: '2024',
@@ -222,7 +135,7 @@
 
         {
             id: 'noon-rollup',
-            title: '   هويات بصريه  ',
+            title: 'هوية بصرية بطابع ملفت',
             description: 'نقدم لك خدمة تصميم الهوية البصرية المتكاملة، المصممة خصيصًا لتعكس شخصية علامتك التجارية وتُعزز حضورها في السوق.',
             category: 'identity',
             year: '2024',
@@ -266,7 +179,7 @@
 
         {
             id: 'mokhtalif-elnekhaaba',
-            title: 'عقارات      ',
+            title: 'عقارات    تصاميم سوشيال للعقارات',
             description: 'تصميم شعار وهوية لشركة مستقل النخبة المتخصصة في التطوير والاستثمار العقاري.',
             category: 'social',
             year: '2025',
@@ -295,7 +208,7 @@
 
         {
             id: 'larin-medical-center',
-            title: 'مركز اسنان ',
+            title: 'تصميم سوشيال لعيادة اسنان',
             description: 'منشورات ترويجية وتعريفية للمجمع الطبي تخصص طب الأسنان.',
             category: 'social',
             year: '2025',
@@ -321,7 +234,7 @@
         },
         {
             id: 'al-ahibaa-coffee',
-            title: 'للقهوة',
+            title: 'تصاميم سوشيال ميديا ',
             description: 'منشورات تعريفية وترويجية لمحطة قهوة .',
             category: 'social',
             year: '2025',
@@ -343,9 +256,9 @@
         },
 
         
-        {
+        {   
             id: 'banner-beetech',
-            title: 'بنرات   ',
+            title: 'بنرات  بتصاميم عصرية وفاخرة  ',
             description: 'تصميم مجموعة بنرات لعرض رؤية  التقنية في مجالات متعدده.',
             category: 'banars',
             year: '2024',
@@ -426,7 +339,7 @@
         },
         {
             id: 'asall',
-            title: 'حملة تسويق إلكتروني لمتجر عسل   ',
+            title: 'حملة تسويق إلكتروني لمتجر عسل ',
             description: 'تحليلات وحملات إعلانية باستخدام Google Ads، Console، AdSense، Snapchat ،Tik tok، وتحليل الأسهم.',
             category: 'digitalMarketing',
             year: '2025',
@@ -467,101 +380,6 @@
             liveUrl: ""
         },
 
-        // {
-        //     id: 'ramadan-guidance-campaign',
-        //     title: 'ة',
-        //     description: 'منشورات دينية وأدعية بمناسبة رمضان وجمعة مباركة لتعزيز التفاعل والتواصل.',
-        //     category: 'social',
-        //     year: '2025',
-        //     client: 'شركة المناصب',
-        //     technologies: ['Canva', 'Photoshop', 'Buffer'],
-        //     challenges: ['توفير محتوى جذاب ومتجدد خلال رمضان', 'التصميم بالفيديو والصور الدعوية بشكل لائق'],
-        //     solutions: ['تصميم بوستات تجمع بين الصور والنصوص الدينية', 'نشر دوري بموعد مناسب لتعزيز التفاعل'],
-        //     results: [
-        //         { metric: 'زيادة التفاعل', value: '50%', icon: 'FaComments' },
-        //         { metric: 'عدد المنشورات', value: '20+', icon: 'FaCalendar' }
-        //     ],
-        //     gallery: [
-        //         { type: 'image', url: '/projectimagsss/social/ramadan1.jpg', caption: 'تصميم رمضان' },
-        //         { type: 'image', url: '/projectimagsss/social/ramadan2.jpg', caption: 'منشور جمعة مباركة' }
-        //     ],
-        //     testimonials: [],
-        //     overview: 'حملة سوشيال متخصصة بالمحتوى الديني لمنصة تجارية.',
-        //     goal: 'تعزيز التفاعل وزيادة الوصول خلال رمضان.',
-        //     duration: 'شهر رمضان 2025',
-        //     liveUrl: ""
-        // },
-
-
-        
-        // {
-        //     id: 'safaa-water-company',
-        //     title: 'تصاميم سوشيال لشركة صفاء للمياه',
-        //     description: 'منشورات تعريفية وترويجية لشركة مياه لتعزيز السمعة والجودة.',
-        //     category: 'social',
-        //     year: '2025',
-        //     client: 'صفاء للمياه',
-        //     technologies: ['Canva', 'Photoshop'],
-        //     challenges: ['عرض جودة المياه والثقة في العلامة'],
-        //     solutions: ['منشورات تحتوي شهادات تحليل ومياه نقية', 'استخدام ألوان زرقاء نقية'],
-        //     results: [
-        //         { metric: 'التفاعل', value: '40%', icon: 'FaComments' }
-        //     ],
-        //     gallery: [
-        //         { type: 'image', url: '/projectimagsss/social/safaa1.jpg', caption: 'تصميم جودة' },
-        //         { type: 'image', url: '/projectimagsss/social/safaa2.jpg', caption: 'توصيل رسالة' }
-        //     ],
-        //     testimonials: [],
-        //     overview: 'حملة سوشيال تُبرز جودة ومصداقية شركة المياه.',
-        //     goal: 'بناء سمعة رقمية قوية.',
-        //     duration: 'شهر',
-        //     liveUrl: ""
-        // },
-       
-        // {
-        //     id: 'al-methalia-doors',
-        //     title: 'سوشيال شركة أبواب المثالية',
-        //     description: 'تصاميم منشورات ترويجية لأبواب المثالية.',
-        //     category: 'social',
-        //     year: '2025',
-        //     client: 'أبواب المثالية',
-        //     technologies: ['Canva', 'Photoshop'],
-        //     challenges: ['عرض التصاميم ومواصفات الأبواب'],
-        //     solutions: ['منشورات تحتوي صور أبواب عالية الجودة ومواصفات تقنية'],
-        //     results: [
-        //         { metric: 'معدل التفاعل', value: '35%', icon: 'FaDoorClosed' }
-        //     ],
-        //     gallery: [
-        //         { type: 'image', url: '/projectimagsss/social/doors1.jpg', caption: 'تصميم باب' }
-        //     ],
-        //     testimonials: [],
-        //     overview: 'عرض منتجات الشركة بوضوح وفائدة.',
-        //     goal: 'زيادة المبيعات عبر السوشيال.',
-        //     duration: 'شهر',
-        //     liveUrl: ""
-        // },
-        // {
-        //     id: 'jawaan-real-estate',
-        //     title: 'سوشيال مؤسسة الجوان العصرية للعقارات',
-        //     description: 'منشورات ترويجية وتعريفية لمؤسسة الجوان العصرية للعقارات.',
-        //     category: 'social',
-        //     year: '2025',
-        //     client: 'الجوان العصرية',
-        //     technologies: ['Canva', 'Photoshop'],
-        //     challenges: ['عرض العقارات بشكل محترف وجذاب'],
-        //     solutions: ['منشورات احترافية تحتوي صور العقارات ومواقعها'],
-        //     results: [
-        //         { metric: 'التفاعل', value: '40%', icon: 'FaHome' }
-        //     ],
-        //     gallery: [
-        //         { type: 'image', url: '/projectimagsss/social/jawaan1.jpg', caption: 'تسويق عقاري' }
-        //     ],
-        //     testimonials: [],
-        //     overview: 'تعزيز العلامة الرقمية للعقارات.',
-        //     goal: 'زيادة الاهتمام وحجوزات العقارات.',
-        //     duration: 'شهر',
-        //     liveUrl: ""
-        // },
         
 
     ];
